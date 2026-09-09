@@ -3,485 +3,369 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Studio Admin | AA Creative Studio</title>
+<title>AA Creative Studio - Admin</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
 body{
-  font-family:Arial,sans-serif;
-  background:#070b14;
-  color:#fff;
-  min-height:100vh;
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#101827;
+    color:white;
 }
 
-.container{
-  width:min(1000px,92%);
-  margin:auto;
+.box{
+    width:90%;
+    max-width:450px;
+    margin:60px auto;
+    background:#1e293b;
+    padding:25px;
+    border-radius:15px;
+    box-sizing:border-box;
 }
 
-header{
-  padding:22px 0;
-  border-bottom:1px solid #263044;
-  margin-bottom:30px;
-}
-
-.logo{
-  font-size:24px;
-  font-weight:800;
-}
-
-.logo span{
-  color:#7c5cff;
-}
-
-.card{
-  background:#0e1524;
-  border:1px solid #263044;
-  border-radius:18px;
-  padding:25px;
-  margin-bottom:25px;
-  box-shadow:0 10px 30px rgba(0,0,0,.25);
-}
-
-h1{
-  margin-bottom:8px;
-}
-
-h2{
-  margin-bottom:18px;
-}
-
-.muted{
-  color:#9ba6b8;
-  margin-bottom:20px;
+h1,h2{
+    text-align:center;
 }
 
 input,textarea,select{
-  width:100%;
-  background:#080d18;
-  color:#fff;
-  border:1px solid #303b50;
-  border-radius:10px;
-  padding:14px;
-  margin-top:8px;
-  margin-bottom:18px;
-  font-size:15px;
-  outline:none;
+    width:100%;
+    padding:13px;
+    margin:8px 0 15px;
+    box-sizing:border-box;
+    border-radius:8px;
+    border:1px solid #475569;
+    background:#0f172a;
+    color:white;
+    font-size:16px;
 }
 
 textarea{
-  min-height:220px;
-  resize:vertical;
-}
-
-label{
-  font-weight:600;
+    height:150px;
 }
 
 button{
-  border:0;
-  border-radius:10px;
-  padding:13px 20px;
-  font-size:15px;
-  font-weight:700;
-  cursor:pointer;
+    width:100%;
+    padding:14px;
+    border:0;
+    border-radius:8px;
+    background:#22c55e;
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
 }
 
-.primary{
-  background:#7c5cff;
-  color:#fff;
+button:active{
+    transform:scale(.98);
 }
 
-.secondary{
-  background:#202b3d;
-  color:#fff;
-}
-
-.danger{
-  background:#b42335;
-  color:#fff;
-}
-
-button:hover{
-  opacity:.9;
+#panel{
+    display:none;
 }
 
 .error{
-  color:#ff7b8a;
-  margin-top:10px;
+    color:#f87171;
+    text-align:center;
+    margin-top:15px;
 }
 
 .success{
-  color:#55e6a5;
-  margin-top:10px;
-}
-
-.hidden{
-  display:none;
+    color:#4ade80;
+    text-align:center;
+    margin-top:15px;
 }
 
 .article{
-  border:1px solid #263044;
-  border-radius:14px;
-  padding:18px;
-  margin-top:15px;
+    background:#0f172a;
+    padding:15px;
+    margin-top:15px;
+    border-radius:10px;
 }
 
-.article h3{
-  margin-bottom:8px;
-}
-
-.article p{
-  color:#aab3c2;
-  margin:6px 0;
-}
-
-.article img{
-  width:100%;
-  max-height:220px;
-  object-fit:cover;
-  border-radius:10px;
-  margin:10px 0;
-}
-
-.topbar{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:15px;
-  flex-wrap:wrap;
-}
-
-@media(max-width:600px){
-  .card{
-    padding:18px;
-  }
-
-  .topbar{
-    align-items:flex-start;
-  }
+.delete{
+    background:#ef4444;
+    margin-top:10px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
-
-<header>
-  <div class="logo">
-    AA <span>Creative Studio</span>
-  </div>
-</header>
-
 <!-- LOGIN -->
-<section id="loginBox" class="card">
-  <h1>Admin Login</h1>
-  <p class="muted">AA Creative Studio Administration</p>
+<div id="login" class="box">
 
-  <label>Username</label>
-  <input id="username" type="text" placeholder="Enter username">
+<h1>AA Creative Studio</h1>
+<h2>Admin Login</h2>
 
-  <label>Password</label>
-  <input id="password" type="password" placeholder="Enter password">
+<label>Username</label>
 
-  <button class="primary" onclick="login()">Login</button>
+<input
+id="username"
+type="text"
+placeholder="Enter username"
+>
 
-  <p id="loginError" class="error"></p>
-</section>
+<label>Password</label>
+
+<input
+id="password"
+type="password"
+placeholder="Enter password"
+>
+
+<button type="button" onclick="loginAdmin()">
+Login
+</button>
+
+<div id="loginError" class="error"></div>
+
+</div>
 
 
 <!-- ADMIN PANEL -->
-<section id="adminPanel" class="hidden">
+<div id="panel" class="box">
 
-  <div class="topbar card">
-    <div>
-      <h1>Admin Dashboard</h1>
-      <p class="muted">Manage your articles</p>
-    </div>
+<h1>Admin Panel</h1>
 
-    <button class="secondary" onclick="logout()">Logout</button>
-  </div>
+<button
+type="button"
+onclick="logoutAdmin()"
+style="background:#ef4444;margin-bottom:25px;"
+>
+Logout
+</button>
 
+<h2>Add Article</h2>
 
-  <!-- ADD ARTICLE -->
-  <div class="card">
+<label>Article Title</label>
 
-    <h2>Add New Article</h2>
+<input
+id="title"
+type="text"
+placeholder="Enter article title"
+>
 
-    <label>Article Title</label>
-    <input
-      id="title"
-      type="text"
-      placeholder="Enter article title"
-    >
+<label>Category</label>
 
-    <label>Category</label>
-    <select id="category">
-      <option>Technology</option>
-      <option>AI</option>
-      <option>News</option>
-      <option>Entertainment</option>
-      <option>Business</option>
-      <option>Other</option>
-    </select>
+<select id="category">
 
-    <label>Image URL</label>
-    <input
-      id="image"
-      type="url"
-      placeholder="https://example.com/image.jpg"
-    >
+<option>Technology</option>
+<option>Design</option>
+<option>Video Editing</option>
+<option>Graphic Design</option>
+<option>Other</option>
 
-    <label>Article Content</label>
-    <textarea
-      id="content"
-      placeholder="Write your article here..."
-    ></textarea>
+</select>
 
-    <button class="primary" onclick="saveArticle()">
-      Save Article
-    </button>
+<label>Image URL</label>
 
-    <p id="saveMessage"></p>
+<input
+id="image"
+type="text"
+placeholder="Image URL"
+>
 
-  </div>
+<label>Article Content</label>
 
+<textarea
+id="content"
+placeholder="Write article here..."
+></textarea>
 
-  <!-- ARTICLES -->
-  <div class="card">
+<button
+type="button"
+onclick="saveArticle()"
+>
+Save Article
+</button>
 
-    <h2>Saved Articles</h2>
+<div id="message"></div>
 
-    <div id="articles"></div>
+<hr style="margin:30px 0;border-color:#475569;">
 
-  </div>
+<h2>Articles</h2>
 
-</section>
+<div id="articles">
+No articles yet.
+</div>
 
 </div>
 
 
 <script>
 
-/* -------------------------
-   DEMO ADMIN LOGIN
--------------------------- */
+function loginAdmin(){
 
-const ADMIN_USERNAME = "admin";
-const ADMIN_PASSWORD = "123456";
+    var username =
+        document.getElementById("username").value.trim();
 
+    var password =
+        document.getElementById("password").value;
 
-function login(){
+    if(username === "admin" && password === "123456"){
 
-  const username =
-    document.getElementById("username").value.trim();
+        document.getElementById("login").style.display = "none";
 
-  const password =
-    document.getElementById("password").value;
+        document.getElementById("panel").style.display = "block";
 
-  const error =
-    document.getElementById("loginError");
+        document.getElementById("loginError").innerHTML = "";
 
-  if(
-    username === ADMIN_USERNAME &&
-    password === ADMIN_PASSWORD
-  ){
+        loadArticles();
 
-    sessionStorage.setItem("studioAdmin","true");
+    }else{
 
-    document.getElementById("loginBox")
-      .classList.add("hidden");
+        document.getElementById("loginError").innerHTML =
+        "Username یا Password غلط ہے";
 
-    document.getElementById("adminPanel")
-      .classList.remove("hidden");
-
-    loadArticles();
-
-  }else{
-
-    error.textContent =
-      "Username or password is incorrect.";
-
-  }
+    }
 }
 
 
-/* -------------------------
-   LOGOUT
--------------------------- */
+function logoutAdmin(){
 
-function logout(){
+    document.getElementById("panel").style.display = "none";
 
-  sessionStorage.removeItem("studioAdmin");
+    document.getElementById("login").style.display = "block";
 
-  document.getElementById("adminPanel")
-    .classList.add("hidden");
+    document.getElementById("username").value = "";
 
-  document.getElementById("loginBox")
-    .classList.remove("hidden");
-
+    document.getElementById("password").value = "";
 }
 
-
-/* -------------------------
-   SAVE ARTICLE
--------------------------- */
 
 function saveArticle(){
 
-  const title =
-    document.getElementById("title").value.trim();
+    var title =
+        document.getElementById("title").value.trim();
 
-  const category =
-    document.getElementById("category").value;
+    var category =
+        document.getElementById("category").value;
 
-  const image =
-    document.getElementById("image").value.trim();
+    var image =
+        document.getElementById("image").value.trim();
 
-  const content =
-    document.getElementById("content").value.trim();
+    var content =
+        document.getElementById("content").value.trim();
 
-  const message =
-    document.getElementById("saveMessage");
+    if(title === "" || content === ""){
 
+        document.getElementById("message").className =
+        "error";
 
-  if(!title || !content){
+        document.getElementById("message").innerHTML =
+        "Title اور Content لازمی لکھیں۔";
 
-    message.className = "error";
+        return;
+    }
 
-    message.textContent =
-      "Please enter article title and content.";
+    var articles =
+        JSON.parse(
+            localStorage.getItem("aaArticles") || "[]"
+        );
 
-    return;
-  }
+    articles.push({
 
+        id:Date.now(),
 
-  const articles =
-    JSON.parse(localStorage.getItem("studioArticles") || "[]");
+        title:title,
 
+        category:category,
 
-  const article = {
+        image:image,
 
-    id: Date.now(),
+        content:content,
 
-    title: title,
+        date:new Date().toLocaleDateString()
 
-    category: category,
+    });
 
-    image: image,
+    localStorage.setItem(
+        "aaArticles",
+        JSON.stringify(articles)
+    );
 
-    content: content,
+    document.getElementById("title").value = "";
 
-    date: new Date().toLocaleDateString()
+    document.getElementById("image").value = "";
 
-  };
+    document.getElementById("content").value = "";
 
+    document.getElementById("message").className =
+    "success";
 
-  articles.unshift(article);
+    document.getElementById("message").innerHTML =
+    "Article saved successfully!";
 
-
-  localStorage.setItem(
-    "studioArticles",
-    JSON.stringify(articles)
-  );
-
-
-  message.className = "success";
-
-  message.textContent =
-    "Article saved successfully.";
-
-
-  document.getElementById("title").value = "";
-
-  document.getElementById("image").value = "";
-
-  document.getElementById("content").value = "";
-
-
-  loadArticles();
-
+    loadArticles();
 }
 
 
-/* -------------------------
-   LOAD ARTICLES
--------------------------- */
-
 function loadArticles(){
 
-  const box =
-    document.getElementById("articles");
+    var articles =
+        JSON.parse(
+            localStorage.getItem("aaArticles") || "[]"
+        );
 
-  const articles =
-    JSON.parse(localStorage.getItem("studioArticles") || "[]");
+    var box =
+        document.getElementById("articles");
 
+    if(articles.length === 0){
 
-  if(articles.length === 0){
+        box.innerHTML = "No articles yet.";
 
-    box.innerHTML =
-      '<p class="muted">No articles added yet.</p>';
-
-    return;
-
-  }
-
-
-  box.innerHTML = "";
-
-
-  articles.forEach(article => {
-
-    const div =
-      document.createElement("div");
-
-    div.className = "article";
-
-
-    let imageHTML = "";
-
-    if(article.image){
-
-      imageHTML =
-        `<img src="${escapeHTML(article.image)}"
-        alt="Article image"
-        onerror="this.style.display='none'">`;
-
+        return;
     }
 
+    box.innerHTML = "";
 
-    div.innerHTML = `
+    articles.slice().reverse().forEach(function(article){
 
-      <h3>${escapeHTML(article.title)}</h3>
+        var div =
+            document.createElement("div");
 
-      <p>
-        <strong>Category:</strong>
-        ${escapeHTML(article.category)}
-      </p>
+        div.className = "article";
 
-      <p>
-        <strong>Date:</strong>
-        ${escapeHTML(article.date)}
-      </p>
+        div.innerHTML =
+        "<h3>" + article.title + "</h3>" +
+        "<p><b>Category:</b> " +
+        article.category + "</p>" +
+        "<p><b>Date:</b> " +
+        article.date + "</p>" +
+        "<p>" + article.content + "</p>" +
+        "<button class='delete' type='button' " +
+        "onclick='deleteArticle(" + article.id + ")'>" +
+        "Delete Article</button>";
 
-      ${imageHTML}
+        box.appendChild(div);
 
-      <p>
-        ${escapeHTML(article.content)}
-      </p>
+    });
+}
 
-      <br>
 
-      <button
-        class="danger"
-        onclick="deleteArticle(${article.id})">
-        Delete
-      </button>
+function deleteArticle(id){
 
-    `;
+    var articles =
+        JSON.parse(
+            localStorage.getItem("aaArticles") || "[]"
+        );
+
+    articles =
+        articles.filter(function(article){
+
+            return article.id !== id;
+
+        });
+
+    localStorage.setItem(
+        "aaArticles",
+        JSON.stringify(articles)
+    );
+
+    loadArticles();
+}
+
+</script>
+
+</body>
+  </html>
