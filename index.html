@@ -936,9 +936,7 @@ async function loadArticles(){
                 (String(article.content || "").length > 160 ? "..." : "") +
                 '</p>' +
 
-                '<a href="#" class="read-btn" data-id="' +
-                String(article.id || "") +
-                '">' +
+                "<a href=\"article.html?id=" + encodeURIComponent(article.id || "") + "\" class=\"read-btn\">" +
 
                 'Read Article →' +
 
