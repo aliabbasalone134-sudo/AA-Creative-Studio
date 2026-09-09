@@ -3,107 +3,1096 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AA Creative Studio | Creative Digital Services</title>
-<meta name="description" content="AA Creative Studio by Ali Abbas — Video Editing, Poster Designing, Ad Making and Graphic Designing in Hafizabad, Pakistan.">
-<style>
-:root{--bg:#070b14;--card:#0e1524;--text:#f7f9fc;--muted:#9ca8bb;--accent:#7c5cff;--accent2:#20d4c7;--line:#202a3d}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
-a{text-decoration:none;color:inherit}
-.container{width:min(1100px,92%);margin:auto}
-nav{position:sticky;top:0;z-index:20;background:rgba(7,11,20,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.navin{height:72px;display:flex;align-items:center;justify-content:space-between}
-.logo{font-weight:900;font-size:23px;letter-spacing:-1px}.logo span{color:var(--accent2)}
-.navlinks{display:flex;gap:22px;color:#c8d0dd;font-size:14px}
-.hero{padding:90px 0 75px;position:relative;overflow:hidden}
-.hero:before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;background:var(--accent);filter:blur(130px);opacity:.18;right:-150px;top:-120px}
-.badge{display:inline-block;border:1px solid #303b55;background:#0d1422;border-radius:999px;padding:7px 13px;color:#b9c5d8;font-size:13px;margin-bottom:20px}
-h1{font-size:clamp(42px,8vw,78px);line-height:.98;letter-spacing:-3px;max-width:850px}
-.gradient{background:linear-gradient(100deg,var(--accent2),#8d72ff);-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero p{color:var(--muted);max-width:650px;margin:24px 0;font-size:17px}
-.btns{display:flex;gap:12px;flex-wrap:wrap}
-.btn{padding:13px 20px;border-radius:12px;font-weight:800;display:inline-block}
-.primary{background:linear-gradient(135deg,var(--accent),#5a8cff);box-shadow:0 10px 30px rgba(124,92,255,.2)}
-.secondary{border:1px solid var(--line);background:#0d1422}
-section{padding:70px 0}
-.sectiontag{color:var(--accent2);font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:2px}
-h2{font-size:clamp(30px,5vw,48px);line-height:1.1;margin:8px 0 12px;letter-spacing:-1.5px}
-.sectionlead{color:var(--muted);max-width:650px}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:30px}
-.card{background:linear-gradient(180deg,#111a2c,#0c1321);border:1px solid var(--line);border-radius:18px;padding:24px;transition:.25s}
-.card:hover{transform:translateY(-5px);border-color:#3b4c70}
-.icon{font-size:30px;margin-bottom:15px}.card h3{margin-bottom:7px}.card p{color:var(--muted);font-size:14px}
-.about{display:grid;grid-template-columns:1fr 1fr;gap:25px;align-items:stretch}
-.panel{background:#0e1524;border:1px solid var(--line);border-radius:22px;padding:30px}
-.panel p{color:var(--muted);margin-top:12px}
-.list{margin-top:20px;display:grid;gap:10px}.list div{color:#d7deea}.list b{color:var(--accent2)}
-.cta{background:linear-gradient(135deg,#151d34,#0d1525);border:1px solid #293653;border-radius:26px;padding:40px;text-align:center}
-.cta p{color:var(--muted);max-width:600px;margin:12px auto 22px}
-.contactgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:28px}
-.contact{padding:20px;border:1px solid var(--line);border-radius:16px;background:#0d1422}.contact small{color:var(--muted);display:block}.contact strong{display:block;margin-top:4px;overflow-wrap:anywhere}
-footer{border-top:1px solid var(--line);padding:25px 0;color:#7f8ba0;font-size:13px}
-@media(max-width:800px){.navlinks{display:none}.grid{grid-template-columns:1fr 1fr}.about{grid-template-columns:1fr}.contactgrid{grid-template-columns:1fr}section{padding:55px 0}.hero{padding-top:65px}}
-@media(max-width:480px){.grid{grid-template-columns:1fr}.hero p{font-size:15px}h1{letter-spacing:-2px}.panel,.cta{padding:24px}}
 
-/* Animated motion */
-@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-@keyframes glow{0%,100%{opacity:.16;transform:scale(1)}50%{opacity:.28;transform:scale(1.12)}}
-.hero:before{animation:glow 6s ease-in-out infinite}
-.badge{animation:fadeUp .7s ease both}.hero h1{animation:fadeUp .8s .12s ease both}.hero p{animation:fadeUp .8s .24s ease both}.hero .btns{animation:fadeUp .8s .36s ease both}
-.logo{animation:float 4s ease-in-out infinite}.card{animation:fadeUp .7s ease both}.card:nth-child(1){animation-delay:.08s}.card:nth-child(2){animation-delay:.16s}.card:nth-child(3){animation-delay:.24s}.card:nth-child(4){animation-delay:.32s}
-.card .icon{display:inline-block;transition:transform .35s}.card:hover .icon{transform:scale(1.18) rotate(-6deg)}
-.btn{transition:transform .2s,box-shadow .2s}.btn:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(124,92,255,.25)}
-.panel{animation:fadeUp .8s ease both}.contact{transition:transform .25s,border-color .25s}.contact:hover{transform:translateY(-4px);border-color:#3b4c70}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+<title>AA Creative Studio | Creative Digital Services</title>
+
+<meta name="description" content="AA Creative Studio - Video Editing, Poster Designing, Ad Making, Graphic Designing and Creative Articles.">
+
+<style>
+:root{
+    --bg:#070b14;
+    --card:#0e1524;
+    --card2:#111a2c;
+    --text:#f7f9fc;
+    --muted:#9ca8bb;
+    --accent:#7c5cff;
+    --accent2:#20d4c7;
+    --line:#202a3d;
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+.container{
+    width:min(1100px,92%);
+    margin:auto;
+}
+
+/* NAVIGATION */
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(7,11,20,.88);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+}
+
+.navin{
+    min-height:72px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.logo{
+    font-size:23px;
+    font-weight:900;
+    letter-spacing:-1px;
+}
+
+.logo span{
+    color:var(--accent2);
+}
+
+.navlinks{
+    display:flex;
+    gap:22px;
+    color:#c8d0dd;
+    font-size:14px;
+}
+
+.navlinks a{
+    transition:.2s;
+}
+
+.navlinks a:hover{
+    color:var(--accent2);
+}
+
+/* HERO */
+
+.hero{
+    padding:90px 0 75px;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero:before{
+    content:"";
+    position:absolute;
+    width:430px;
+    height:430px;
+    border-radius:50%;
+    background:var(--accent);
+    filter:blur(130px);
+    opacity:.18;
+    right:-160px;
+    top:-130px;
+}
+
+.badge{
+    display:inline-block;
+    border:1px solid #303b55;
+    background:#0d1422;
+    border-radius:999px;
+    padding:7px 13px;
+    color:#b9c5d8;
+    font-size:13px;
+    margin-bottom:20px;
+}
+
+h1{
+    font-size:clamp(42px,8vw,78px);
+    line-height:.98;
+    letter-spacing:-3px;
+    max-width:850px;
+}
+
+.gradient{
+    background:linear-gradient(100deg,var(--accent2),#8d72ff);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
+
+.hero p{
+    color:var(--muted);
+    max-width:680px;
+    margin:24px 0;
+    font-size:17px;
+}
+
+.btns{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:13px 20px;
+    border-radius:12px;
+    font-weight:800;
+    display:inline-block;
+}
+
+.primary{
+    background:linear-gradient(135deg,var(--accent),#5a8cff);
+    box-shadow:0 10px 30px rgba(124,92,255,.20);
+}
+
+.secondary{
+    border:1px solid var(--line);
+    background:#0d1422;
+}
+
+/* SECTIONS */
+
+section{
+    padding:70px 0;
+}
+
+.sectiontag{
+    color:var(--accent2);
+    font-size:13px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:2px;
+}
+
+h2{
+    font-size:clamp(30px,5vw,48px);
+    line-height:1.1;
+    margin:8px 0 12px;
+    letter-spacing:-1.5px;
+}
+
+.sectionlead{
+    color:var(--muted);
+    max-width:680px;
+}
+
+/* SERVICES */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+    margin-top:30px;
+}
+
+.card{
+    background:linear-gradient(180deg,var(--card2),#0c1321);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:24px;
+    transition:.25s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    border-color:#3b4c70;
+}
+
+.icon{
+    font-size:30px;
+    margin-bottom:15px;
+}
+
+.card h3{
+    margin-bottom:7px;
+}
+
+.card p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+/* ARTICLES */
+
+.article-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+    margin-top:30px;
+}
+
+.article-card{
+    background:linear-gradient(180deg,var(--card2),#0c1321);
+    border:1px solid var(--line);
+    border-radius:18px;
+    overflow:hidden;
+    transition:.25s;
+}
+
+.article-card:hover{
+    transform:translateY(-5px);
+    border-color:#3b4c70;
+}
+
+.article-image{
+    width:100%;
+    height:190px;
+    object-fit:cover;
+    display:block;
+    background:#151d2d;
+}
+
+.article-body{
+    padding:20px;
+}
+
+.article-category{
+    color:var(--accent2);
+    font-size:12px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+.article-body h3{
+    font-size:21px;
+    line-height:1.3;
+    margin:8px 0;
+}
+
+.article-body p{
+    color:var(--muted);
+    font-size:14px;
+    margin-bottom:16px;
+}
+
+.read-btn{
+    display:inline-block;
+    padding:9px 14px;
+    border-radius:9px;
+    background:#171f34;
+    border:1px solid var(--line);
+    font-size:13px;
+    font-weight:700;
+}
+
+.article-date{
+    color:#718096;
+    font-size:12px;
+    margin-top:12px;
+}
+
+.loading{
+    margin-top:30px;
+    padding:30px;
+    text-align:center;
+    color:var(--muted);
+    border:1px solid var(--line);
+    border-radius:18px;
+    background:var(--card);
+}
+
+.no-articles{
+    margin-top:30px;
+    padding:30px;
+    text-align:center;
+    color:var(--muted);
+    border:1px solid var(--line);
+    border-radius:18px;
+    background:var(--card);
+}
+
+/* ARTICLE READER */
+
+#articleReader{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:100;
+    background:rgba(0,0,0,.88);
+    padding:25px;
+    overflow-y:auto;
+}
+
+.reader-box{
+    width:min(800px,100%);
+    margin:30px auto;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:30px;
+}
+
+.reader-box img{
+    width:100%;
+    max-height:420px;
+    object-fit:cover;
+    border-radius:14px;
+    margin:20px 0;
+}
+
+.reader-box h2{
+    margin-top:8px;
+}
+
+.reader-text{
+    color:#cbd5e1;
+    white-space:pre-wrap;
+    margin-top:20px;
+}
+
+.close-reader{
+    background:#ef4444;
+    color:white;
+    border:0;
+    padding:10px 16px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:700;
+}
+
+/* ABOUT */
+
+.about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.panel{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:22px;
+    padding:30px;
+}
+
+.panel p{
+    color:var(--muted);
+    margin-top:12px;
+}
+
+.list{
+    margin-top:20px;
+    display:grid;
+    gap:10px;
+}
+
+.list div{
+    color:#d7deea;
+}
+
+.list b{
+    color:var(--accent2);
+}
+
+/* CONTACT */
+
+.cta{
+    background:linear-gradient(135deg,#151d34,#0d1525);
+    border:1px solid #293653;
+    border-radius:26px;
+    padding:40px;
+    text-align:center;
+}
+
+.cta p{
+    color:var(--muted);
+    max-width:600px;
+    margin:12px auto 22px;
+}
+
+.contactgrid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-top:28px;
+}
+
+.contact{
+    padding:20px;
+    border:1px solid var(--line);
+    border-radius:16px;
+    background:#0d1422;
+}
+
+.contact small{
+    color:var(--muted);
+    display:block;
+}
+
+.contact strong{
+    display:block;
+    margin-top:4px;
+    overflow-wrap:anywhere;
+}
+
+/* FOOTER */
+
+footer{
+    border-top:1px solid var(--line);
+    padding:25px 0;
+    color:#7f8ba0;
+    font-size:13px;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+    .navlinks{
+        display:none;
+    }
+
+    .grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .article-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .about{
+        grid-template-columns:1fr;
+    }
+
+    .contactgrid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:500px){
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .article-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero{
+        padding-top:65px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .panel,
+    .cta,
+    .reader-box{
+        padding:22px;
+    }
+
+}
+
+/* ANIMATION */
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.hero .badge{
+    animation:fadeUp .6s ease both;
+}
+
+.hero h1{
+    animation:fadeUp .7s .1s ease both;
+}
+
+.hero p{
+    animation:fadeUp .7s .2s ease both;
+}
+
+.hero .btns{
+    animation:fadeUp .7s .3s ease both;
+}
+
 </style>
 </head>
+
 <body>
-<nav><div class="container navin">
-<a class="logo" href="#">AA <span>Creative Studio</span></a>
-<div class="navlinks"><a href="#services">Services</a><a href="#about">About</a><a href="#contact">Contact</a></div>
-</div></nav>
 
-<header class="hero"><div class="container">
-<div class="badge">✦ Creative Digital Studio · Hafizabad</div>
-<h1>We turn ideas into <span class="gradient">visual impact.</span></h1>
-<p>AA Creative Studio helps brands, creators and businesses stand out with professional video editing, poster design, advertising and graphic design.</p>
+<!-- NAVIGATION -->
+
+<nav>
+
+<div class="container navin">
+
+<a href="#" class="logo">
+AA <span>Creative Studio</span>
+</a>
+
+<div class="navlinks">
+
+<a href="#services">Services</a>
+<a href="#articles">Articles</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+
+</div>
+
+</div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<header class="hero">
+
+<div class="container">
+
+<div class="badge">
+✦ Creative Digital Studio · Hafizabad
+</div>
+
+<h1>
+We turn ideas into
+<span class="gradient">visual impact.</span>
+</h1>
+
+<p>
+AA Creative Studio helps brands, creators and businesses stand out with professional video editing, poster designing, advertising and graphic design.
+</p>
+
 <div class="btns">
-<a class="btn primary" href="https://wa.me/923441459250?text=Hello%20AA%20Creative%20Studio%2C%20I%20need%20your%20creative%20services.">Chat on WhatsApp</a>
-<a class="btn secondary" href="#services">Explore Services →</a>
-</div>
-</div></header>
 
-<section id="services"><div class="container">
-<div class="sectiontag">What we do</div><h2>Creative services that make you look professional.</h2>
-<p class="sectionlead">From short-form content to eye-catching graphics, we create clean, modern visuals designed to get attention.</p>
+<a
+class="btn primary"
+href="https://wa.me/923441459250"
+target="_blank"
+>
+Chat on WhatsApp
+</a>
+
+<a
+class="btn secondary"
+href="#services"
+>
+Explore Services →
+</a>
+
+</div>
+
+</div>
+
+</header>
+
+
+<!-- SERVICES -->
+
+<section id="services">
+
+<div class="container">
+
+<div class="sectiontag">
+What we do
+</div>
+
+<h2>
+Creative services that make you look professional.
+</h2>
+
+<p class="sectionlead">
+From short-form content to eye-catching graphics, we create clean, modern visuals designed to get attention.
+</p>
+
 <div class="grid">
-<div class="card"><div class="icon">🎬</div><h3>Video Editing</h3><p>Engaging edits for social media, reels, promotions and business content.</p></div>
-<div class="card"><div class="icon">🖼️</div><h3>Poster Designing</h3><p>Modern promotional posters, event creatives and social media designs.</p></div>
-<div class="card"><div class="icon">📢</div><h3>Ad Making</h3><p>Creative advertisements that present your product or service clearly.</p></div>
-<div class="card"><div class="icon">🎨</div><h3>Graphic Designing</h3><p>Professional visual designs that help your brand build a strong identity.</p></div>
-</div>
-</div></section>
 
-<section id="about"><div class="container">
-<div class="sectiontag">About the studio</div><h2>Built with creativity, driven by learning.</h2>
+<div class="card">
+<div class="icon">🎬</div>
+<h3>Video Editing</h3>
+<p>
+Engaging edits for social media, reels, promotions and business content.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">🖼️</div>
+<h3>Poster Designing</h3>
+<p>
+Modern promotional posters, event creatives and social media designs.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">📢</div>
+<h3>Ad Making</h3>
+<p>
+Creative advertisements that present your product or service clearly.
+</p>
+</div>
+
+<div class="card">
+<div class="icon">🎨</div>
+<h3>Graphic Designing</h3>
+<p>
+Professional visual designs that help your brand build a strong identity.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ARTICLES -->
+
+<section id="articles">
+
+<div class="container">
+
+<div class="sectiontag">
+Latest Articles
+</div>
+
+<h2>
+Creative & Useful Articles
+</h2>
+
+<p class="sectionlead">
+Read our latest articles about AI, video editing, design, content creation and digital tools.
+</p>
+
+<div id="articlesContainer">
+
+<div class="loading">
+Loading articles...
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<div class="container">
+
+<div class="sectiontag">
+About the studio
+</div>
+
+<h2>
+Built with creativity, driven by learning.
+</h2>
+
 <div class="about">
-<div class="panel"><h3>Meet Ali Abbas</h3><p>AA Creative Studio is founded by Ali Abbas, a student and creative editor from Hafizabad. The studio focuses on practical, modern digital design and content creation.</p></div>
-<div class="panel"><h3>Why AA Creative Studio?</h3><div class="list"><div>✓ <b>Modern</b> & clean designs</div><div>✓ <b>Creative</b> ideas for your content</div><div>✓ <b>Professional</b> presentation</div><div>✓ <b>Mobile-first</b> social media visuals</div></div></div>
-</div>
-</div></section>
 
-<section id="contact"><div class="container">
-<div class="cta"><div class="sectiontag">Let's create</div><h2>Have a project in mind?</h2><p>Tell us what you need and let's turn your idea into something people remember.</p>
-<a class="btn primary" href="https://wa.me/923441459250?text=Hello%20AA%20Creative%20Studio%2C%20I%20want%20to%20discuss%20a%20project.">Start a Project</a></div>
+<div class="panel">
+
+<h3>
+Meet Ali Abbas
+</h3>
+
+<p>
+AA Creative Studio is a creative digital studio focused on practical, modern design and content creation.
+</p>
+
+</div>
+
+<div class="panel">
+
+<h3>
+Why AA Creative Studio?
+</h3>
+
+<div class="list">
+
+<div>✓ <b>Modern</b> & clean designs</div>
+
+<div>✓ <b>Creative</b> ideas for your content</div>
+
+<div>✓ <b>Professional</b> presentation</div>
+
+<div>✓ <b>Mobile-first</b> social media visuals</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<div class="container">
+
+<div class="cta">
+
+<div class="sectiontag">
+Let's create
+</div>
+
+<h2>
+Have a project in mind?
+</h2>
+
+<p>
+Tell us what you need and let's turn your idea into something people remember.
+</p>
+
+<a
+class="btn primary"
+href="https://wa.me/923441459250"
+target="_blank"
+>
+Start a Project
+</a>
+
+</div>
+
 <div class="contactgrid">
-<div class="contact"><small>📞 Phone / WhatsApp</small><strong>0344 1459250</strong></div>
-<div class="contact"><small>✉️ Email</small><strong>aliabbasalone134@email.com</strong></div>
-<div class="contact"><small>📍 Location</small><strong>Mirza Bhattian, Hafizabad, Pakistan</strong></div>
-</div>
-</div></section>
 
-<footer><div class="container">© 2026 AA Creative Studio · Founded by Ali Abbas</div></footer>
+<div class="contact">
+<small>📞 Phone / WhatsApp</small>
+<strong>0344 1459250</strong>
+</div>
+
+<div class="contact">
+<small>✉️ Email</small>
+<strong>aliabbasalone134@email.com</strong>
+</div>
+
+<div class="contact">
+<small>📍 Location</small>
+<strong>Hafizabad, Pakistan</strong>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ARTICLE READER -->
+
+<div id="articleReader">
+
+<div class="reader-box">
+
+<button
+class="close-reader"
+type="button"
+onclick="closeArticle()"
+>
+✕ Close Article
+</button>
+
+<div id="readerContent"></div>
+
+</div>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="container">
+
+© 2026 AA Creative Studio · All Rights Reserved.
+
+</div>
+
+</footer>
+
+
+<script>
+
+/*
+    PUBLIC ARTICLE SYSTEM
+
+    Articles are loaded from:
+    articles.json
+*/
+
+
+async function loadArticles(){
+
+    const container =
+        document.getElementById("articlesContainer");
+
+    try{
+
+        const response =
+            await fetch("articles.json", {
+                cache:"no-store"
+            });
+
+        if(!response.ok){
+            throw new Error("articles.json not found");
+        }
+
+        const articles =
+            await response.json();
+
+        if(!Array.isArray(articles) || articles.length === 0){
+
+            container.innerHTML =
+                '<div class="no-articles">' +
+                'No articles published yet.' +
+                '</div>';
+
+            return;
+        }
+
+        container.innerHTML =
+            '<div class="article-grid" id="articleGrid"></div>';
+
+        const grid =
+            document.getElementById("articleGrid");
+
+        articles
+        .slice()
+        .reverse()
+        .forEach(function(article){
+
+            const card =
+                document.createElement("article");
+
+            card.className =
+                "article-card";
+
+            let imageHTML = "";
+
+            if(article.image && article.image.trim() !== ""){
+
+                imageHTML =
+                    '<img class="article-image" src="' +
+                    escapeHTML(article.image) +
+                    '" alt="' +
+                    escapeHTML(article.title || "Article") +
+                    '">';
+
+            }else{
+
+                imageHTML =
+                    '<div class="article-image"></div>';
+
+            }
+
+            const preview =
+                String(article.content || "")
+                .replace(/\s+/g," ")
+                .substring(0,160);
+
+            card.innerHTML =
+
+                imageHTML +
+
+                '<div class="article-body">' +
+
+                '<div class="article-category">' +
+                escapeHTML(article.category || "Article") +
+                '</div>' +
+
+                '<h3>' +
+                escapeHTML(article.title || "Untitled Article") +
+                '</h3>' +
+
+                '<p>' +
+                escapeHTML(preview) +
+                (String(article.content || "").length > 160 ? "..." : "") +
+                '</p>' +
+
+                '<a href="#" class="read-btn" data-id="' +
+                String(article.id || "") +
+                '">' +
+
+                'Read Article →' +
+
+                '</a>' +
+
+                '<div class="article-date">' +
+                escapeHTML(article.date || "") +
+                '</div>' +
+
+                '</div>';
+
+            grid.appendChild(card);
+
+        });
+
+
+        document
+        .querySelectorAll(".read-btn")
+        .forEach(function(button){
+
+            button.addEventListener("click", function(event){
+
+                event.preventDefault();
+
+                openArticle(
+                    this.getAttribute("data-id")
+                );
+
+            });
+
+        });
+
+    }catch(error){
+
+        console.error(error);
+
+        container.innerHTML =
+            '<div class="no-articles">' +
+            '<strong>Articles are temporarily unavailable.</strong>' +
+            '<br><br>' +
+            'Please try again later.' +
+            '</div>';
+
+    }
+
+}
+
+
+/* OPEN ARTICLE */
+
+async function openArticle(id){
+
+    try{
+
+        const response =
+            await fetch("articles.json", {
+                cache:"no-store"
+            });
+
+        const articles =
+            await response.json();
+
+        const article =
+            articles.find(function(item){
+
+                return String(item.id) === String(id);
+
+            });
+
+        if(!article){
+            return;
+        }
+
+        let imageHTML = "";
+
+        if(article.image && article.image.trim() !== ""){
+
+            imageHTML =
+                '<img src="' +
+                escapeHTML(article.image) +
+                '" alt="' +
+                escapeHTML(article.title) +
+                '">';
+
+        }
+
+        document.getElementById("readerContent").innerHTML =
+
+            '<div class="article-category">' +
+            escapeHTML(article.category || "Article") +
+            '</div>' +
+
+            '<h2>' +
+            escapeHTML(article.title || "Untitled Article") +
+            '</h2>' +
+
+            '<div class="article-date">' +
+            escapeHTML(article.date || "") +
+            '</div>' +
+
+            imageHTML +
+
+            '<div class="reader-text">' +
+            escapeHTML(article.content || "") +
+            '</div>';
+
+        document.getElementById("articleReader").style.display =
+            "block";
+
+        document.body.style.overflow =
+            "hidden";
+
+    }catch(error){
+
+        console.error(error);
+
+    }
+
+}
+
+
+/* CLOSE ARTICLE */
+
+function closeArticle(){
+
+    document.getElementById("articleReader").style.display =
+        "none";
+
+    document.body.style.overflow =
+        "";
+
+}
+
+
+/* ESCAPE HTML */
+
+function escapeHTML(value){
+
+    const div =
+        document.createElement("div");
+
+    div.textContent =
+        String(value || "");
+
+    return div.innerHTML;
+
+}
+
+
+/* START */
+
+loadArticles();
+
+</script>
+
 </body>
 </html>
