@@ -1,8 +1,5 @@
-// api/news.js
-
-export default async function handler(req, res) {
+export default async function handler(req) {
     try {
-
         const feeds = [
             {
                 name: "Google News Pakistan",
@@ -29,9 +26,7 @@ export default async function handler(req, res) {
         const results = [];
 
         for (const feed of feeds) {
-
             try {
-
                 const response = await fetch(feed.url);
 
                 if (!response.ok) continue;
@@ -42,12 +37,10 @@ export default async function handler(req, res) {
                     xml.match(/<item>[\s\S]*?<\/item>/g) || [];
 
                 for (const item of items.slice(0, 10)) {
-
                     const title = getTag(item, "title");
                     const link = getTag(item, "link");
                     const pubDate = getTag(item, "pubDate");
-                    const description =
-                        getTag(item, "description");
+                    const description = getTag(item, "description");
 
                     if (!title || !link) continue;
 
@@ -63,13 +56,11 @@ export default async function handler(req, res) {
                 }
 
             } catch (error) {
-
                 console.log(
                     "Feed error:",
                     feed.name,
                     error.message
                 );
-
             }
         }
 
@@ -77,55 +68,53 @@ export default async function handler(req, res) {
         const seen = new Set();
 
         for (const item of results) {
-
             const key = item.title.toLowerCase();
 
             if (!seen.has(key)) {
-
                 seen.add(key);
                 unique.push(item);
-
             }
         }
 
         unique.sort((a, b) => {
-
             return (
                 new Date(b.date || 0) -
                 new Date(a.date || 0)
             );
-
         });
 
-        res.setHeader(
-            "Access-Control-Allow-Origin",
-            "*"
+        return new Response(
+            JSON.stringify({
+                success: true,
+                updated: new Date().toISOString(),
+                total: unique.length,
+                news: unique.slice(0, 50)
+            }),
+            {
+                status: 200,
+                headers: {
+                    "Content-Type": "application/json",
+                    "Access-Control-Allow-Origin": "*",
+                    "Access-Control-Allow-Methods": "GET, OPTIONS",
+                    "Cache-Control": "public, max-age=300"
+                }
+            }
         );
-
-        res.setHeader(
-            "Access-Control-Allow-Methods",
-            "GET, OPTIONS"
-        );
-
-        res.setHeader(
-            "Cache-Control",
-            "s-maxage=300, stale-while-revalidate=600"
-        );
-
-        res.status(200).json({
-            success: true,
-            updated: new Date().toISOString(),
-            total: unique.length,
-            news: unique.slice(0, 50)
-        });
 
     } catch (error) {
-
-        res.status(500).json({
-            success: false,
-            error: "Unable to load news"
-        });
-
+        return new Response(
+            JSON.stringify({
+                success: false,
+                error: "Unable to load news"
+            }),
+            {
+                status: 500,
+                headers: {
+                    "Content-Type": "application/json",
+                    "Access-Control-Allow-Origin": "*"
+                }
+            }
+        );
     }
 }
 
@@ -135,7 +124,6 @@ export default async function handler(req, res) {
 // ---------------------------------------------
 
 function getTag(xml, tag) {
-
     const regex = new RegExp(
         `<${tag}(?:\\s[^>]*)?>([\\s\\S]*?)<\\/${tag}>`,
         "i"
@@ -144,22 +132,18 @@ function getTag(xml, tag) {
     const match = xml.match(regex);
 
     return match ? match[1] : "";
-
 }
 
 
 function clean(text) {
-
     return text
         .replace(/<!\[CDATA\[/g, "")
         .replace(/\]\]>/g, "")
         .trim();
-
 }
 
 
 function stripHTML(text) {
-
     return text
         .replace(/<[^>]*>/g, "")
         .replace(/&amp;/g, "&")
@@ -168,5 +152,4 @@ function stripHTML(text) {
         .replace(/&lt;/g, "<")
         .replace(/&gt;/g, ">")
         .trim();
-
 }
