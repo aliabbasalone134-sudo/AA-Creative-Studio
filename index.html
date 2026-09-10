@@ -1,32 +1,36 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>AA Creative Studio | Creative Digital Services</title>
+<title>AA Creative Studio | Pakistan News, Live Sports & Digital Creative Hub</title>
 
-<meta name="description" content="AA Creative Studio provides professional video editing, graphic design, poster design, advertisement design, thumbnails and social media content.">
+<meta name="description" content="AA Creative Studio — Pakistan news, live sports, people biographies, media channels and professional digital creative services in one modern platform.">
 
-<meta name="keywords" content="AA Creative Studio, video editing, graphic design, poster design, thumbnail design, social media design, advertisement design, Pakistan">
+<meta name="keywords" content="Pakistan news, latest Pakistan news, live cricket scores, live football scores, hockey, tennis, sports updates, biographies, Pakistani news channels, video editing, graphic design, AA Creative Studio">
 
 <meta name="author" content="Ali Abbas">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="index, follow, max-image-preview:large">
 
-<meta property="og:title" content="AA Creative Studio">
-<meta property="og:description" content="Creative digital solutions for brands, creators and businesses.">
+<link rel="canonical" href="https://aliabbasalone134-sudo.github.io/AA-Creative-Studio/">
+
+<meta name="theme-color" content="#050712">
+
+<meta property="og:title" content="AA Creative Studio | News, Sports & Creative Hub">
+<meta property="og:description" content="Pakistan news, live sports, biographies, media channels and creative digital services.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://aliabbasalone134-sudo.github.io/AA-Creative-Studio/">
+<meta property="og:site_name" content="AA Creative Studio">
 
-<meta name="theme-color" content="#050812">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AA Creative Studio">
+<meta name="twitter:description" content="Pakistan's modern digital news, sports and creative hub.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -35,27 +39,37 @@
 ========================================================= */
 
 :root{
-    --bg:#050812;
-    --bg2:#080d19;
-    --card:#0d1524;
-    --card2:#111b2d;
+
+    --bg:#04050b;
+    --bg2:#080b14;
+    --bg3:#0c1020;
+
+    --card:#0c1220;
+    --card2:#10182a;
 
     --white:#ffffff;
-    --text:#edf2fa;
-    --muted:#9ba8bc;
+    --text:#edf2ff;
+    --muted:#96a3bb;
 
-    --line:#1e2b42;
+    --line:rgba(255,255,255,.09);
 
-    --purple:#8065ff;
-    --purple2:#a38cff;
+    --purple:#8b5cf6;
+    --violet:#a855f7;
 
-    --blue:#7ea8ff;
+    --blue:#3b82f6;
+    --cyan:#22d3ee;
 
-    --cyan:#35ded0;
+    --green:#22c55e;
+    --red:#ef4444;
 
-    --max:1180px;
+    --yellow:#facc15;
+    --orange:#fb923c;
+    --pink:#ec4899;
+
+    --max:1250px;
 
     --radius:22px;
+
 }
 
 
@@ -74,29 +88,42 @@ html{
 }
 
 body{
+
     font-family:"Inter",Arial,sans-serif;
 
+    color:var(--text);
+
     background:
+
         radial-gradient(
-            circle at 80% 5%,
-            rgba(128,101,255,.16),
-            transparent 28%
-        ),
-        radial-gradient(
-            circle at 10% 35%,
-            rgba(53,222,208,.06),
+            circle at 80% 0%,
+            rgba(139,92,246,.22),
             transparent 25%
         ),
+
+        radial-gradient(
+            circle at 5% 20%,
+            rgba(34,211,238,.10),
+            transparent 23%
+        ),
+
+        radial-gradient(
+            circle at 80% 65%,
+            rgba(236,72,153,.08),
+            transparent 22%
+        ),
+
         linear-gradient(
             180deg,
-            #050812,
-            #070b15 50%,
-            #050812
+            #04050b,
+            #070a13 45%,
+            #04050b
         );
 
-    color:var(--text);
     line-height:1.6;
+
     overflow-x:hidden;
+
 }
 
 a{
@@ -104,7 +131,8 @@ a{
     text-decoration:none;
 }
 
-button{
+button,
+input{
     font-family:inherit;
 }
 
@@ -115,20 +143,48 @@ button{
 
 
 /* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar{
+    width:9px;
+}
+
+::-webkit-scrollbar-track{
+    background:#05060b;
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:
+        linear-gradient(
+            #8b5cf6,
+            #22d3ee
+        );
+
+    border-radius:20px;
+
+}
+
+
+/* =========================================================
    CINEMATIC HEADINGS
 ========================================================= */
 
 h1,
 h2,
 h3{
+
     background:
+
         linear-gradient(
             105deg,
             #ffffff 0%,
-            #dbe4f2 25%,
-            #9eb4d8 50%,
-            #a28aff 76%,
-            #eeeaff 100%
+            #dce7ff 23%,
+            #7dd3fc 43%,
+            #a78bfa 66%,
+            #f0abfc 82%,
+            #ffffff 100%
         );
 
     -webkit-background-clip:text;
@@ -137,8 +193,94 @@ h3{
     -webkit-text-fill-color:transparent;
 
     text-shadow:
-        0 0 18px rgba(128,101,255,.15),
-        0 0 35px rgba(75,125,255,.07);
+        0 0 20px rgba(139,92,246,.13);
+
+}
+
+h1,h2,h3{
+    font-family:"Space Grotesk","Inter",sans-serif;
+}
+
+
+/* =========================================================
+   TOP BREAKING BAR
+========================================================= */
+
+.topbar{
+
+    height:34px;
+
+    display:flex;
+    align-items:center;
+
+    background:#070910;
+
+    border-bottom:1px solid var(--line);
+
+    overflow:hidden;
+
+}
+
+.topbar-inner{
+
+    display:flex;
+    align-items:center;
+
+    gap:14px;
+
+    white-space:nowrap;
+
+    font-size:12px;
+
+}
+
+.breaking-label{
+
+    color:#fff;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ef4444,
+            #f97316
+        );
+
+    padding:4px 10px;
+
+    border-radius:5px;
+
+    font-weight:900;
+
+    letter-spacing:.5px;
+
+}
+
+.ticker{
+
+    color:#aeb9ce;
+
+    overflow:hidden;
+
+}
+
+.ticker span{
+
+    animation:ticker 25s linear infinite;
+
+    display:inline-block;
+
+}
+
+@keyframes ticker{
+
+    from{
+        transform:translateX(100%);
+    }
+
+    to{
+        transform:translateX(-100%);
+    }
+
 }
 
 
@@ -147,112 +289,218 @@ h3{
 ========================================================= */
 
 nav{
+
     position:sticky;
+
     top:0;
+
     z-index:1000;
 
-    background:rgba(5,8,18,.78);
-    backdrop-filter:blur(18px);
+    background:
+        rgba(4,5,11,.82);
 
-    border-bottom:1px solid rgba(255,255,255,.06);
+    backdrop-filter:blur(20px);
+
+    border-bottom:1px solid var(--line);
+
 }
 
 .nav-inner{
-    height:76px;
+
+    min-height:76px;
 
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
+
+    gap:20px;
+
 }
-
-
-/* LOGO */
 
 .logo{
+
+    font-family:"Space Grotesk",sans-serif;
+
     font-size:22px;
+
     font-weight:900;
+
     letter-spacing:-1px;
 
+    white-space:nowrap;
+
     background:
         linear-gradient(
             90deg,
-            #ffffff,
-            #aabce0,
-            #a38cff
+            #fff,
+            #8ddcff,
+            #a78bfa,
+            #f0abfc
         );
 
     -webkit-background-clip:text;
     background-clip:text;
+
     -webkit-text-fill-color:transparent;
+
 }
 
-.logo span{
-    background:
-        linear-gradient(
-            90deg,
-            #35ded0,
-            #7998ff
-        );
+.logo small{
 
-    -webkit-background-clip:text;
-    background-clip:text;
-    -webkit-text-fill-color:transparent;
+    display:block;
+
+    font-family:Inter,sans-serif;
+
+    font-size:8px;
+
+    letter-spacing:3px;
+
+    font-weight:800;
+
+    text-transform:uppercase;
+
+    color:#71809c;
+
+    -webkit-text-fill-color:#71809c;
+
+    margin-top:-3px;
+
 }
-
-
-/* NAV LINKS */
 
 .nav-links{
-    display:flex;
-    align-items:center;
-    gap:28px;
 
-    color:#bfc9d9;
-    font-size:14px;
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    font-size:13px;
+
+    color:#aeb9ce;
+
 }
 
 .nav-links a{
+
     transition:.25s;
+
 }
 
 .nav-links a:hover{
-    color:#ffffff;
+
+    color:#fff;
+
+    text-shadow:
+        0 0 15px rgba(34,211,238,.35);
+
 }
 
+.nav-special{
 
-/* NAV CTA */
+    color:#22d3ee !important;
+
+}
 
 .nav-cta{
-    padding:10px 17px;
+
+    padding:10px 16px;
 
     border-radius:11px;
+
+    color:white !important;
+
+    font-weight:800;
 
     background:
         linear-gradient(
             135deg,
-            #8065ff,
-            #657fff
+            #8b5cf6,
+            #3b82f6,
+            #22d3ee
         );
 
-    color:#ffffff !important;
-
-    font-weight:800;
-
     box-shadow:
-        0 8px 25px rgba(128,101,255,.2);
+        0 8px 30px rgba(59,130,246,.20);
+
 }
 
 .menu-btn{
+
     display:none;
 
     border:0;
+
     background:none;
 
-    color:white;
+    color:#fff;
 
     font-size:27px;
 
     cursor:pointer;
+
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.search-box{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:7px;
+
+    border:1px solid var(--line);
+
+    background:#090d17;
+
+    border-radius:13px;
+
+}
+
+.search-box input{
+
+    width:145px;
+
+    border:0;
+
+    outline:0;
+
+    background:transparent;
+
+    color:#fff;
+
+    font-size:12px;
+
+}
+
+.search-box button{
+
+    border:0;
+
+    border-radius:9px;
+
+    padding:7px 10px;
+
+    color:white;
+
+    cursor:pointer;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8b5cf6,
+            #3b82f6
+        );
+
 }
 
 
@@ -261,306 +509,517 @@ nav{
 ========================================================= */
 
 .hero{
+
     min-height:700px;
 
+    padding:90px 0 75px;
+
     display:flex;
+
     align-items:center;
 
-    padding:95px 0;
 }
 
 .hero-grid{
+
     display:grid;
 
-    grid-template-columns:1.08fr .92fr;
+    grid-template-columns:
+        1.05fr .95fr;
 
-    gap:60px;
+    gap:55px;
 
     align-items:center;
+
 }
 
-
-/* BADGE */
-
 .badge{
+
     display:inline-flex;
 
     align-items:center;
+
     gap:9px;
 
-    padding:8px 14px;
+    padding:8px 13px;
 
-    border:1px solid #283750;
+    border:1px solid rgba(34,211,238,.25);
 
-    background:#0b1220;
+    background:
+        rgba(34,211,238,.06);
 
     border-radius:100px;
 
-    color:#c4cede;
+    color:#b8c6da;
 
-    font-size:12px;
+    font-size:11px;
 
-    margin-bottom:25px;
+    font-weight:700;
+
+    margin-bottom:24px;
+
 }
 
 .badge-dot{
+
+    width:7px;
+    height:7px;
+
+    background:#22c55e;
+
+    border-radius:50%;
+
+    box-shadow:
+        0 0 14px #22c55e;
+
+}
+
+.hero h1{
+
+    font-size:
+        clamp(
+            46px,
+            6vw,
+            82px
+        );
+
+    line-height:.95;
+
+    letter-spacing:-4px;
+
+    max-width:820px;
+
+}
+
+.gradient{
+
+    background:
+        linear-gradient(
+            90deg,
+            #22d3ee,
+            #3b82f6,
+            #8b5cf6,
+            #ec4899
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+}
+
+.hero-text{
+
+    color:var(--muted);
+
+    max-width:690px;
+
+    font-size:16px;
+
+    margin:25px 0 30px;
+
+}
+
+.buttons{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+}
+
+.btn{
+
+    display:inline-flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:13px 20px;
+
+    border-radius:12px;
+
+    font-size:13px;
+
+    font-weight:800;
+
+    transition:.25s;
+
+}
+
+.btn:hover{
+
+    transform:translateY(-3px);
+
+}
+
+.btn-primary{
+
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8b5cf6,
+            #3b82f6,
+            #22d3ee
+        );
+
+    box-shadow:
+        0 12px 35px rgba(59,130,246,.20);
+
+}
+
+.btn-secondary{
+
+    border:1px solid var(--line);
+
+    background:#0b101b;
+
+}
+
+.btn-news{
+
+    background:
+        linear-gradient(
+            135deg,
+            #ef4444,
+            #f97316
+        );
+
+}
+
+.btn-sports{
+
+    background:
+        linear-gradient(
+            135deg,
+            #22c55e,
+            #06b6d4
+        );
+
+}
+
+
+/* =========================================================
+   HERO DASHBOARD
+========================================================= */
+
+.dashboard{
+
+    position:relative;
+
+    min-height:440px;
+
+    border:1px solid rgba(255,255,255,.10);
+
+    border-radius:28px;
+
+    padding:18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(139,92,246,.15),
+            rgba(34,211,238,.06),
+            rgba(236,72,153,.07)
+        ),
+        #090e1a;
+
+    box-shadow:
+        0 35px 100px rgba(0,0,0,.45);
+
+    overflow:hidden;
+
+}
+
+.dashboard::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:300px;
+    height:300px;
+
+    border-radius:50%;
+
+    background:#8b5cf6;
+
+    filter:blur(130px);
+
+    opacity:.15;
+
+    top:-130px;
+    right:-100px;
+
+}
+
+.dash-head{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:4px 5px 15px;
+
+}
+
+.live{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    font-size:10px;
+
+    font-weight:900;
+
+    color:#4ade80;
+
+}
+
+.live-dot{
+
     width:7px;
     height:7px;
 
     border-radius:50%;
 
-    background:#35ded0;
+    background:#22c55e;
 
-    box-shadow:
-        0 0 16px #35ded0;
+    box-shadow:0 0 13px #22c55e;
+
+    animation:pulse 1.4s infinite;
+
 }
 
+@keyframes pulse{
 
-/* HERO TITLE */
+    50%{
+        opacity:.3;
+        transform:scale(.7);
+    }
 
-h1{
-    font-size:
-        clamp(
-            45px,
-            6vw,
-            78px
-        );
-
-    line-height:.98;
-
-    letter-spacing:-4px;
-
-    max-width:800px;
 }
 
+.dash-title{
 
-/* HERO GRADIENT WORD */
+    color:#7e8da7;
 
-.gradient{
-    background:
-        linear-gradient(
-            90deg,
-            #5de4d7 0%,
-            #789eff 42%,
-            #aa8cff 72%,
-            #eee6ff 100%
-        );
+    font-size:10px;
 
-    -webkit-background-clip:text;
-    background-clip:text;
+    letter-spacing:2px;
 
-    -webkit-text-fill-color:transparent;
+    text-transform:uppercase;
 
-    text-shadow:
-        0 0 25px rgba(128,101,255,.25);
 }
 
+.news-mini{
 
-.hero-text{
-    color:var(--muted);
-
-    max-width:650px;
-
-    font-size:17px;
-
-    margin:25px 0 30px;
-}
-
-
-/* BUTTONS */
-
-.buttons{
-    display:flex;
-
-    gap:12px;
-
-    flex-wrap:wrap;
-}
-
-.btn{
-    display:inline-flex;
-
-    align-items:center;
-    justify-content:center;
-
-    padding:14px 21px;
-
-    border-radius:12px;
-
-    font-weight:800;
-
-    transition:.25s;
-}
-
-.btn-primary{
-    background:
-        linear-gradient(
-            135deg,
-            #8065ff,
-            #638cff
-        );
-
-    box-shadow:
-        0 12px 35px rgba(128,101,255,.23);
-}
-
-.btn-secondary{
-    background:#0e1727;
-
-    border:1px solid var(--line);
-}
-
-.btn:hover{
-    transform:translateY(-3px);
-}
-
-
-/* =========================================================
-   HERO VISUAL
-========================================================= */
-
-.hero-visual{
-    position:relative;
-
-    min-height:430px;
-
-    animation:fadeUp 1s .1s ease both;
-}
-
-.visual-main{
-    position:absolute;
-
-    inset:30px 0 0 40px;
-
-    border-radius:28px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(128,101,255,.34),
-            rgba(53,222,208,.10)
-        ),
-        #0d1627;
-
-    border:1px solid #2a3a55;
-
-    padding:22px;
-
-    transform:rotate(2deg);
-
-    box-shadow:
-        0 30px 80px rgba(0,0,0,.4);
-}
-
-.visual-screen{
-    height:100%;
+    padding:18px;
 
     border-radius:18px;
 
     background:
-        radial-gradient(
-            circle at 70% 20%,
-            rgba(128,101,255,.36),
-            transparent 25%
-        ),
         linear-gradient(
-            145deg,
-            #18243a,
-            #090f1b
+            135deg,
+            rgba(239,68,68,.13),
+            rgba(249,115,22,.06)
         );
 
-    border:1px solid #34445f;
+    border:1px solid rgba(239,68,68,.18);
 
-    display:flex;
+    margin-bottom:13px;
 
-    flex-direction:column;
-
-    justify-content:center;
-
-    padding:35px;
 }
 
-.visual-label{
-    color:#35ded0;
+.news-mini-label{
 
-    font-size:11px;
+    color:#fb7185;
 
-    letter-spacing:2.5px;
+    font-size:9px;
 
     font-weight:900;
 
+    letter-spacing:1.5px;
+
     text-transform:uppercase;
+
 }
 
-.visual-screen h3{
-    font-size:36px;
+.news-mini h3{
 
-    line-height:1.05;
+    font-size:18px;
 
-    margin:12px 0;
+    margin-top:7px;
+
 }
 
-.visual-line{
-    width:75%;
+.news-mini p{
 
-    height:8px;
+    color:#8795ac;
 
-    background:#2a3850;
+    font-size:11px;
 
-    border-radius:20px;
+    margin-top:5px;
 
-    margin:7px 0;
 }
 
-.visual-line.short{
-    width:48%;
+.score-mini{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr auto 1fr;
+
+    gap:10px;
+
+    align-items:center;
+
+    padding:16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(34,197,94,.10),
+            rgba(34,211,238,.06)
+        );
+
+    border:1px solid rgba(34,211,238,.13);
+
+    border-radius:18px;
+
+    margin-bottom:13px;
+
 }
 
+.team{
 
-.floating-card{
-    position:absolute;
+    font-weight:800;
 
-    background:#101a2b;
+    font-size:13px;
 
-    border:1px solid #33445f;
-
-    padding:17px;
-
-    border-radius:16px;
-
-    box-shadow:
-        0 20px 45px rgba(0,0,0,.4);
 }
 
-.floating-card.one{
-    top:0;
-    right:-15px;
+.team:last-child{
+
+    text-align:right;
+
 }
 
-.floating-card.two{
-    bottom:15px;
-    left:0;
+.score{
+
+    text-align:center;
+
 }
 
-.floating-card strong{
+.score strong{
+
     display:block;
 
     font-size:18px;
 
-    background:
-        linear-gradient(
-            90deg,
-            #ffffff,
-            #9eaff0
-        );
+    color:#fff;
 
-    -webkit-background-clip:text;
-    background-clip:text;
-    -webkit-text-fill-color:transparent;
 }
 
-.floating-card small{
-    color:var(--muted);
+.score small{
+
+    color:#4ade80;
+
+    font-size:9px;
+
+}
+
+.people-mini{
+
+    padding:16px;
+
+    border-radius:18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(139,92,246,.12),
+            rgba(236,72,153,.08)
+        );
+
+    border:1px solid rgba(167,139,250,.15);
+
+}
+
+.people-mini-title{
+
+    color:#c4b5fd;
+
+    font-size:10px;
+
+    text-transform:uppercase;
+
+    letter-spacing:1.5px;
+
+    font-weight:900;
+
+}
+
+.people-mini-row{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-top:12px;
+
+}
+
+.avatar{
+
+    width:38px;
+    height:38px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8b5cf6,
+            #ec4899
+        );
+
+    font-weight:900;
+
+}
+
+.people-mini-row div:last-child{
+
+    font-size:11px;
+
+    color:#94a3b8;
+
+}
+
+.people-mini-row strong{
+
+    display:block;
+
+    color:#fff;
+
 }
 
 
@@ -569,24 +1028,26 @@ h1{
 ========================================================= */
 
 section{
-    padding:100px 0;
+
+    padding:90px 0;
+
 }
 
 .section-head{
-    max-width:750px;
 
-    margin-bottom:45px;
+    max-width:800px;
+
+    margin-bottom:40px;
+
 }
 
-
-/* SECTION TAG */
-
 .section-tag{
+
     display:inline-block;
 
-    color:#35ded0;
+    color:#22d3ee;
 
-    font-size:11px;
+    font-size:10px;
 
     font-weight:900;
 
@@ -595,100 +1056,672 @@ section{
     letter-spacing:2.5px;
 
     margin-bottom:7px;
+
 }
 
+.section-head h2{
 
-/* SECTION HEADING */
-
-h2{
     font-size:
         clamp(
-            33px,
+            32px,
             5vw,
-            53px
+            54px
         );
 
     line-height:1.05;
 
     letter-spacing:-2px;
 
-    margin:8px 0 15px;
+    margin:6px 0 14px;
+
 }
-
-
-/* H3 */
-
-h3{
-    font-size:20px;
-}
-
 
 .section-lead{
+
     color:var(--muted);
 
-    font-size:16px;
+    font-size:15px;
+
 }
 
 
 /* =========================================================
-   SERVICES
+   LIVE PORTAL SECTION
+========================================================= */
+
+.portal-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1.2fr .8fr;
+
+    gap:20px;
+
+}
+
+.portal-card{
+
+    padding:25px;
+
+    border-radius:22px;
+
+    border:1px solid var(--line);
+
+    background:
+        linear-gradient(
+            145deg,
+            #0d1423,
+            #080c15
+        );
+
+}
+
+.portal-card.news{
+
+    border-top:2px solid #ef4444;
+
+}
+
+.portal-card.sports{
+
+    border-top:2px solid #22c55e;
+
+}
+
+.portal-card.people{
+
+    border-top:2px solid #a855f7;
+
+}
+
+.portal-card.channels{
+
+    border-top:2px solid #22d3ee;
+
+}
+
+.portal-card h3{
+
+    font-size:24px;
+
+    margin-bottom:5px;
+
+}
+
+.portal-card > p{
+
+    color:#7f8da5;
+
+    font-size:12px;
+
+    margin-bottom:20px;
+
+}
+
+
+/* =========================================================
+   NEWS CARDS
+========================================================= */
+
+.news-list{
+
+    display:grid;
+
+    gap:10px;
+
+}
+
+.news-item{
+
+    display:grid;
+
+    grid-template-columns:80px 1fr auto;
+
+    gap:14px;
+
+    align-items:center;
+
+    padding:13px;
+
+    border-radius:14px;
+
+    background:#0a101c;
+
+    border:1px solid rgba(255,255,255,.06);
+
+    transition:.2s;
+
+}
+
+.news-item:hover{
+
+    transform:translateX(3px);
+
+    border-color:rgba(239,68,68,.30);
+
+}
+
+.news-image{
+
+    height:65px;
+
+    border-radius:11px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #252b48,
+            #111827
+        );
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:22px;
+
+}
+
+.news-category{
+
+    font-size:8px;
+
+    color:#fb7185;
+
+    font-weight:900;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+
+}
+
+.news-item h4{
+
+    font-size:13px;
+
+    line-height:1.35;
+
+    margin:3px 0;
+
+}
+
+.news-item p{
+
+    color:#6f7d94;
+
+    font-size:10px;
+
+}
+
+.news-time{
+
+    color:#66748a;
+
+    font-size:9px;
+
+    white-space:nowrap;
+
+}
+
+
+/* =========================================================
+   SPORTS
+========================================================= */
+
+.sports-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:12px;
+
+}
+
+.sport-match{
+
+    padding:16px;
+
+    border-radius:16px;
+
+    background:#0a101b;
+
+    border:1px solid rgba(255,255,255,.06);
+
+}
+
+.sport-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-bottom:12px;
+
+}
+
+.sport-type{
+
+    font-size:9px;
+
+    color:#67e8f9;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+
+    font-weight:900;
+
+}
+
+.status-live{
+
+    color:#4ade80;
+
+    font-size:9px;
+
+    font-weight:900;
+
+}
+
+.match-teams{
+
+    display:grid;
+
+    grid-template-columns:1fr auto 1fr;
+
+    gap:8px;
+
+    align-items:center;
+
+}
+
+.match-team{
+
+    font-size:12px;
+
+    font-weight:800;
+
+}
+
+.match-team.right{
+
+    text-align:right;
+
+}
+
+.vs{
+
+    color:#59677e;
+
+    font-size:9px;
+
+}
+
+.match-score{
+
+    font-size:16px;
+
+    color:#fff;
+
+    font-weight:900;
+
+}
+
+.match-info{
+
+    margin-top:9px;
+
+    color:#66758d;
+
+    font-size:9px;
+
+}
+
+
+/* =========================================================
+   PORTAL SEARCH
+========================================================= */
+
+.person-search{
+
+    display:flex;
+
+    gap:8px;
+
+    margin-top:16px;
+
+}
+
+.person-search input{
+
+    min-width:0;
+
+    flex:1;
+
+    padding:13px 14px;
+
+    border:1px solid var(--line);
+
+    border-radius:11px;
+
+    background:#080d17;
+
+    color:#fff;
+
+    outline:none;
+
+}
+
+.person-search button{
+
+    border:0;
+
+    padding:0 16px;
+
+    border-radius:11px;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-weight:800;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8b5cf6,
+            #ec4899
+        );
+
+}
+
+.person-result{
+
+    margin-top:14px;
+
+    padding:14px;
+
+    border-radius:13px;
+
+    background:#080d17;
+
+    display:none;
+
+}
+
+.person-result.show{
+
+    display:block;
+
+}
+
+.person-result strong{
+
+    color:#fff;
+
+}
+
+.person-result p{
+
+    color:#8491a8;
+
+    font-size:11px;
+
+    margin-top:4px;
+
+}
+
+
+/* =========================================================
+   CHANNELS
+========================================================= */
+
+.channels-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:9px;
+
+}
+
+.channel{
+
+    padding:11px;
+
+    border-radius:11px;
+
+    background:#080d17;
+
+    border:1px solid rgba(255,255,255,.06);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    font-size:11px;
+
+    transition:.2s;
+
+}
+
+.channel:hover{
+
+    border-color:rgba(34,211,238,.35);
+
+    transform:translateY(-2px);
+
+}
+
+.channel span{
+
+    color:#64748b;
+
+    font-size:9px;
+
+}
+
+
+/* =========================================================
+   CATEGORY STRIP
+========================================================= */
+
+.category-strip{
+
+    display:flex;
+
+    gap:9px;
+
+    overflow-x:auto;
+
+    padding-bottom:8px;
+
+}
+
+.category{
+
+    flex:0 0 auto;
+
+    padding:9px 14px;
+
+    border-radius:100px;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    border:1px solid var(--line);
+
+    background:#090e18;
+
+    color:#a5b2c8;
+
+}
+
+.category:hover{
+
+    color:#fff;
+
+    border-color:#8b5cf6;
+
+}
+
+
+/* =========================================================
+   CREATIVE SERVICES
 ========================================================= */
 
 .services-grid{
+
     display:grid;
 
     grid-template-columns:
         repeat(4,1fr);
 
-    gap:17px;
+    gap:15px;
+
 }
 
 .service{
-    padding:27px;
 
-    background:
-        linear-gradient(
-            180deg,
-            #101a2b,
-            #0a1220
-        );
+    position:relative;
 
-    border:1px solid var(--line);
+    padding:25px;
 
     border-radius:20px;
 
+    border:1px solid var(--line);
+
+    background:
+        linear-gradient(
+            145deg,
+            #101827,
+            #080d17
+        );
+
+    overflow:hidden;
+
     transition:.3s;
+
+}
+
+.service::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:100px;
+    height:100px;
+
+    border-radius:50%;
+
+    background:#8b5cf6;
+
+    filter:blur(65px);
+
+    opacity:.12;
+
+    right:-40px;
+    top:-40px;
+
 }
 
 .service:hover{
+
     transform:translateY(-7px);
 
-    border-color:#465979;
+    border-color:rgba(139,92,246,.4);
 
     box-shadow:
-        0 20px 45px rgba(0,0,0,.25);
+        0 20px 50px rgba(0,0,0,.25);
+
 }
 
 .service-icon{
-    font-size:31px;
+
+    width:47px;
+    height:47px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:14px;
+
+    font-size:23px;
 
     margin-bottom:18px;
 
-    filter:
-        drop-shadow(
-            0 0 10px
-            rgba(128,101,255,.25)
+    background:
+        linear-gradient(
+            135deg,
+            rgba(139,92,246,.20),
+            rgba(34,211,238,.10)
         );
+
+    border:1px solid rgba(139,92,246,.20);
+
+}
+
+.service:nth-child(2) .service-icon{
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(236,72,153,.18),
+            rgba(168,85,247,.10)
+        );
+
+}
+
+.service:nth-child(3) .service-icon{
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(251,146,60,.18),
+            rgba(250,204,21,.08)
+        );
+
+}
+
+.service:nth-child(4) .service-icon{
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(34,197,94,.18),
+            rgba(34,211,238,.08)
+        );
+
 }
 
 .service h3{
-    margin-bottom:8px;
+
+    font-size:18px;
+
+    margin-bottom:7px;
+
 }
 
 .service p{
-    color:var(--muted);
 
-    font-size:14px;
+    color:#7f8da5;
+
+    font-size:12px;
+
 }
 
 
@@ -697,80 +1730,119 @@ h3{
 ========================================================= */
 
 .portfolio-grid{
+
     display:grid;
 
     grid-template-columns:
         repeat(3,1fr);
 
-    gap:18px;
+    gap:16px;
+
 }
 
 .work{
-    min-height:285px;
+
+    min-height:270px;
 
     border-radius:22px;
+
+    border:1px solid var(--line);
 
     overflow:hidden;
 
     position:relative;
 
-    border:1px solid var(--line);
+    background:
+        radial-gradient(
+            circle at 70% 20%,
+            rgba(139,92,246,.35),
+            transparent 30%
+        ),
+        linear-gradient(
+            145deg,
+            #1b2945,
+            #070b14
+        );
+
+    transition:.3s;
+
+}
+
+.work:nth-child(2){
+
+    background:
+        radial-gradient(
+            circle at 20% 25%,
+            rgba(34,211,238,.30),
+            transparent 30%
+        ),
+        linear-gradient(
+            145deg,
+            #12303a,
+            #070b14
+        );
+
+}
+
+.work:nth-child(3){
+
+    background:
+        radial-gradient(
+            circle at 70% 30%,
+            rgba(236,72,153,.28),
+            transparent 30%
+        ),
+        linear-gradient(
+            145deg,
+            #32172f,
+            #070b14
+        );
+
+}
+
+.work:nth-child(4){
+
+    background:
+        radial-gradient(
+            circle at 30% 30%,
+            rgba(250,204,21,.22),
+            transparent 30%
+        ),
+        linear-gradient(
+            145deg,
+            #302817,
+            #070b14
+        );
+
+}
+
+.work:nth-child(5){
 
     background:
         radial-gradient(
             circle at 75% 20%,
-            rgba(128,101,255,.35),
-            transparent 28%
-        ),
-        linear-gradient(
-            145deg,
-            #1a2740,
-            #080e1a
-        );
-
-    transition:.3s;
-}
-
-.work:nth-child(2){
-    background:
-        radial-gradient(
-            circle at 20% 25%,
-            rgba(53,222,208,.20),
+            rgba(34,197,94,.24),
             transparent 30%
         ),
         linear-gradient(
             145deg,
-            #162c38,
-            #080e1a
+            #163021,
+            #070b14
         );
-}
 
-.work:nth-child(3){
-    background:
-        radial-gradient(
-            circle at 70% 30%,
-            rgba(126,168,255,.30),
-            transparent 30%
-        ),
-        linear-gradient(
-            145deg,
-            #19253c,
-            #080e1a
-        );
 }
 
 .work:hover{
+
     transform:translateY(-6px);
 
-    border-color:#455a7d;
 }
 
 .work-content{
+
     position:absolute;
 
     inset:0;
-
-    padding:25px;
 
     display:flex;
 
@@ -778,33 +1850,42 @@ h3{
 
     justify-content:flex-end;
 
+    padding:23px;
+
     background:
         linear-gradient(
             transparent 25%,
-            rgba(4,7,13,.97)
+            rgba(3,5,10,.96)
         );
+
 }
 
 .work-number{
-    color:#35ded0;
 
-    font-size:11px;
+    color:#22d3ee;
+
+    font-size:9px;
 
     font-weight:900;
 
-    letter-spacing:1px;
+    letter-spacing:1.5px;
+
 }
 
 .work h3{
-    font-size:23px;
 
-    margin-top:5px;
+    font-size:22px;
+
+    margin:4px 0;
+
 }
 
 .work p{
-    color:#aeb9cb;
 
-    font-size:13px;
+    color:#9aa8bc;
+
+    font-size:11px;
+
 }
 
 
@@ -813,36 +1894,46 @@ h3{
 ========================================================= */
 
 .process{
+
     display:grid;
 
     grid-template-columns:
         repeat(4,1fr);
 
     gap:18px;
+
 }
 
 .step{
-    border-top:1px solid #34445e;
 
-    padding-top:22px;
+    border-top:1px solid #26344d;
+
+    padding-top:20px;
+
 }
 
 .step-number{
-    color:#35ded0;
+
+    color:#22d3ee;
+
+    font-size:11px;
 
     font-weight:900;
 
-    font-size:13px;
 }
 
 .step h3{
-    margin:10px 0 6px;
+
+    margin:9px 0 5px;
+
 }
 
 .step p{
-    color:var(--muted);
 
-    font-size:14px;
+    color:#7f8da5;
+
+    font-size:12px;
+
 }
 
 
@@ -851,61 +1942,72 @@ h3{
 ========================================================= */
 
 .why-grid{
+
     display:grid;
 
-    grid-template-columns:
-        1fr 1fr;
+    grid-template-columns:1fr 1fr;
 
-    gap:20px;
+    gap:18px;
+
 }
 
 .why-card{
-    padding:32px;
+
+    padding:30px;
+
+    border-radius:22px;
+
+    border:1px solid var(--line);
 
     background:
         linear-gradient(
             145deg,
-            #111b2c,
-            #0b1321
+            #101827,
+            #080d17
         );
 
-    border:1px solid var(--line);
-
-    border-radius:22px;
 }
 
 .why-card h2{
-    margin-top:10px;
-}
 
-.why-card h3{
-    font-size:22px;
+    margin:7px 0 13px;
 
-    margin-bottom:9px;
 }
 
 .why-card p{
-    color:var(--muted);
+
+    color:#8795aa;
+
+    font-size:13px;
+
 }
 
 .check-list{
-    margin-top:22px;
 
     display:grid;
 
-    gap:13px;
+    gap:12px;
+
+    margin-top:20px;
+
 }
 
 .check-list div{
-    color:#d8e0ec;
+
+    font-size:13px;
+
+    color:#c7d1e1;
+
 }
 
 .check{
-    color:#35ded0;
+
+    color:#22c55e;
+
+    font-weight:900;
 
     margin-right:8px;
 
-    font-weight:900;
 }
 
 
@@ -914,112 +2016,130 @@ h3{
 ========================================================= */
 
 .pricing{
+
     display:grid;
 
     grid-template-columns:
         repeat(3,1fr);
 
-    gap:18px;
+    gap:17px;
+
 }
 
 .price-card{
-    background:
-        linear-gradient(
-            145deg,
-            #101a2b,
-            #0b1321
-        );
 
-    border:1px solid var(--line);
+    position:relative;
 
-    padding:30px;
+    padding:29px;
 
     border-radius:22px;
 
-    position:relative;
+    border:1px solid var(--line);
+
+    background:
+        linear-gradient(
+            145deg,
+            #101827,
+            #080d17
+        );
+
 }
 
 .price-card.featured{
-    border-color:#7763ff;
+
+    border-color:#8b5cf6;
 
     box-shadow:
-        0 20px 60px
-        rgba(128,101,255,.12);
+        0 20px 65px rgba(139,92,246,.14);
+
 }
 
 .popular{
+
     position:absolute;
 
-    top:18px;
-    right:18px;
+    top:16px;
+    right:16px;
+
+    padding:5px 9px;
+
+    border-radius:30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8b5cf6,
+            #ec4899
+        );
+
+    color:white;
+
+    font-size:8px;
+
+    font-weight:900;
+
+}
+
+.price-name{
+
+    color:#8c9ab1;
 
     font-size:10px;
 
     font-weight:900;
 
-    color:white;
-
-    background:
-        linear-gradient(
-            135deg,
-            #8065ff,
-            #6d8cff
-        );
-
-    padding:6px 10px;
-
-    border-radius:30px;
-}
-
-.price-name{
-    color:#aab5c7;
-
-    font-size:12px;
-
     text-transform:uppercase;
 
     letter-spacing:1.5px;
+
 }
 
 .price{
-    font-size:42px;
-
-    font-weight:900;
 
     margin:10px 0;
+
+    font-size:38px;
+
+    font-weight:900;
 
     background:
         linear-gradient(
             90deg,
-            #ffffff,
-            #9db1da,
-            #a28aff
+            #fff,
+            #8ddcff,
+            #a78bfa
         );
 
     -webkit-background-clip:text;
+
     background-clip:text;
 
     -webkit-text-fill-color:transparent;
+
 }
 
 .price small{
-    font-size:13px;
 
-    color:var(--muted);
+    font-size:11px;
 
-    font-weight:500;
+    color:#718099;
+
+    -webkit-text-fill-color:#718099;
+
 }
 
 .features{
+
     display:grid;
 
-    gap:12px;
+    gap:10px;
 
-    margin:25px 0;
+    margin:22px 0;
 
-    color:#c7d0df;
+    color:#b7c2d4;
 
-    font-size:14px;
+    font-size:12px;
+
 }
 
 
@@ -1028,64 +2148,66 @@ h3{
 ========================================================= */
 
 .testimonial-grid{
+
     display:grid;
 
     grid-template-columns:
         repeat(3,1fr);
 
-    gap:18px;
+    gap:16px;
+
 }
 
 .testimonial{
-    padding:28px;
 
-    background:#0e1727;
+    padding:25px;
+
+    border-radius:20px;
 
     border:1px solid var(--line);
 
-    border-radius:20px;
+    background:#0b111d;
+
 }
 
 .stars{
-    color:#ffd166;
+
+    color:#facc15;
 
     letter-spacing:2px;
 
-    margin-bottom:14px;
+    margin-bottom:13px;
+
 }
 
 .testimonial p{
-    color:#c6cfdd;
 
-    font-size:14px;
+    color:#aab5c7;
+
+    font-size:12px;
+
 }
 
 .client{
-    margin-top:20px;
+
+    margin-top:18px;
+
+    color:#fff;
 
     font-weight:800;
 
-    background:
-        linear-gradient(
-            90deg,
-            #ffffff,
-            #a8b9db
-        );
+    font-size:12px;
 
-    -webkit-background-clip:text;
-    background-clip:text;
-
-    -webkit-text-fill-color:transparent;
 }
 
 .client small{
+
     display:block;
 
-    color:var(--muted);
+    color:#718097;
 
     font-weight:400;
 
-    -webkit-text-fill-color:var(--muted);
 }
 
 
@@ -1094,41 +2216,45 @@ h3{
 ========================================================= */
 
 .faq{
-    max-width:850px;
+
+    max-width:900px;
+
 }
 
 details{
-    background:#0e1727;
+
+    padding:17px 20px;
 
     border:1px solid var(--line);
 
-    border-radius:15px;
+    background:#0b111d;
 
-    padding:19px 22px;
+    border-radius:14px;
 
-    margin-bottom:12px;
+    margin-bottom:10px;
 
-    transition:.2s;
-}
-
-details:hover{
-    border-color:#344866;
 }
 
 summary{
+
     cursor:pointer;
+
+    color:#e8edf6;
 
     font-weight:700;
 
-    color:#e8edf5;
+    font-size:13px;
+
 }
 
 details p{
-    color:var(--muted);
 
-    margin-top:12px;
+    color:#7e8ca4;
 
-    font-size:14px;
+    font-size:12px;
+
+    margin-top:10px;
+
 }
 
 
@@ -1137,39 +2263,51 @@ details p{
 ========================================================= */
 
 .cta{
+
     text-align:center;
 
     padding:75px 30px;
 
     border-radius:28px;
 
+    border:1px solid rgba(139,92,246,.25);
+
     background:
+
         radial-gradient(
             circle at 50% 0%,
-            rgba(128,101,255,.30),
+            rgba(139,92,246,.30),
             transparent 45%
         ),
-        linear-gradient(
-            145deg,
-            #141e34,
-            #090f1c
-        );
 
-    border:1px solid #293956;
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(34,211,238,.12),
+            transparent 35%
+        ),
+
+        #0b101c;
+
 }
 
 .cta h2{
+
     max-width:700px;
 
-    margin:8px auto 0;
+    margin:8px auto 10px;
+
 }
 
 .cta p{
-    max-width:620px;
 
-    margin:15px auto 25px;
+    max-width:600px;
 
-    color:var(--muted);
+    margin:0 auto 25px;
+
+    color:#8491a8;
+
+    font-size:13px;
+
 }
 
 
@@ -1178,63 +2316,60 @@ details p{
 ========================================================= */
 
 .contact-grid{
+
     display:grid;
 
     grid-template-columns:
         repeat(3,1fr);
 
-    gap:16px;
+    gap:14px;
 
-    margin-top:35px;
 }
 
 .contact-card{
-    background:
-        linear-gradient(
-            145deg,
-            #101a2b,
-            #0b1320
-        );
 
-    border:1px solid var(--line);
-
-    padding:23px;
+    padding:21px;
 
     border-radius:18px;
 
+    border:1px solid var(--line);
+
+    background:#0b111d;
+
     transition:.25s;
+
 }
 
 .contact-card:hover{
+
     transform:translateY(-4px);
 
-    border-color:#3a4f70;
+    border-color:#3b82f6;
+
 }
 
 .contact-card small{
-    color:var(--muted);
 
     display:block;
+
+    color:#738198;
+
+    font-size:10px;
+
 }
 
 .contact-card strong{
+
     display:block;
 
     margin-top:5px;
 
+    font-size:12px;
+
+    color:#e9effa;
+
     overflow-wrap:anywhere;
 
-    background:
-        linear-gradient(
-            90deg,
-            #ffffff,
-            #a7b9dc
-        );
-
-    -webkit-background-clip:text;
-    background-clip:text;
-
-    -webkit-text-fill-color:transparent;
 }
 
 
@@ -1243,41 +2378,88 @@ details p{
 ========================================================= */
 
 footer{
+
     margin-top:30px;
 
     border-top:1px solid var(--line);
 
     padding:35px 0;
+
+    background:#030409;
+
 }
 
 .footer-grid{
-    display:flex;
 
-    justify-content:space-between;
+    display:grid;
+
+    grid-template-columns:
+        1fr auto auto;
 
     gap:30px;
 
     align-items:center;
+
 }
 
 .footer-text{
-    color:#7f8ca2;
 
-    font-size:13px;
+    color:#69768d;
+
+    font-size:11px;
+
+}
+
+.footer-links{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
+}
+
+.footer-links a{
+
+    color:#8794a9;
+
+    font-size:11px;
+
+}
+
+.footer-links a:hover{
+
+    color:#fff;
+
 }
 
 .socials{
+
     display:flex;
 
-    gap:18px;
+    gap:12px;
 
-    font-size:13px;
-
-    color:#aeb9ca;
 }
 
-.socials a:hover{
-    color:white;
+.socials a{
+
+    width:32px;
+    height:32px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:9px;
+
+    background:#0b111d;
+
+    border:1px solid var(--line);
+
+    font-size:11px;
+
 }
 
 
@@ -1286,6 +2468,7 @@ footer{
 ========================================================= */
 
 .whatsapp{
+
     position:fixed;
 
     right:22px;
@@ -1299,52 +2482,95 @@ footer{
     align-items:center;
     justify-content:center;
 
+    border-radius:50%;
+
     background:#25d366;
 
     color:white;
 
-    border-radius:50%;
-
-    font-size:25px;
+    font-size:24px;
 
     box-shadow:
-        0 12px 30px
-        rgba(37,211,102,.3);
+        0 12px 35px rgba(37,211,102,.30);
 
     z-index:999;
 
     transition:.25s;
+
 }
 
 .whatsapp:hover{
+
     transform:scale(1.08);
+
 }
 
 
 /* =========================================================
-   ANIMATION
+   BACK TO TOP
 ========================================================= */
 
-@keyframes fadeUp{
+#topBtn{
 
-    from{
-        opacity:0;
+    position:fixed;
 
-        transform:
-            translateY(25px);
-    }
+    right:25px;
+    bottom:92px;
 
-    to{
-        opacity:1;
+    width:38px;
+    height:38px;
 
-        transform:
-            translateY(0);
-    }
+    border:1px solid var(--line);
+
+    border-radius:10px;
+
+    background:#0b111d;
+
+    color:#fff;
+
+    cursor:pointer;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.25s;
+
+    z-index:998;
+
 }
 
-.hero-content{
-    animation:
-        fadeUp .8s ease both;
+#topBtn.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+.reveal{
+
+    opacity:0;
+
+    transform:translateY(20px);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+
+}
+
+.reveal.visible{
+
+    opacity:1;
+
+    transform:translateY(0);
+
 }
 
 
@@ -1352,69 +2578,75 @@ footer{
    TABLET
 ========================================================= */
 
-@media(max-width:900px){
+@media(max-width:1000px){
 
     .nav-links{
-        position:absolute;
 
-        top:76px;
-        left:0;
-        right:0;
+        gap:12px;
+
+    }
+
+    .search-box{
 
         display:none;
 
-        flex-direction:column;
-
-        background:#070c17;
-
-        padding:25px;
-
-        border-bottom:1px solid var(--line);
-    }
-
-    .nav-links.active{
-        display:flex;
-    }
-
-    .menu-btn{
-        display:block;
     }
 
     .hero-grid{
+
         grid-template-columns:1fr;
+
     }
 
-    .hero-visual{
-        min-height:380px;
+    .hero{
+
+        padding-top:70px;
+
     }
 
     .services-grid{
+
         grid-template-columns:
             repeat(2,1fr);
+
+    }
+
+    .portal-grid{
+
+        grid-template-columns:1fr;
+
     }
 
     .portfolio-grid{
+
         grid-template-columns:
             repeat(2,1fr);
+
     }
 
     .process{
+
         grid-template-columns:
             repeat(2,1fr);
 
-        gap:30px;
     }
 
     .pricing{
+
         grid-template-columns:1fr;
+
     }
 
     .testimonial-grid{
+
         grid-template-columns:1fr;
+
     }
 
-    .why-grid{
+    .footer-grid{
+
         grid-template-columns:1fr;
+
     }
 
 }
@@ -1424,71 +2656,165 @@ footer{
    MOBILE
 ========================================================= */
 
-@media(max-width:600px){
+@media(max-width:700px){
 
-    section{
-        padding:70px 0;
+    .topbar{
+
+        height:31px;
+
+    }
+
+    .nav-inner{
+
+        min-height:68px;
+
+    }
+
+    .nav-links{
+
+        position:absolute;
+
+        top:68px;
+        left:0;
+        right:0;
+
+        display:none;
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+        gap:0;
+
+        padding:15px;
+
+        background:
+            rgba(5,7,14,.98);
+
+        border-bottom:1px solid var(--line);
+
+    }
+
+    .nav-links.active{
+
+        display:flex;
+
+    }
+
+    .nav-links a{
+
+        padding:12px;
+
+    }
+
+    .nav-cta{
+
+        text-align:center;
+
+    }
+
+    .menu-btn{
+
+        display:block;
+
     }
 
     .hero{
+
+        min-height:auto;
+
         padding:65px 0;
+
     }
 
-    h1{
+    .hero h1{
+
+        font-size:47px;
+
         letter-spacing:-2.5px;
+
+    }
+
+    .hero-text{
+
+        font-size:14px;
+
+    }
+
+    .buttons{
+
+        flex-direction:column;
+
+    }
+
+    .btn{
+
+        width:100%;
+
+    }
+
+    .dashboard{
+
+        min-height:400px;
+
+    }
+
+    section{
+
+        padding:70px 0;
+
     }
 
     .services-grid,
     .portfolio-grid,
     .process,
+    .testimonial-grid,
     .contact-grid{
+
         grid-template-columns:1fr;
+
     }
 
-    .hero-visual{
-        min-height:330px;
+    .sports-grid{
+
+        grid-template-columns:1fr;
+
     }
 
-    .visual-main{
-        inset:
-            25px
-            10px
-            0
-            10px;
+    .news-item{
+
+        grid-template-columns:65px 1fr;
+
     }
 
-    .visual-screen{
-        padding:25px;
+    .news-time{
+
+        display:none;
+
     }
 
-    .visual-screen h3{
-        font-size:29px;
+    .channels-grid{
+
+        grid-template-columns:1fr;
+
     }
 
-    .floating-card.one{
-        right:0;
-    }
+    .why-grid{
 
-    .floating-card.two{
-        left:0;
-    }
+        grid-template-columns:1fr;
 
-    .footer-grid{
-        flex-direction:column;
-
-        align-items:flex-start;
     }
 
     .cta{
-        padding:55px 22px;
+
+        padding:55px 20px;
+
     }
 
-    .buttons{
-        flex-direction:column;
-    }
+    .footer-links{
 
-    .btn{
-        width:100%;
+        gap:12px;
+
     }
 
 }
@@ -1503,14 +2829,54 @@ footer{
     *,
     *::before,
     *::after{
-        scroll-behavior:auto !important;
+
         animation:none !important;
+
         transition:none !important;
+
+        scroll-behavior:auto !important;
+
     }
 
 }
 
 </style>
+
+
+<!-- =======================================================
+     STRUCTURED DATA
+======================================================= -->
+
+<script type="application/ld+json">
+
+{
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"AA Creative Studio",
+    "url":"https://aliabbasalone134-sudo.github.io/AA-Creative-Studio/",
+    "description":"Pakistan news, sports, people and digital creative platform.",
+    "potentialAction":{
+        "@type":"SearchAction",
+        "target":"https://aliabbasalone134-sudo.github.io/AA-Creative-Studio/?q={search_term_string}",
+        "query-input":"required name=search_term_string"
+    }
+}
+
+</script>
+
+
+<script type="application/ld+json">
+
+{
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"AA Creative Studio",
+    "url":"https://aliabbasalone134-sudo.github.io/AA-Creative-Studio/",
+    "email":"aliabbasalone134@email.com",
+    "telephone":"+923441459250"
+}
+
+</script>
 
 </head>
 
@@ -1518,22 +2884,53 @@ footer{
 <body>
 
 
-<!-- ========================================================
+<!-- =======================================================
+     BREAKING NEWS
+======================================================= -->
+
+<div class="topbar">
+
+<div class="container topbar-inner">
+
+<span class="breaking-label">
+    BREAKING
+</span>
+
+<div class="ticker">
+
+<span id="tickerText">
+    Welcome to AA Creative Studio — Pakistan News • Live Sports • People • Digital Creative Services
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =======================================================
      NAVBAR
-======================================================== -->
+======================================================= -->
 
 <nav>
 
 <div class="container nav-inner">
 
-<a href="#" class="logo">
-    AA <span>Creative Studio</span>
+<a href="#home" class="logo">
+
+    AA Creative Studio
+
+    <small>
+        Digital Media & Creative Hub
+    </small>
+
 </a>
 
 
 <button
     class="menu-btn"
-    aria-label="Open navigation menu"
+    aria-label="Open menu"
     onclick="toggleMenu()">
 
     ☰
@@ -1543,19 +2940,41 @@ footer{
 
 <div class="nav-links" id="navLinks">
 
-    <a href="#services">Services</a>
+    <a href="#news">
+        News
+    </a>
 
-    <a href="#portfolio">Portfolio</a>
+    <a
+        href="#sports"
+        class="nav-special">
 
-    <a href="#process">Process</a>
+        Live Sports
 
-    <a href="#pricing">Pricing</a>
+    </a>
 
-    <a href="#faq">FAQ</a>
+    <a href="#people">
+        People
+    </a>
+
+    <a href="#channels">
+        Channels
+    </a>
+
+    <a href="#services">
+        Creative
+    </a>
+
+    <a href="#portfolio">
+        Portfolio
+    </a>
+
+    <a href="#pricing">
+        Pricing
+    </a>
 
     <a
         class="nav-cta"
-        href="https://wa.me/923441459250?text=Hello%20AA%20Creative%20Studio%2C%20I%20want%20to%20discuss%20a%20project.">
+        href="https://wa.me/923441459250?text=Hello%20AA%20Creative%20Studio">
 
         Get a Quote
 
@@ -1568,34 +2987,32 @@ footer{
 </nav>
 
 
-
-<!-- ========================================================
+<!-- =======================================================
      HERO
-======================================================== -->
+======================================================= -->
 
-<header class="hero">
+<header class="hero" id="home">
 
 <div class="container hero-grid">
 
 
-<div class="hero-content">
-
+<div class="hero-content reveal">
 
 <div class="badge">
 
     <span class="badge-dot"></span>
 
-    Creative Digital Studio · Pakistan
+    Pakistan's Digital News & Creative Hub
 
 </div>
 
 
 <h1>
 
-    We turn ideas into
+    One platform.
 
     <span class="gradient">
-        visual impact.
+        Everything digital.
     </span>
 
 </h1>
@@ -1603,145 +3020,760 @@ footer{
 
 <p class="hero-text">
 
-    AA Creative Studio helps brands, creators and businesses
-    stand out through professional video editing, graphic design,
-    advertising and social media content.
+    Stay connected with Pakistan news, sports updates,
+    live scores, people and biographies — while discovering
+    professional video editing, graphic design and digital
+    creative services from AA Creative Studio.
 
 </p>
 
 
 <div class="buttons">
 
+<a
+    class="btn btn-news"
+    href="#news">
+
+    Latest Pakistan News →
+
+</a>
+
 
 <a
-    class="btn btn-primary"
-    href="https://wa.me/923441459250?text=Hello%20AA%20Creative%20Studio%2C%20I%20need%20your%20creative%20services.">
+    class="btn btn-sports"
+    href="#sports">
 
-    Chat on WhatsApp →
+    Live Sports →
 
 </a>
 
 
 <a
     class="btn btn-secondary"
-    href="#portfolio">
+    href="#services">
 
-    View Our Work
+    Creative Services
 
 </a>
 
+</div>
 
 </div>
 
 
+<!-- HERO DASHBOARD -->
+
+<div class="dashboard reveal">
+
+
+<div class="dash-head">
+
+<div class="dash-title">
+    AA LIVE DESK
+</div>
+
+<div class="live">
+
+<span class="live-dot"></span>
+
+LIVE SYSTEM
+
+</div>
+
 </div>
 
 
+<div class="news-mini">
 
-<!-- HERO VISUAL -->
-
-<div class="hero-visual">
-
-
-<div class="visual-main">
-
-
-<div class="visual-screen">
-
-
-<div class="visual-label">
-    AA Creative Studio
+<div class="news-mini-label">
+    Pakistan News
 </div>
-
 
 <h3>
-
-    Creative work
-
-    that gets noticed.
-
+    Latest stories will appear here automatically.
 </h3>
 
+<p>
+    Connected news feeds will update this section
+    when the backend is activated.
+</p>
 
-<div class="visual-line"></div>
-
-<div class="visual-line"></div>
-
-<div class="visual-line short"></div>
+</div>
 
 
+<div class="score-mini">
+
+<div class="team">
+    Pakistan
+</div>
+
+<div class="score">
+
+<strong>
+    — : —
+</strong>
+
+<small>
+    LIVE
+</small>
+
+</div>
+
+<div class="team">
+    England
 </div>
 
 </div>
 
 
-<div class="floating-card one">
+<div class="people-mini">
 
-    <strong>Creative</strong>
+<div class="people-mini-title">
+    People & Biography
+</div>
 
-    <small>
-        Visual Solutions
-    </small>
+<div class="people-mini-row">
+
+<div class="avatar">
+    A
+</div>
+
+<div>
+
+<strong>
+    Search any person
+</strong>
+
+Use the People section below
+
+</div>
+
+</div>
 
 </div>
 
 
-<div class="floating-card two">
-
-    <strong>Fast & Flexible</strong>
-
-    <small>
-        Remote service available
-    </small>
-
 </div>
-
-
-</div>
-
 
 </div>
 
 </header>
 
 
+<!-- =======================================================
+     CATEGORIES
+======================================================= -->
 
-<!-- ========================================================
-     SERVICES
-======================================================== -->
-
-<section id="services">
+<section style="padding:25px 0 35px;">
 
 <div class="container">
 
+<div class="category-strip">
 
-<div class="section-head">
+<a class="category" href="#news">
+    🇵🇰 Pakistan
+</a>
 
-<div class="section-tag">
-    What we do
+<a class="category" href="#news">
+    Punjab
+</a>
+
+<a class="category" href="#news">
+    Politics
+</a>
+
+<a class="category" href="#news">
+    Business
+</a>
+
+<a class="category" href="#news">
+    Technology
+</a>
+
+<a class="category" href="#news">
+    Education
+</a>
+
+<a class="category" href="#news">
+    World
+</a>
+
+<a class="category" href="#sports">
+    🏏 Cricket
+</a>
+
+<a class="category" href="#sports">
+    ⚽ Football
+</a>
+
+<a class="category" href="#sports">
+    🏑 Hockey
+</a>
+
+<a class="category" href="#sports">
+    🎾 Tennis
+</a>
+
+<a class="category" href="#people">
+    👤 People
+</a>
+
 </div>
 
+</div>
+
+</section>
+
+
+<!-- =======================================================
+     LIVE PORTAL
+======================================================= -->
+
+<section id="news">
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="section-tag">
+    Live information
+</div>
 
 <h2>
-    Creative services built for the digital world.
+    Pakistan news & live information.
 </h2>
-
 
 <p class="section-lead">
 
-    From social media content to complete visual campaigns,
-    we create clean and professional digital assets.
+    This portal is designed to receive current news,
+    sports data and people information through external
+    APIs, RSS feeds and server-side services.
 
 </p>
 
 </div>
 
 
+<div class="portal-grid">
+
+
+<!-- NEWS -->
+
+<div class="portal-card news reveal">
+
+<h3>
+    🇵🇰 Pakistan Latest News
+</h3>
+
+<p>
+    Latest headlines from connected sources
+</p>
+
+
+<div class="news-list" id="newsList">
+
+
+<div class="news-item">
+
+<div class="news-image">
+    📰
+</div>
+
+<div>
+
+<div class="news-category">
+    Pakistan
+</div>
+
+<h4>
+    News feed will automatically populate this area.
+</h4>
+
+<p>
+    Connect your approved RSS/API sources.
+</p>
+
+</div>
+
+<div class="news-time">
+    LIVE
+</div>
+
+</div>
+
+
+<div class="news-item">
+
+<div class="news-image">
+    📢
+</div>
+
+<div>
+
+<div class="news-category">
+    Breaking
+</div>
+
+<h4>
+    Breaking-news headlines can appear here.
+</h4>
+
+<p>
+    Source attribution should be displayed.
+</p>
+
+</div>
+
+<div class="news-time">
+    — 
+</div>
+
+</div>
+
+
+<div class="news-item">
+
+<div class="news-image">
+    🌐
+</div>
+
+<div>
+
+<div class="news-category">
+    World
+</div>
+
+<h4>
+    International stories can be added through feeds.
+</h4>
+
+<p>
+    Original source link required.
+</p>
+
+</div>
+
+<div class="news-time">
+    —
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- SPORTS -->
+
+<div class="portal-card sports" id="sports">
+
+<h3>
+    🏆 Live Sports
+</h3>
+
+<p>
+    Cricket, football, hockey, tennis and more
+</p>
+
+
+<div class="sports-grid">
+
+
+<div class="sport-match">
+
+<div class="sport-top">
+
+<span class="sport-type">
+    Cricket
+</span>
+
+<span class="status-live">
+    ● LIVE
+</span>
+
+</div>
+
+<div class="match-teams">
+
+<div class="match-team">
+    Pakistan
+</div>
+
+<div class="vs">
+    VS
+</div>
+
+<div class="match-team right">
+    England
+</div>
+
+</div>
+
+<div class="match-score">
+    — : —
+</div>
+
+<div class="match-info">
+    Live score API required
+</div>
+
+</div>
+
+
+<div class="sport-match">
+
+<div class="sport-top">
+
+<span class="sport-type">
+    Football
+</span>
+
+<span class="status-live">
+    LIVE
+</span>
+
+</div>
+
+<div class="match-teams">
+
+<div class="match-team">
+    Team A
+</div>
+
+<div class="vs">
+    VS
+</div>
+
+<div class="match-team right">
+    Team B
+</div>
+
+</div>
+
+<div class="match-score">
+    — : —
+</div>
+
+<div class="match-info">
+    Live football API required
+</div>
+
+</div>
+
+
+<div class="sport-match">
+
+<div class="sport-top">
+
+<span class="sport-type">
+    Hockey
+</span>
+
+<span class="status-live">
+    LIVE
+</span>
+
+</div>
+
+<div class="match-teams">
+
+<div class="match-team">
+    Pakistan
+</div>
+
+<div class="vs">
+    VS
+</div>
+
+<div class="match-team right">
+    Opponent
+</div>
+
+</div>
+
+<div class="match-score">
+    — : —
+</div>
+
+<div class="match-info">
+    Hockey API required
+</div>
+
+</div>
+
+
+<div class="sport-match">
+
+<div class="sport-top">
+
+<span class="sport-type">
+    Tennis
+</span>
+
+<span class="status-live">
+    LIVE
+</span>
+
+</div>
+
+<div class="match-teams">
+
+<div class="match-team">
+    Player A
+</div>
+
+<div class="vs">
+    VS
+</div>
+
+<div class="match-team right">
+    Player B
+</div>
+
+</div>
+
+<div class="match-score">
+    — : —
+</div>
+
+<div class="match-info">
+    Tennis API required
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- PEOPLE -->
+
+<div class="portal-card people" id="people">
+
+<h3>
+    👤 People & Biography
+</h3>
+
+<p>
+    Search public biographical information
+</p>
+
+
+<div class="person-search">
+
+<input
+    type="text"
+    id="personInput"
+    placeholder="Search a person's name..."
+    aria-label="Search person">
+
+<button onclick="searchPerson()">
+    Search
+</button>
+
+</div>
+
+
+<div
+    class="person-result"
+    id="personResult">
+
+<strong id="personName">
+    Search result
+</strong>
+
+<p id="personMessage">
+    A public knowledge API such as Wikidata/Wikipedia
+    can be connected here.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- CHANNELS -->
+
+<div class="portal-card channels" id="channels">
+
+<h3>
+    📺 Pakistani News Channels
+</h3>
+
+<p>
+    Official websites and digital sources
+</p>
+
+
+<div class="channels-grid">
+
+<a
+    class="channel"
+    href="https://www.geo.tv/"
+    target="_blank"
+    rel="noopener">
+
+    Geo News
+
+    <span>
+        Official ↗
+    </span>
+
+</a>
+
+
+<a
+    class="channel"
+    href="https://arynews.tv/"
+    target="_blank"
+    rel="noopener">
+
+    ARY News
+
+    <span>
+        Official ↗
+    </span>
+
+</a>
+
+
+<a
+    class="channel"
+    href="https://www.dawn.com/"
+    target="_blank"
+    rel="noopener">
+
+    Dawn
+
+    <span>
+        Official ↗
+    </span>
+
+</a>
+
+
+<a
+    class="channel"
+    href="https://www.express.pk/"
+    target="_blank"
+    rel="noopener">
+
+    Express News
+
+    <span>
+        Official ↗
+    </span>
+
+</a>
+
+
+<a
+    class="channel"
+    href="https://www.samaa.tv/"
+    target="_blank"
+    rel="noopener">
+
+    Samaa
+
+    <span>
+        Official ↗
+    </span>
+
+</a>
+
+
+<a
+    class="channel"
+    href="https://humnews.pk/"
+    target="_blank"
+    rel="noopener">
+
+    Hum News
+
+    <span>
+        Official ↗
+    </span>
+
+</a>
+
+
+<a
+    class="channel"
+    href="https://www.dunyanews.tv/"
+    target="_blank"
+    rel="noopener">
+
+    Dunya News
+
+    <span>
+        Official ↗
+    </span>
+
+</a>
+
+
+<a
+    class="channel"
+    href="https://www.92newshd.tv/"
+    target="_blank"
+    rel="noopener">
+
+    92 News
+
+    <span>
+        Official ↗
+    </span>
+
+</a>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =======================================================
+     CREATIVE SERVICES
+======================================================= -->
+
+<section id="services">
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="section-tag">
+    AA Creative Studio
+</div>
+
+<h2>
+    Professional creative services.
+</h2>
+
+<p class="section-lead">
+
+    The original AA Creative Studio services remain part
+    of the platform.
+
+</p>
+
+</div>
+
 
 <div class="services-grid">
 
 
-<div class="service">
+<div class="service reveal">
 
 <div class="service-icon">
     🎬
@@ -1759,8 +3791,7 @@ footer{
 </div>
 
 
-
-<div class="service">
+<div class="service reveal">
 
 <div class="service-icon">
     🎨
@@ -1778,8 +3809,7 @@ footer{
 </div>
 
 
-
-<div class="service">
+<div class="service reveal">
 
 <div class="service-icon">
     🖼️
@@ -1790,15 +3820,13 @@ footer{
 </h3>
 
 <p>
-    Promotional, event and social media posters
-    designed to attract attention.
+    Promotional, event and social-media posters.
 </p>
 
 </div>
 
 
-
-<div class="service">
+<div class="service reveal">
 
 <div class="service-icon">
     📢
@@ -1809,15 +3837,14 @@ footer{
 </h3>
 
 <p>
-    Creative advertising visuals designed to
-    communicate your message clearly.
+    Creative advertising visuals designed to communicate
+    your message clearly.
 </p>
 
 </div>
 
 
-
-<div class="service">
+<div class="service reveal">
 
 <div class="service-icon">
     ▶️
@@ -1828,15 +3855,14 @@ footer{
 </h3>
 
 <p>
-    Eye-catching thumbnails designed to improve
-    attention and clicks.
+    Attention-focused thumbnails for YouTube and digital
+    platforms.
 </p>
 
 </div>
 
 
-
-<div class="service">
+<div class="service reveal">
 
 <div class="service-icon">
     ✦
@@ -1847,15 +3873,14 @@ footer{
 </h3>
 
 <p>
-    Clean and memorable visual identities for
-    creators and businesses.
+    Clean and memorable visual identities for businesses
+    and creators.
 </p>
 
 </div>
 
 
-
-<div class="service">
+<div class="service reveal">
 
 <div class="service-icon">
     📱
@@ -1866,15 +3891,14 @@ footer{
 </h3>
 
 <p>
-    Graphics and creative content for Instagram,
-    Facebook, TikTok and more.
+    Creative content for Instagram, Facebook, TikTok
+    and other platforms.
 </p>
 
 </div>
 
 
-
-<div class="service">
+<div class="service reveal">
 
 <div class="service-icon">
     ＋
@@ -1885,8 +3909,7 @@ footer{
 </h3>
 
 <p>
-    Have something different in mind?
-    Let's discuss your idea.
+    Have something different in mind? Let's discuss it.
 </p>
 
 </div>
@@ -1899,43 +3922,38 @@ footer{
 </section>
 
 
-
-<!-- ========================================================
+<!-- =======================================================
      PORTFOLIO
-======================================================== -->
+======================================================= -->
 
 <section id="portfolio">
 
 <div class="container">
 
-
-<div class="section-head">
+<div class="section-head reveal">
 
 <div class="section-tag">
     Selected work
 </div>
 
-
 <h2>
-    Work that speaks visually.
+    Visual work that gets noticed.
 </h2>
-
 
 <p class="section-lead">
 
-    Replace these showcase cards with your actual projects,
-    screenshots, posters and edited videos.
+    Replace these cards with your actual project images,
+    videos and designs.
 
 </p>
 
 </div>
 
 
-
 <div class="portfolio-grid">
 
 
-<div class="work">
+<div class="work reveal">
 
 <div class="work-content">
 
@@ -1956,13 +3974,12 @@ footer{
 </div>
 
 
-
-<div class="work">
+<div class="work reveal">
 
 <div class="work-content">
 
 <span class="work-number">
-    02 · DESIGN
+    02 · BRANDING
 </span>
 
 <h3>
@@ -1970,7 +3987,7 @@ footer{
 </h3>
 
 <p>
-    Creative digital design
+    Modern identity design
 </p>
 
 </div>
@@ -1978,8 +3995,7 @@ footer{
 </div>
 
 
-
-<div class="work">
+<div class="work reveal">
 
 <div class="work-content">
 
@@ -1992,7 +4008,7 @@ footer{
 </h3>
 
 <p>
-    Modern promotional content
+    Promotional content
 </p>
 
 </div>
@@ -2000,8 +4016,7 @@ footer{
 </div>
 
 
-
-<div class="work">
+<div class="work reveal">
 
 <div class="work-content">
 
@@ -2022,8 +4037,7 @@ footer{
 </div>
 
 
-
-<div class="work">
+<div class="work reveal">
 
 <div class="work-content">
 
@@ -2044,8 +4058,7 @@ footer{
 </div>
 
 
-
-<div class="work">
+<div class="work reveal">
 
 <div class="work-content">
 
@@ -2058,7 +4071,7 @@ footer{
 </h3>
 
 <p>
-    Attention-focused thumbnail design
+    Attention-focused design
 </p>
 
 </div>
@@ -2073,22 +4086,19 @@ footer{
 </section>
 
 
-
-<!-- ========================================================
+<!-- =======================================================
      PROCESS
-======================================================== -->
+======================================================= -->
 
-<section id="process">
+<section>
 
 <div class="container">
 
-
-<div class="section-head">
+<div class="section-head reveal">
 
 <div class="section-tag">
     Our process
 </div>
-
 
 <h2>
     Simple process. Strong results.
@@ -2097,11 +4107,10 @@ footer{
 </div>
 
 
-
 <div class="process">
 
 
-<div class="step">
+<div class="step reveal">
 
 <div class="step-number">
     01
@@ -2112,14 +4121,13 @@ footer{
 </h3>
 
 <p>
-    We understand your idea, audience and requirements.
+    Understand the idea, audience and requirements.
 </p>
 
 </div>
 
 
-
-<div class="step">
+<div class="step reveal">
 
 <div class="step-number">
     02
@@ -2130,14 +4138,13 @@ footer{
 </h3>
 
 <p>
-    We decide the visual direction and project requirements.
+    Decide the visual direction and project strategy.
 </p>
 
 </div>
 
 
-
-<div class="step">
+<div class="step reveal">
 
 <div class="step-number">
     03
@@ -2148,14 +4155,13 @@ footer{
 </h3>
 
 <p>
-    Your concept becomes a polished creative product.
+    Turn the concept into a polished creative product.
 </p>
 
 </div>
 
 
-
-<div class="step">
+<div class="step reveal">
 
 <div class="step-number">
     04
@@ -2166,7 +4172,7 @@ footer{
 </h3>
 
 <p>
-    Final files are prepared for publishing and use.
+    Prepare final files for publishing and use.
 </p>
 
 </div>
@@ -2179,35 +4185,31 @@ footer{
 </section>
 
 
-
-<!-- ========================================================
+<!-- =======================================================
      WHY US
-======================================================== -->
+======================================================= -->
 
 <section>
 
 <div class="container">
 
-
 <div class="why-grid">
 
 
-<div class="why-card">
+<div class="why-card reveal">
 
 <div class="section-tag">
     Why AA Creative
 </div>
 
-
 <h2>
     Design with purpose.
 </h2>
 
-
 <p>
 
     We don't simply make things look good.
-    We focus on creating visuals that communicate,
+    We focus on visuals that communicate,
     attract attention and support your goals.
 
 </p>
@@ -2215,8 +4217,7 @@ footer{
 </div>
 
 
-
-<div class="why-card">
+<div class="why-card reveal">
 
 <h3>
     What you can expect
@@ -2225,41 +4226,34 @@ footer{
 
 <div class="check-list">
 
-
 <div>
     <span class="check">✓</span>
     Clean and modern design
 </div>
-
 
 <div>
     <span class="check">✓</span>
     Clear communication
 </div>
 
-
 <div>
     <span class="check">✓</span>
     Flexible project options
 </div>
-
 
 <div>
     <span class="check">✓</span>
     Revision support
 </div>
 
-
 <div>
     <span class="check">✓</span>
     Digital-platform focused work
 </div>
 
-
 </div>
 
 </div>
-
 
 </div>
 
@@ -2268,73 +4262,58 @@ footer{
 </section>
 
 
-
-<!-- ========================================================
+<!-- =======================================================
      PRICING
-======================================================== -->
+======================================================= -->
 
 <section id="pricing">
 
 <div class="container">
 
-
-<div class="section-head">
+<div class="section-head reveal">
 
 <div class="section-tag">
     Pricing
 </div>
 
-
 <h2>
     Simple packages. Flexible projects.
 </h2>
 
-
 <p class="section-lead">
 
-    Starting prices are shown below.
-    Final pricing depends on project type,
-    requirements and complexity.
+    Starting prices are shown below. Final pricing depends
+    on project type and complexity.
 
 </p>
 
 </div>
 
 
-
 <div class="pricing">
 
 
-<!-- STARTER -->
-
-<div class="price-card">
+<div class="price-card reveal">
 
 <div class="price-name">
     Starter
 </div>
 
-
 <div class="price">
     Rs. 1,000
-
     <small>
         / starting
     </small>
 </div>
 
-
 <div class="features">
 
 <div>✓ Basic creative work</div>
-
 <div>✓ HD delivery</div>
-
 <div>✓ 1 revision</div>
-
 <div>✓ Standard delivery</div>
 
 </div>
-
 
 <a
     class="btn btn-secondary"
@@ -2347,42 +4326,31 @@ footer{
 </div>
 
 
-
-<!-- STANDARD -->
-
-<div class="price-card featured">
+<div class="price-card featured reveal">
 
 <div class="popular">
     MOST POPULAR
 </div>
 
-
 <div class="price-name">
     Standard
 </div>
 
-
 <div class="price">
     Rs. 2,500
-
     <small>
         / starting
     </small>
 </div>
 
-
 <div class="features">
 
 <div>✓ Professional creative work</div>
-
 <div>✓ Full HD delivery</div>
-
 <div>✓ 2 revisions</div>
-
 <div>✓ Priority delivery</div>
 
 </div>
-
 
 <a
     class="btn btn-primary"
@@ -2395,33 +4363,24 @@ footer{
 </div>
 
 
-
-<!-- PREMIUM -->
-
-<div class="price-card">
+<div class="price-card reveal">
 
 <div class="price-name">
     Premium
 </div>
 
-
 <div class="price">
     Custom
 </div>
 
-
 <div class="features">
 
 <div>✓ Advanced projects</div>
-
 <div>✓ Premium production</div>
-
 <div>✓ Custom revisions</div>
-
 <div>✓ Priority support</div>
 
 </div>
-
 
 <a
     class="btn btn-secondary"
@@ -2441,51 +4400,45 @@ footer{
 </section>
 
 
-
-<!-- ========================================================
+<!-- =======================================================
      TESTIMONIALS
-======================================================== -->
+======================================================= -->
 
 <section>
 
 <div class="container">
 
-
-<div class="section-head">
+<div class="section-head reveal">
 
 <div class="section-tag">
     Client feedback
 </div>
 
-
 <h2>
     What clients say.
 </h2>
 
-
 <p class="section-lead">
 
-    Add real client testimonials here once
-    you have completed projects.
+    Add genuine client testimonials here after completed
+    projects.
 
 </p>
 
 </div>
-
 
 
 <div class="testimonial-grid">
 
 
-<div class="testimonial">
+<div class="testimonial reveal">
 
 <div class="stars">
     ★★★★★
 </div>
 
 <p>
-    "Add your first genuine client review here.
-    Keep testimonials short and specific."
+    Add your first genuine client review here.
 </p>
 
 <div class="client">
@@ -2501,16 +4454,14 @@ footer{
 </div>
 
 
-
-<div class="testimonial">
+<div class="testimonial reveal">
 
 <div class="stars">
     ★★★★★
 </div>
 
 <p>
-    "A real testimonial about the quality,
-    communication or delivery experience."
+    Add a genuine review about quality and communication.
 </p>
 
 <div class="client">
@@ -2526,16 +4477,14 @@ footer{
 </div>
 
 
-
-<div class="testimonial">
+<div class="testimonial reveal">
 
 <div class="stars">
     ★★★★★
 </div>
 
 <p>
-    "Use this section to demonstrate the value
-    your creative work provides."
+    Add a genuine testimonial describing the result.
 </p>
 
 <div class="client">
@@ -2558,22 +4507,19 @@ footer{
 </section>
 
 
-
-<!-- ========================================================
+<!-- =======================================================
      FAQ
-======================================================== -->
+======================================================= -->
 
 <section id="faq">
 
 <div class="container">
 
-
-<div class="section-head">
+<div class="section-head reveal">
 
 <div class="section-tag">
     FAQ
 </div>
-
 
 <h2>
     Frequently asked questions.
@@ -2582,91 +4528,76 @@ footer{
 </div>
 
 
-
 <div class="faq">
 
 
-<details>
+<details class="reveal">
 
 <summary>
-    How can I order a project?
+    How can I order a creative project?
 </summary>
 
 <p>
-
-    Contact us through WhatsApp and share your
-    project requirements. We will discuss the scope,
-    price and delivery timeline.
-
+    Contact AA Creative Studio through WhatsApp and
+    share your requirements. We can then discuss scope,
+    price and delivery time.
 </p>
 
 </details>
 
 
-
-<details>
+<details class="reveal">
 
 <summary>
-    How long does a project take?
+    Do you work remotely?
 </summary>
 
 <p>
-
-    Delivery time depends on the type and complexity
-    of the project. A timeline can be confirmed before
-    work begins.
-
-</p>
-
-</details>
-
-
-
-<details>
-
-<summary>
-    Do you offer custom projects?
-</summary>
-
-<p>
-
-    Yes. Custom projects can be discussed according
-    to your requirements and budget.
-
-</p>
-
-</details>
-
-
-
-<details>
-
-<summary>
-    Do you provide revisions?
-</summary>
-
-<p>
-
-    Yes. Revision availability depends on the package
-    and project requirements.
-
-</p>
-
-</details>
-
-
-
-<details>
-
-<summary>
-    Do you work with clients outside Hafizabad?
-</summary>
-
-<p>
-
-    Yes. AA Creative Studio can work remotely with
+    Yes. Creative projects can be handled remotely for
     clients across Pakistan and beyond.
+</p>
 
+</details>
+
+
+<details class="reveal">
+
+<summary>
+    How will the news section update?
+</summary>
+
+<p>
+    The production version will receive permitted news
+    feeds through APIs or RSS sources and display headlines,
+    summaries, timestamps and original source links.
+</p>
+
+</details>
+
+
+<details class="reveal">
+
+<summary>
+    Will live sports scores be automatic?
+</summary>
+
+<p>
+    Yes, after a sports-data API is connected. The website
+    frontend is prepared for dynamic sports data.
+</p>
+
+</details>
+
+
+<details class="reveal">
+
+<summary>
+    Can I search for a person's biography?
+</summary>
+
+<p>
+    Yes. The People section can be connected to public
+    knowledge sources such as Wikidata or Wikipedia.
 </p>
 
 </details>
@@ -2679,37 +4610,28 @@ footer{
 </section>
 
 
-
-<!-- ========================================================
+<!-- =======================================================
      CTA
-======================================================== -->
+======================================================= -->
 
 <section>
 
 <div class="container">
 
-
-<div class="cta">
-
+<div class="cta reveal">
 
 <div class="section-tag">
     Let's create
 </div>
 
-
 <h2>
-    Have an idea?
-    Let's make it real.
+    Have an idea? Let's make it real.
 </h2>
 
-
 <p>
-
     Tell us what you want to create and let's turn
     your idea into something people remember.
-
 </p>
-
 
 <a
     class="btn btn-primary"
@@ -2719,7 +4641,6 @@ footer{
 
 </a>
 
-
 </div>
 
 </div>
@@ -2727,44 +4648,36 @@ footer{
 </section>
 
 
-
-<!-- ========================================================
+<!-- =======================================================
      CONTACT
-======================================================== -->
+======================================================= -->
 
 <section id="contact">
 
 <div class="container">
 
-
-<div class="section-head">
+<div class="section-head reveal">
 
 <div class="section-tag">
     Get in touch
 </div>
 
-
 <h2>
     Let's create something meaningful.
 </h2>
 
-
 <p class="section-lead">
-
-    The fastest way to discuss a project
-    is through WhatsApp.
-
+    The fastest way to discuss a project is through WhatsApp.
 </p>
 
 </div>
-
 
 
 <div class="contact-grid">
 
 
 <a
-    class="contact-card"
+    class="contact-card reveal"
     href="https://wa.me/923441459250">
 
 <small>
@@ -2778,9 +4691,8 @@ footer{
 </a>
 
 
-
 <a
-    class="contact-card"
+    class="contact-card reveal"
     href="mailto:aliabbasalone134@email.com">
 
 <small>
@@ -2794,8 +4706,7 @@ footer{
 </a>
 
 
-
-<div class="contact-card">
+<div class="contact-card reveal">
 
 <small>
     📍 Location
@@ -2815,10 +4726,9 @@ footer{
 </section>
 
 
-
-<!-- ========================================================
+<!-- =======================================================
      FOOTER
-======================================================== -->
+======================================================= -->
 
 <footer>
 
@@ -2827,28 +4737,71 @@ footer{
 
 <div class="footer-text">
 
-    © 2026 AA Creative Studio.
-    All rights reserved.
+© 2026 AA Creative Studio.
+All rights reserved.
+
+</div>
+
+
+<div class="footer-links">
+
+<a href="#news">
+    News
+</a>
+
+<a href="#sports">
+    Sports
+</a>
+
+<a href="#people">
+    People
+</a>
+
+<a href="#channels">
+    Channels
+</a>
+
+<a href="#services">
+    Services
+</a>
+
+<a href="#contact">
+    Contact
+</a>
 
 </div>
 
 
 <div class="socials">
 
-<a href="#services">
-    Services
+<a
+    href="https://www.facebook.com/"
+    target="_blank"
+    rel="noopener"
+    aria-label="Facebook">
+
+    f
+
 </a>
 
-<a href="#portfolio">
-    Portfolio
+<a
+    href="https://www.instagram.com/"
+    target="_blank"
+    rel="noopener"
+    aria-label="Instagram">
+
+    ◎
+
 </a>
 
-<a href="#pricing">
-    Pricing
-</a>
+<a
+    href="https://www.youtube.com/"
+    target="_blank"
+    rel="noopener"
+    aria-label="YouTube">
 
-<a href="#contact">
-    Contact
+    ▶
+
 </a>
 
 </div>
@@ -2859,10 +4812,9 @@ footer{
 </footer>
 
 
-
-<!-- ========================================================
-     WHATSAPP FLOATING BUTTON
-======================================================== -->
+<!-- =======================================================
+     WHATSAPP
+======================================================= -->
 
 <a
     class="whatsapp"
@@ -2874,12 +4826,30 @@ footer{
 </a>
 
 
+<!-- =======================================================
+     BACK TO TOP
+======================================================= -->
 
-<!-- ========================================================
+<button
+    id="topBtn"
+    aria-label="Back to top"
+    onclick="window.scrollTo({top:0,behavior:'smooth'})">
+
+    ↑
+
+</button>
+
+
+<!-- =======================================================
      JAVASCRIPT
-======================================================== -->
+======================================================= -->
 
 <script>
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
 
 function toggleMenu(){
 
@@ -2892,26 +4862,292 @@ function toggleMenu(){
 
 
 document
-    .querySelectorAll(".nav-links a")
-    .forEach(link => {
+.querySelectorAll(".nav-links a")
+.forEach(link => {
 
-        link.addEventListener(
-            "click",
-            () => {
+    link.addEventListener("click", () => {
 
-                document
-                    .getElementById("navLinks")
-                    .classList
-                    .remove("active");
-
-            }
-        );
+        document
+        .getElementById("navLinks")
+        .classList
+        .remove("active");
 
     });
+
+});
+
+
+/* =========================================================
+   PERSON SEARCH DEMO
+========================================================= */
+
+function searchPerson(){
+
+    const input =
+        document
+        .getElementById("personInput");
+
+    const result =
+        document
+        .getElementById("personResult");
+
+    const name =
+        document
+        .getElementById("personName");
+
+    const message =
+        document
+        .getElementById("personMessage");
+
+    const value =
+        input.value.trim();
+
+    if(!value){
+
+        result.classList.remove("show");
+
+        return;
+
+    }
+
+    name.textContent =
+        value;
+
+    message.textContent =
+        "Biography data for this person will be retrieved from a connected public knowledge API in the production version.";
+
+    result.classList.add("show");
+
+}
+
+
+/* =========================================================
+   ENTER KEY PERSON SEARCH
+========================================================= */
+
+document
+.getElementById("personInput")
+.addEventListener("keydown", function(event){
+
+    if(event.key === "Enter"){
+
+        searchPerson();
+
+    }
+
+});
+
+
+/* =========================================================
+   MAIN SEARCH
+========================================================= */
+
+const mainSearch =
+    document.querySelector(".search-box input");
+
+if(mainSearch){
+
+    mainSearch.addEventListener("keydown", function(event){
+
+        if(event.key === "Enter"){
+
+            const q =
+                encodeURIComponent(
+                    this.value.trim()
+                );
+
+            if(q){
+
+                window.location.href =
+                    "?q=" + q;
+
+            }
+
+        }
+
+    });
+
+}
+
+
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
+
+const observer =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if(entry.isIntersecting){
+
+                    entry.target
+                    .classList
+                    .add("visible");
+
+                }
+
+            });
+
+        },
+        {
+            threshold:.08
+        }
+    );
+
+
+document
+.querySelectorAll(".reveal")
+.forEach(el => {
+
+    observer.observe(el);
+
+});
+
+
+/* =========================================================
+   BACK TO TOP
+========================================================= */
+
+const topBtn =
+    document.getElementById("topBtn");
+
+window.addEventListener("scroll", () => {
+
+    if(window.scrollY > 500){
+
+        topBtn.classList.add("show");
+
+    }else{
+
+        topBtn.classList.remove("show");
+
+    }
+
+});
+
+
+/* =========================================================
+   DYNAMIC YEAR
+========================================================= */
+
+document
+.querySelector("footer .footer-text")
+.innerHTML =
+"© " +
+new Date().getFullYear() +
+" AA Creative Studio. All rights reserved.";
+
+
+/* =========================================================
+   DEMO TICKER
+========================================================= */
+
+const tickerMessages = [
+
+    "AA Creative Studio — Pakistan News • Live Sports • People • Creative Services",
+
+    "Breaking News • Cricket • Football • Hockey • Tennis • Digital Media",
+
+    "Stay informed. Stay connected. Create something remarkable."
+
+];
+
+let tickerIndex = 0;
+
+setInterval(() => {
+
+    tickerIndex =
+        (tickerIndex + 1)
+        % tickerMessages.length;
+
+    const ticker =
+        document.getElementById("tickerText");
+
+    ticker.style.opacity = "0";
+
+    setTimeout(() => {
+
+        ticker.textContent =
+            tickerMessages[tickerIndex];
+
+        ticker.style.opacity = "1";
+
+    },300);
+
+},7000);
+
+
+/* =========================================================
+   DEMO LIVE TIME
+========================================================= */
+
+setInterval(() => {
+
+    document
+    .querySelectorAll(".status-live")
+    .forEach(el => {
+
+        el.style.opacity =
+            el.style.opacity === "0.5"
+            ? "1"
+            : "0.5";
+
+    });
+
+},1200);
+
+
+/* =========================================================
+   FUTURE API CONFIGURATION
+========================================================= */
+
+/*
+
+IMPORTANT:
+
+Do NOT put secret API keys directly in this HTML file.
+
+Production architecture:
+
+Website
+   ↓
+Your backend/serverless function
+   ↓
+News API / RSS
+Sports API
+Wikidata / Wikipedia
+   ↓
+JSON
+   ↓
+This website
+
+Example frontend request:
+
+fetch("/api/news")
+.then(response => response.json())
+.then(data => {
+
+    // render news here
+
+});
+
+Example sports:
+
+fetch("/api/sports")
+.then(response => response.json())
+.then(data => {
+
+    // render live scores here
+
+});
+
+*/
+
 
 </script>
 
 
 </body>
 </html>
-```
