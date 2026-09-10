@@ -2,28 +2,40 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>AA Creative Studio | Creative Digital Services</title>
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
-<meta name="description" content="AA Creative Studio - Video Editing, Poster Designing, Ad Making, Graphic Designing and Creative Articles.">
+<title>AA Creative Studio | Creative Design & Video Agency</title>
+
+<meta name="description"
+content="AA Creative Studio creates professional videos, graphics, posters, advertisements, thumbnails and social media content.">
+
+<meta name="keywords"
+content="AA Creative Studio, video editing, graphic design, poster design, advertisement, thumbnail design, social media design">
+
+<meta name="author" content="AA Creative Studio">
+
+<meta property="og:title" content="AA Creative Studio">
+<meta property="og:description" content="We turn ideas into visual impact.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+rel="stylesheet">
 
 <style>
-:root{
-    --bg:#070b14;
-    --card:#0e1524;
-    --card2:#111a2c;
-    --text:#f7f9fc;
-    --muted:#9ca8bb;
-    --accent:#7c5cff;
-    --accent2:#20d4c7;
-    --line:#202a3d;
-}
+
+/* =========================================================
+   GLOBAL
+========================================================= */
 
 *{
-    box-sizing:border-box;
     margin:0;
     padding:0;
+    box-sizing:border-box;
 }
 
 html{
@@ -31,10 +43,10 @@ html{
 }
 
 body{
-    font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
-    background:var(--bg);
-    color:var(--text);
-    line-height:1.6;
+    font-family:'Inter',sans-serif;
+    background:#050505;
+    color:#fff;
+    overflow-x:hidden;
 }
 
 a{
@@ -42,567 +54,1474 @@ a{
     text-decoration:none;
 }
 
+button{
+    font-family:inherit;
+}
+
 .container{
-    width:min(1100px,92%);
+    width:min(1180px,92%);
     margin:auto;
 }
 
-/* NAVIGATION */
-
-nav{
-    position:sticky;
-    top:0;
-    z-index:50;
-    background:rgba(7,11,20,.88);
-    backdrop-filter:blur(14px);
-    border-bottom:1px solid var(--line);
-}
-
-.navin{
-    min-height:72px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:20px;
-}
-
-.logo{
-    font-size:23px;
-    font-weight:900;
-    letter-spacing:-1px;
-}
-
-.logo span{
-    color:var(--accent2);
-}
-
-.navlinks{
-    display:flex;
-    gap:22px;
-    color:#c8d0dd;
-    font-size:14px;
-}
-
-.navlinks a{
-    transition:.2s;
-}
-
-.navlinks a:hover{
-    color:var(--accent2);
-}
-
-/* HERO */
-
-.hero{
-    padding:90px 0 75px;
+section{
     position:relative;
+    padding:110px 0;
     overflow:hidden;
 }
 
-.hero:before{
-    content:"";
-    position:absolute;
-    width:430px;
-    height:430px;
-    border-radius:50%;
-    background:var(--accent);
-    filter:blur(130px);
-    opacity:.18;
-    right:-160px;
-    top:-130px;
+::selection{
+    background:#fff;
+    color:#000;
 }
 
-.badge{
-    display:inline-block;
-    border:1px solid #303b55;
-    background:#0d1422;
-    border-radius:999px;
-    padding:7px 13px;
-    color:#b9c5d8;
-    font-size:13px;
-    margin-bottom:20px;
-}
 
-h1{
-    font-size:clamp(42px,8vw,78px);
-    line-height:.98;
-    letter-spacing:-3px;
-    max-width:850px;
-}
+/* =========================================================
+   LOADER
+========================================================= */
 
-.gradient{
-    background:linear-gradient(100deg,var(--accent2),#8d72ff);
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
-}
-
-.hero p{
-    color:var(--muted);
-    max-width:680px;
-    margin:24px 0;
-    font-size:17px;
-}
-
-.btns{
+.loader{
+    position:fixed;
+    inset:0;
+    background:#050505;
+    z-index:99999;
     display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    transition:1s ease;
+}
+
+.loader.hide{
+    opacity:0;
+    visibility:hidden;
+}
+
+.loader-logo{
+    font-size:clamp(42px,10vw,90px);
+    font-weight:900;
+    letter-spacing:-5px;
+    animation:loaderPulse 1.5s infinite alternate;
+}
+
+.loader-text{
+    margin-top:15px;
+    font-size:12px;
+    letter-spacing:5px;
+    opacity:.55;
+}
+
+.loader-line{
+    width:180px;
+    height:2px;
+    background:#222;
+    margin-top:30px;
+    overflow:hidden;
+}
+
+.loader-line span{
+    display:block;
+    width:0;
+    height:100%;
+    background:#fff;
+    animation:loading 2.2s forwards;
+}
+
+@keyframes loading{
+    to{width:100%;}
+}
+
+@keyframes loaderPulse{
+    from{opacity:.4;transform:scale(.95)}
+    to{opacity:1;transform:scale(1)}
+}
+
+
+/* =========================================================
+   CUSTOM CURSOR
+========================================================= */
+
+.cursor{
+    position:fixed;
+    width:18px;
+    height:18px;
+    border:1px solid rgba(255,255,255,.8);
+    border-radius:50%;
+    pointer-events:none;
+    z-index:10000;
+    transform:translate(-50%,-50%);
+    transition:width .2s,height .2s,background .2s;
+    display:none;
+}
+
+@media(min-width:900px){
+    .cursor{
+        display:block;
+    }
+}
+
+.cursor.big{
+    width:55px;
+    height:55px;
+    background:rgba(255,255,255,.08);
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.bg-grid{
+    position:fixed;
+    inset:0;
+    z-index:-4;
+    opacity:.16;
+    background-image:
+        linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px);
+    background-size:60px 60px;
+    transform:perspective(600px) rotateX(55deg) scale(1.5);
+    transform-origin:center bottom;
+}
+
+.noise{
+    position:fixed;
+    inset:0;
+    z-index:9990;
+    pointer-events:none;
+    opacity:.035;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
+}
+
+.orb{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(80px);
+    opacity:.22;
+    pointer-events:none;
+}
+
+.orb.one{
+    width:400px;
+    height:400px;
+    background:#7b2cff;
+    top:5%;
+    left:-150px;
+    animation:orbMove 12s infinite alternate ease-in-out;
+}
+
+.orb.two{
+    width:350px;
+    height:350px;
+    background:#00d9ff;
+    right:-120px;
+    top:35%;
+    animation:orbMove2 15s infinite alternate ease-in-out;
+}
+
+@keyframes orbMove{
+    to{transform:translate(250px,150px)}
+}
+
+@keyframes orbMove2{
+    to{transform:translate(-200px,-100px)}
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:9000;
+    padding:20px 0;
+    transition:.4s;
+}
+
+.navbar.scrolled{
+    background:rgba(5,5,5,.75);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+    padding:13px 0;
+}
+
+.nav-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:900;
+    letter-spacing:-2px;
+}
+
+.logo span{
+    opacity:.45;
+}
+
+.nav-links{
+    display:flex;
+    gap:30px;
+    align-items:center;
+}
+
+.nav-links a{
+    font-size:13px;
+    color:#aaa;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#fff;
+}
+
+.nav-btn{
+    padding:11px 18px;
+    border:1px solid rgba(255,255,255,.25);
+    border-radius:30px;
+}
+
+.menu-btn{
+    display:none;
+    border:0;
+    background:none;
+    color:#fff;
+    font-size:25px;
+}
+
+@media(max-width:800px){
+
+    .nav-links{
+        position:absolute;
+        top:70px;
+        left:4%;
+        right:4%;
+        background:rgba(10,10,10,.95);
+        backdrop-filter:blur(20px);
+        padding:25px;
+        border:1px solid #222;
+        border-radius:20px;
+        flex-direction:column;
+        display:none;
+    }
+
+    .nav-links.open{
+        display:flex;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding-top:120px;
+}
+
+.hero-content{
+    max-width:900px;
+    position:relative;
+    z-index:2;
+}
+
+.hero-small{
+    display:flex;
+    align-items:center;
     gap:12px;
+    font-size:12px;
+    letter-spacing:4px;
+    color:#aaa;
+    text-transform:uppercase;
+    margin-bottom:30px;
+}
+
+.hero-small span{
+    width:35px;
+    height:1px;
+    background:#fff;
+}
+
+.hero h1{
+    font-size:clamp(58px,10vw,135px);
+    line-height:.86;
+    letter-spacing:-8px;
+    font-weight:900;
+}
+
+.hero h1 .line{
+    display:block;
+    overflow:hidden;
+}
+
+.hero h1 .line span{
+    display:block;
+    animation:titleReveal 1s cubic-bezier(.16,1,.3,1) forwards;
+    transform:translateY(120%);
+}
+
+.hero h1 .line:nth-child(2) span{
+    animation-delay:.15s;
+}
+
+.hero h1 .line:nth-child(3) span{
+    animation-delay:.3s;
+}
+
+@keyframes titleReveal{
+    to{transform:translateY(0)}
+}
+
+.hero-description{
+    max-width:570px;
+    color:#999;
+    font-size:16px;
+    line-height:1.8;
+    margin:35px 0;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:15px;
     flex-wrap:wrap;
 }
 
 .btn{
-    padding:13px 20px;
-    border-radius:12px;
-    font-weight:800;
-    display:inline-block;
-}
-
-.primary{
-    background:linear-gradient(135deg,var(--accent),#5a8cff);
-    box-shadow:0 10px 30px rgba(124,92,255,.20);
-}
-
-.secondary{
-    border:1px solid var(--line);
-    background:#0d1422;
-}
-
-/* SECTIONS */
-
-section{
-    padding:70px 0;
-}
-
-.sectiontag{
-    color:var(--accent2);
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    padding:15px 25px;
+    border-radius:50px;
+    border:1px solid #333;
+    transition:.4s;
     font-size:13px;
-    font-weight:800;
+    font-weight:700;
+}
+
+.btn-primary{
+    background:#fff;
+    color:#000;
+}
+
+.btn:hover{
+    transform:translateY(-5px);
+    box-shadow:0 15px 40px rgba(255,255,255,.1);
+}
+
+.btn-dark{
+    background:#111;
+}
+
+.hero-visual{
+    position:absolute;
+    width:550px;
+    height:550px;
+    right:-100px;
+    top:50%;
+    transform:translateY(-50%);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:50%;
+    animation:rotate 30s linear infinite;
+}
+
+.hero-visual::before,
+.hero-visual::after{
+    content:"";
+    position:absolute;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:50%;
+}
+
+.hero-visual::before{
+    inset:60px;
+}
+
+.hero-visual::after{
+    inset:130px;
+}
+
+.hero-core{
+    position:absolute;
+    width:120px;
+    height:120px;
+    background:#fff;
+    color:#000;
+    border-radius:50%;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:900;
+    animation:pulseCore 2s infinite alternate;
+}
+
+@keyframes rotate{
+    to{transform:translateY(-50%) rotate(360deg)}
+}
+
+@keyframes pulseCore{
+    to{box-shadow:0 0 80px rgba(255,255,255,.35)}
+}
+
+.scroll-indicator{
+    position:absolute;
+    bottom:30px;
+    left:0;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-size:10px;
+    letter-spacing:3px;
+    color:#666;
+}
+
+.scroll-line{
+    width:60px;
+    height:1px;
+    background:#444;
+}
+
+@media(max-width:900px){
+    .hero-visual{
+        opacity:.25;
+        right:-250px;
+    }
+
+    .hero h1{
+        letter-spacing:-5px;
+    }
+}
+
+
+/* =========================================================
+   SECTION TITLES
+========================================================= */
+
+.section-label{
+    font-size:11px;
+    color:#777;
+    letter-spacing:4px;
     text-transform:uppercase;
-    letter-spacing:2px;
+    margin-bottom:20px;
 }
 
-h2{
-    font-size:clamp(30px,5vw,48px);
-    line-height:1.1;
-    margin:8px 0 12px;
-    letter-spacing:-1.5px;
+.section-title{
+    font-size:clamp(40px,7vw,85px);
+    line-height:.95;
+    letter-spacing:-5px;
+    font-weight:900;
 }
 
-.sectionlead{
-    color:var(--muted);
-    max-width:680px;
+.section-title span{
+    color:#555;
 }
 
-/* SERVICES */
 
-.grid{
+/* =========================================================
+   MARQUEE
+========================================================= */
+
+.marquee{
+    border-top:1px solid #222;
+    border-bottom:1px solid #222;
+    padding:25px 0;
+    overflow:hidden;
+    white-space:nowrap;
+}
+
+.marquee-track{
+    display:inline-block;
+    animation:marquee 25s linear infinite;
+}
+
+.marquee-item{
+    font-size:clamp(25px,4vw,50px);
+    font-weight:900;
+    margin-right:50px;
+    color:#222;
+}
+
+.marquee-item b{
+    color:#fff;
+}
+
+@keyframes marquee{
+    to{transform:translateX(-50%)}
+}
+
+
+/* =========================================================
+   SERVICES
+========================================================= */
+
+.services-grid{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:16px;
-    margin-top:30px;
+    gap:1px;
+    background:#222;
+    margin-top:70px;
 }
 
-.card{
-    background:linear-gradient(180deg,var(--card2),#0c1321);
-    border:1px solid var(--line);
-    border-radius:18px;
-    padding:24px;
-    transition:.25s;
+.service-card{
+    min-height:300px;
+    background:#080808;
+    padding:35px;
+    position:relative;
+    overflow:hidden;
+    transition:.5s;
 }
 
-.card:hover{
-    transform:translateY(-5px);
-    border-color:#3b4c70;
+.service-card::before{
+    content:"";
+    position:absolute;
+    width:200px;
+    height:200px;
+    background:radial-gradient(circle,rgba(255,255,255,.15),transparent 70%);
+    top:-100px;
+    right:-100px;
+    transition:.6s;
 }
 
-.icon{
+.service-card:hover::before{
+    transform:scale(2);
+}
+
+.service-card:hover{
+    background:#111;
+    transform:translateY(-8px);
+    z-index:2;
+}
+
+.service-number{
+    font-size:12px;
+    color:#666;
+}
+
+.service-icon{
+    font-size:40px;
+    margin:45px 0 25px;
+}
+
+.service-card h3{
+    font-size:20px;
+    margin-bottom:12px;
+}
+
+.service-card p{
+    color:#777;
+    font-size:13px;
+    line-height:1.7;
+}
+
+.service-arrow{
+    position:absolute;
+    bottom:30px;
+    right:30px;
+    font-size:22px;
+    transition:.4s;
+}
+
+.service-card:hover .service-arrow{
+    transform:translate(5px,-5px);
+}
+
+@media(max-width:900px){
+    .services-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:550px){
+    .services-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+
+/* =========================================================
+   PORTFOLIO
+========================================================= */
+
+.portfolio-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    gap:30px;
+    margin-bottom:50px;
+}
+
+.filters{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.filter{
+    background:#111;
+    border:1px solid #222;
+    color:#888;
+    padding:9px 16px;
+    border-radius:30px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.filter.active,
+.filter:hover{
+    background:#fff;
+    color:#000;
+}
+
+.portfolio-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.project{
+    height:430px;
+    background:#111;
+    position:relative;
+    overflow:hidden;
+    cursor:pointer;
+}
+
+.project-bg{
+    position:absolute;
+    inset:0;
+    background:
+        radial-gradient(circle at 30% 30%,#333,transparent 30%),
+        linear-gradient(135deg,#151515,#050505);
+    transition:.7s;
+}
+
+.project:nth-child(2) .project-bg{
+    background:
+        radial-gradient(circle at 70% 30%,#444,transparent 30%),
+        linear-gradient(135deg,#080808,#222);
+}
+
+.project:nth-child(3) .project-bg{
+    background:
+        radial-gradient(circle at 40% 60%,#555,transparent 25%),
+        linear-gradient(135deg,#222,#050505);
+}
+
+.project:nth-child(4) .project-bg{
+    background:
+        radial-gradient(circle at 80% 70%,#333,transparent 25%),
+        linear-gradient(135deg,#111,#303030);
+}
+
+.project:hover .project-bg{
+    transform:scale(1.12) rotate(1deg);
+}
+
+.project-content{
+    position:absolute;
+    inset:0;
+    padding:30px;
+    display:flex;
+    flex-direction:column;
+    justify-content:end;
+    background:linear-gradient(transparent 35%,rgba(0,0,0,.9));
+}
+
+.project-category{
+    color:#aaa;
+    font-size:11px;
+    letter-spacing:3px;
+    margin-bottom:10px;
+}
+
+.project h3{
     font-size:30px;
-    margin-bottom:15px;
 }
 
-.card h3{
+.project-view{
+    position:absolute;
+    top:25px;
+    right:25px;
+    width:50px;
+    height:50px;
+    border:1px solid rgba(255,255,255,.3);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+@media(max-width:650px){
+    .portfolio-head{
+        display:block;
+    }
+
+    .filters{
+        margin-top:25px;
+    }
+
+    .portfolio-grid{
+        grid-template-columns:1fr;
+    }
+
+    .project{
+        height:350px;
+    }
+}
+
+
+/* =========================================================
+   PROCESS
+========================================================= */
+
+.process{
+    background:#080808;
+}
+
+.process-grid{
+    margin-top:70px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+}
+
+.process-step{
+    border-top:1px solid #333;
+    padding:30px 20px 30px 0;
+    position:relative;
+}
+
+.process-step:not(:last-child){
+    border-right:1px solid #222;
+    margin-right:20px;
+}
+
+.process-step-number{
+    color:#555;
+    font-size:12px;
+}
+
+.process-step h3{
+    margin:45px 0 15px;
+    font-size:22px;
+}
+
+.process-step p{
+    color:#777;
+    font-size:13px;
+    line-height:1.7;
+}
+
+@media(max-width:750px){
+    .process-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .process-step:not(:last-child){
+        border-right:0;
+    }
+}
+
+
+/* =========================================================
+   PRICING
+========================================================= */
+
+.pricing-grid{
+    margin-top:70px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.price-card{
+    background:#0d0d0d;
+    border:1px solid #222;
+    padding:40px;
+    position:relative;
+    transition:.5s;
+}
+
+.price-card:hover{
+    transform:translateY(-10px);
+    border-color:#555;
+}
+
+.price-card.featured{
+    background:#fff;
+    color:#000;
+}
+
+.badge{
+    position:absolute;
+    top:20px;
+    right:20px;
+    background:#000;
+    color:#fff;
+    padding:6px 10px;
+    border-radius:20px;
+    font-size:9px;
+}
+
+.price-card h3{
+    font-size:20px;
+}
+
+.price{
+    font-size:45px;
+    font-weight:900;
+    margin:25px 0;
+}
+
+.price small{
+    font-size:12px;
+    font-weight:400;
+}
+
+.price-card ul{
+    list-style:none;
+    margin:30px 0;
+}
+
+.price-card li{
+    padding:10px 0;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    font-size:13px;
+}
+
+.featured li{
+    border-color:#ddd;
+}
+
+@media(max-width:750px){
+    .pricing-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.stats{
+    border-top:1px solid #222;
+    border-bottom:1px solid #222;
+}
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+}
+
+.stat{
+    text-align:center;
+    padding:35px;
+    border-right:1px solid #222;
+}
+
+.stat:last-child{
+    border:0;
+}
+
+.stat-number{
+    font-size:clamp(40px,6vw,70px);
+    font-weight:900;
+}
+
+.stat p{
+    color:#666;
+    font-size:11px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+@media(max-width:600px){
+    .stats-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .stat{
+        border-bottom:1px solid #222;
+    }
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:80px;
+    align-items:center;
+}
+
+.about-big{
+    font-size:clamp(35px,5vw,65px);
+    line-height:1;
+    font-weight:800;
+    letter-spacing:-3px;
+}
+
+.about-text{
+    color:#888;
+    line-height:1.9;
+    font-size:14px;
+}
+
+.about-points{
+    margin-top:35px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.about-point{
+    border:1px solid #222;
+    padding:20px;
+}
+
+.about-point strong{
+    display:block;
     margin-bottom:7px;
 }
 
-.card p{
-    color:var(--muted);
-    font-size:14px;
+.about-point span{
+    color:#666;
+    font-size:11px;
 }
 
-/* ARTICLES */
-
-.article-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
-    margin-top:30px;
+@media(max-width:750px){
+    .about-grid{
+        grid-template-columns:1fr;
+        gap:40px;
+    }
 }
 
-.article-card{
-    background:linear-gradient(180deg,var(--card2),#0c1321);
-    border:1px solid var(--line);
-    border-radius:18px;
-    overflow:hidden;
-    transition:.25s;
+
+/* =========================================================
+   TESTIMONIALS
+========================================================= */
+
+.testimonials{
+    background:#080808;
 }
 
-.article-card:hover{
-    transform:translateY(-5px);
-    border-color:#3b4c70;
+.testimonial-wrap{
+    max-width:850px;
+    margin:70px auto 0;
+    text-align:center;
 }
 
-.article-image{
-    width:100%;
-    height:190px;
-    object-fit:cover;
-    display:block;
-    background:#151d2d;
-}
-
-.article-body{
-    padding:20px;
-}
-
-.article-category{
-    color:var(--accent2);
-    font-size:12px;
-    font-weight:800;
-    text-transform:uppercase;
-    letter-spacing:1px;
-}
-
-.article-body h3{
-    font-size:21px;
+.quote{
+    font-size:clamp(25px,4vw,45px);
     line-height:1.3;
-    margin:8px 0;
-}
-
-.article-body p{
-    color:var(--muted);
-    font-size:14px;
-    margin-bottom:16px;
-}
-
-.read-btn{
-    display:inline-block;
-    padding:9px 14px;
-    border-radius:9px;
-    background:#171f34;
-    border:1px solid var(--line);
-    font-size:13px;
     font-weight:700;
 }
 
-.article-date{
-    color:#718096;
-    font-size:12px;
-    margin-top:12px;
-}
-
-.loading{
+.client{
     margin-top:30px;
-    padding:30px;
-    text-align:center;
-    color:var(--muted);
-    border:1px solid var(--line);
-    border-radius:18px;
-    background:var(--card);
+    color:#777;
 }
 
-.no-articles{
-    margin-top:30px;
-    padding:30px;
-    text-align:center;
-    color:var(--muted);
-    border:1px solid var(--line);
-    border-radius:18px;
-    background:var(--card);
+.stars{
+    margin-bottom:20px;
+    letter-spacing:5px;
 }
 
-/* ARTICLE READER */
 
-#articleReader{
-    display:none;
-    position:fixed;
-    inset:0;
-    z-index:100;
-    background:rgba(0,0,0,.88);
-    padding:25px;
-    overflow-y:auto;
+/* =========================================================
+   FAQ
+========================================================= */
+
+.faq{
+    max-width:850px;
+    margin:60px auto 0;
 }
 
-.reader-box{
-    width:min(800px,100%);
-    margin:30px auto;
-    background:var(--card);
-    border:1px solid var(--line);
-    border-radius:20px;
-    padding:30px;
+.faq-item{
+    border-bottom:1px solid #222;
 }
 
-.reader-box img{
-    width:100%;
-    max-height:420px;
-    object-fit:cover;
-    border-radius:14px;
-    margin:20px 0;
-}
-
-.reader-box h2{
-    margin-top:8px;
-}
-
-.reader-text{
-    color:#cbd5e1;
-    white-space:pre-wrap;
-    margin-top:20px;
-}
-
-.close-reader{
-    background:#ef4444;
-    color:white;
-    border:0;
-    padding:10px 16px;
-    border-radius:8px;
+.faq-question{
+    padding:25px 0;
+    display:flex;
+    justify-content:space-between;
     cursor:pointer;
-    font-weight:700;
+    font-weight:600;
 }
 
-/* ABOUT */
-
-.about{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:25px;
+.faq-answer{
+    max-height:0;
+    overflow:hidden;
+    color:#777;
+    line-height:1.8;
+    font-size:13px;
+    transition:.5s;
 }
 
-.panel{
-    background:var(--card);
-    border:1px solid var(--line);
-    border-radius:22px;
-    padding:30px;
+.faq-item.open .faq-answer{
+    max-height:200px;
+    padding-bottom:25px;
 }
 
-.panel p{
-    color:var(--muted);
-    margin-top:12px;
+.faq-plus{
+    transition:.4s;
 }
 
-.list{
-    margin-top:20px;
-    display:grid;
-    gap:10px;
+.faq-item.open .faq-plus{
+    transform:rotate(45deg);
 }
 
-.list div{
-    color:#d7deea;
-}
 
-.list b{
-    color:var(--accent2);
-}
-
-/* CONTACT */
-
-.cta{
-    background:linear-gradient(135deg,#151d34,#0d1525);
-    border:1px solid #293653;
-    border-radius:26px;
-    padding:40px;
-    text-align:center;
-}
-
-.cta p{
-    color:var(--muted);
-    max-width:600px;
-    margin:12px auto 22px;
-}
-
-.contactgrid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:15px;
-    margin-top:28px;
-}
+/* =========================================================
+   CONTACT
+========================================================= */
 
 .contact{
-    padding:20px;
-    border:1px solid var(--line);
-    border-radius:16px;
-    background:#0d1422;
+    background:#fff;
+    color:#000;
 }
 
-.contact small{
-    color:var(--muted);
-    display:block;
+.contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:80px;
 }
 
-.contact strong{
-    display:block;
-    margin-top:4px;
-    overflow-wrap:anywhere;
+.contact .section-label{
+    color:#777;
 }
 
-/* FOOTER */
+.contact-title{
+    font-size:clamp(45px,7vw,85px);
+    font-weight:900;
+    line-height:.9;
+    letter-spacing:-5px;
+}
+
+.contact-description{
+    margin-top:25px;
+    color:#666;
+    line-height:1.7;
+}
+
+.contact-form{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.input{
+    border:0;
+    border-bottom:1px solid #ccc;
+    padding:16px 5px;
+    background:transparent;
+    outline:none;
+    font-size:14px;
+}
+
+.input:focus{
+    border-color:#000;
+}
+
+textarea.input{
+    resize:vertical;
+    min-height:100px;
+}
+
+.submit{
+    margin-top:10px;
+    border:0;
+    background:#000;
+    color:#fff;
+    padding:17px;
+    border-radius:40px;
+    cursor:pointer;
+    font-weight:700;
+    transition:.4s;
+}
+
+.submit:hover{
+    transform:translateY(-4px);
+    box-shadow:0 15px 30px rgba(0,0,0,.2);
+}
+
+@media(max-width:750px){
+    .contact-grid{
+        grid-template-columns:1fr;
+        gap:45px;
+    }
+}
+
+
+/* =========================================================
+   SOCIAL
+========================================================= */
+
+.social-section{
+    padding:70px 0;
+}
+
+.social-grid{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:35px;
+}
+
+.social{
+    border:1px solid #222;
+    padding:15px 22px;
+    border-radius:40px;
+    color:#999;
+    transition:.3s;
+}
+
+.social:hover{
+    color:#fff;
+    border-color:#777;
+    transform:translateY(-4px);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
 
 footer{
-    border-top:1px solid var(--line);
-    padding:25px 0;
-    color:#7f8ba0;
-    font-size:13px;
+    padding:50px 0 30px;
+    border-top:1px solid #222;
 }
 
-/* MOBILE */
-
-@media(max-width:800px){
-
-    .navlinks{
-        display:none;
-    }
-
-    .grid{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .article-grid{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .about{
-        grid-template-columns:1fr;
-    }
-
-    .contactgrid{
-        grid-template-columns:1fr;
-    }
-
+.footer-top{
+    display:flex;
+    justify-content:space-between;
+    gap:30px;
+    margin-bottom:60px;
 }
 
-@media(max-width:500px){
-
-    .grid{
-        grid-template-columns:1fr;
-    }
-
-    .article-grid{
-        grid-template-columns:1fr;
-    }
-
-    .hero{
-        padding-top:65px;
-    }
-
-    .hero p{
-        font-size:15px;
-    }
-
-    .panel,
-    .cta,
-    .reader-box{
-        padding:22px;
-    }
-
+.footer-logo{
+    font-size:35px;
+    font-weight:900;
+    letter-spacing:-3px;
 }
 
-/* ANIMATION */
+.footer-links{
+    display:flex;
+    gap:25px;
+    flex-wrap:wrap;
+}
 
-@keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(25px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
+.footer-links a{
+    color:#666;
+    font-size:12px;
+}
+
+.footer-bottom{
+    display:flex;
+    justify-content:space-between;
+    color:#555;
+    font-size:11px;
+}
+
+@media(max-width:650px){
+    .footer-top,
+    .footer-bottom{
+        flex-direction:column;
     }
 }
 
-.hero .badge{
-    animation:fadeUp .6s ease both;
+
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(70px);
+    transition:1s cubic-bezier(.16,1,.3,1);
 }
 
-.hero h1{
-    animation:fadeUp .7s .1s ease both;
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
 }
 
-.hero p{
-    animation:fadeUp .7s .2s ease both;
+
+/* =========================================================
+   PROJECT MODAL
+========================================================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.88);
+    backdrop-filter:blur(15px);
+    z-index:9500;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    opacity:0;
+    visibility:hidden;
+    transition:.4s;
 }
 
-.hero .btns{
-    animation:fadeUp .7s .3s ease both;
+.modal.open{
+    opacity:1;
+    visibility:visible;
+}
+
+.modal-box{
+    width:min(800px,100%);
+    background:#111;
+    border:1px solid #333;
+    padding:40px;
+    position:relative;
+}
+
+.modal-close{
+    position:absolute;
+    top:15px;
+    right:20px;
+    background:none;
+    border:0;
+    color:#fff;
+    font-size:28px;
+    cursor:pointer;
+}
+
+.modal-box h2{
+    font-size:45px;
+    margin-bottom:15px;
+}
+
+.modal-box p{
+    color:#777;
+    line-height:1.8;
+}
+
+
+/* =========================================================
+   WHATSAPP
+========================================================= */
+
+.whatsapp{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    background:#25D366;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:25px;
+    z-index:8000;
+    box-shadow:0 10px 30px rgba(0,0,0,.4);
+    transition:.3s;
+}
+
+.whatsapp:hover{
+    transform:scale(1.1);
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+    *,
+    *::before,
+    *::after{
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
+        transition-duration:.01ms !important;
+        scroll-behavior:auto !important;
+    }
 }
 
 </style>
 </head>
 
+
 <body>
 
-<!-- NAVIGATION -->
+<!-- LOADER -->
 
-<nav>
+<div class="loader" id="loader">
+    <div class="loader-logo">AA</div>
+    <div class="loader-text">CREATIVE STUDIO</div>
+    <div class="loader-line">
+        <span></span>
+    </div>
+</div>
 
-<div class="container navin">
+<div class="noise"></div>
+<div class="bg-grid"></div>
 
-<a href="#" class="logo">
-AA <span>Creative Studio</span>
+
+<!-- NAVBAR -->
+
+<header class="navbar" id="navbar">
+
+<div class="container nav-inner">
+
+<a href="#home" class="logo">
+AA<span>Creative</span>
 </a>
 
-<div class="navlinks">
+<button class="menu-btn" id="menuBtn">
+☰
+</button>
 
+<nav class="nav-links" id="navLinks">
+
+<a href="#home">Home</a>
 <a href="#services">Services</a>
-<a href="#articles">Articles</a>
+<a href="#portfolio">Portfolio</a>
+<a href="#pricing">Pricing</a>
 <a href="#about">About</a>
-<a href="#contact">Contact</a>
+<a href="#faq">FAQ</a>
 
-</div>
-
-</div>
+<a href="#contact" class="nav-btn">
+Let's Talk
+</a>
 
 </nav>
-
-
-<!-- HERO -->
-
-<header class="hero">
-
-<div class="container">
-
-<div class="badge">
-✦ Creative Digital Studio · Hafizabad
-</div>
-
-<h1>
-We turn ideas into
-<span class="gradient">visual impact.</span>
-</h1>
-
-<p>
-AA Creative Studio helps brands, creators and businesses stand out with professional video editing, poster designing, advertising and graphic design.
-</p>
-
-<div class="btns">
-
-<a
-class="btn primary"
-href="https://wa.me/923441459250"
-target="_blank"
->
-Chat on WhatsApp
-</a>
-
-<a
-class="btn secondary"
-href="#services"
->
-Explore Services →
-</a>
-
-</div>
 
 </div>
 
 </header>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+<div class="orb one"></div>
+<div class="orb two"></div>
+
+<div class="container">
+
+<div class="hero-content">
+
+<div class="hero-small">
+<span></span>
+Creative Studio
+</div>
+
+<h1>
+
+<div class="line">
+<span>WE CREATE</span>
+</div>
+
+<div class="line">
+<span>VISUAL</span>
+</div>
+
+<div class="line">
+<span>IMPACT.</span>
+</div>
+
+</h1>
+
+<p class="hero-description">
+We turn ideas into powerful visual experiences.
+From video editing and graphic design to posters,
+advertisements and social media content.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#portfolio" class="btn btn-primary">
+View Our Work →
+</a>
+
+<a href="#contact" class="btn btn-dark">
+Start A Project
+</a>
+
+</div>
+
+</div>
+
+<div class="hero-visual">
+
+<div class="hero-core">
+AA
+</div>
+
+</div>
+
+<div class="scroll-indicator">
+<span class="scroll-line"></span>
+SCROLL TO EXPLORE
+</div>
+
+</div>
+
+</section>
+
+
+<!-- MARQUEE -->
+
+<div class="marquee">
+
+<div class="marquee-track">
+
+<span class="marquee-item">
+<b>VIDEO</b> EDITING
+</span>
+
+<span class="marquee-item">
+<b>GRAPHIC</b> DESIGN
+</span>
+
+<span class="marquee-item">
+<b>POSTER</b> DESIGN
+</span>
+
+<span class="marquee-item">
+<b>AD</b> MAKING
+</span>
+
+<span class="marquee-item">
+<b>SOCIAL</b> MEDIA
+</span>
+
+<span class="marquee-item">
+<b>VIDEO</b> EDITING
+</span>
+
+<span class="marquee-item">
+<b>GRAPHIC</b> DESIGN
+</span>
+
+</div>
+
+</div>
 
 
 <!-- SERVICES -->
@@ -611,50 +1530,165 @@ Explore Services →
 
 <div class="container">
 
-<div class="sectiontag">
-What we do
+<div class="reveal">
+
+<div class="section-label">
+01 — Services
 </div>
 
-<h2>
-Creative services that make you look professional.
+<h2 class="section-title">
+WHAT WE <span>DO.</span>
 </h2>
 
-<p class="sectionlead">
-From short-form content to eye-catching graphics, we create clean, modern visuals designed to get attention.
-</p>
+</div>
 
-<div class="grid">
 
-<div class="card">
-<div class="icon">🎬</div>
+<div class="services-grid reveal">
+
+<div class="service-card">
+
+<div class="service-number">01</div>
+
+<div class="service-icon">🎬</div>
+
 <h3>Video Editing</h3>
+
 <p>
-Engaging edits for social media, reels, promotions and business content.
+Professional editing for YouTube,
+Reels, Shorts, advertisements and
+social media videos.
 </p>
+
+<div class="service-arrow">↗</div>
+
 </div>
 
-<div class="card">
-<div class="icon">🖼️</div>
-<h3>Poster Designing</h3>
+
+<div class="service-card">
+
+<div class="service-number">02</div>
+
+<div class="service-icon">🎨</div>
+
+<h3>Graphic Design</h3>
+
 <p>
-Modern promotional posters, event creatives and social media designs.
+Modern graphics, social media posts,
+branding visuals and promotional
+designs.
 </p>
+
+<div class="service-arrow">↗</div>
+
 </div>
 
-<div class="card">
-<div class="icon">📢</div>
+
+<div class="service-card">
+
+<div class="service-number">03</div>
+
+<div class="service-icon">🖼️</div>
+
+<h3>Poster Design</h3>
+
+<p>
+Eye-catching posters for businesses,
+events, campaigns and social media.
+</p>
+
+<div class="service-arrow">↗</div>
+
+</div>
+
+
+<div class="service-card">
+
+<div class="service-number">04</div>
+
+<div class="service-icon">📢</div>
+
 <h3>Ad Making</h3>
+
 <p>
-Creative advertisements that present your product or service clearly.
+Creative advertisements designed to
+capture attention and communicate
+your message.
 </p>
+
+<div class="service-arrow">↗</div>
+
 </div>
 
-<div class="card">
-<div class="icon">🎨</div>
-<h3>Graphic Designing</h3>
+
+<div class="service-card">
+
+<div class="service-number">05</div>
+
+<div class="service-icon">▶️</div>
+
+<h3>Thumbnail Design</h3>
+
 <p>
-Professional visual designs that help your brand build a strong identity.
+High-impact YouTube thumbnails
+designed to attract clicks.
 </p>
+
+<div class="service-arrow">↗</div>
+
+</div>
+
+
+<div class="service-card">
+
+<div class="service-number">06</div>
+
+<div class="service-icon">✦</div>
+
+<h3>Logo Design</h3>
+
+<p>
+Clean and memorable visual identities
+for brands and businesses.
+</p>
+
+<div class="service-arrow">↗</div>
+
+</div>
+
+
+<div class="service-card">
+
+<div class="service-number">07</div>
+
+<div class="service-icon">📱</div>
+
+<h3>Social Media</h3>
+
+<p>
+Creative content for Instagram,
+Facebook, TikTok and other platforms.
+</p>
+
+<div class="service-arrow">↗</div>
+
+</div>
+
+
+<div class="service-card">
+
+<div class="service-number">08</div>
+
+<div class="service-icon">⚡</div>
+
+<h3>Reels & Shorts</h3>
+
+<p>
+Fast-paced vertical content built
+for modern social platforms.
+</p>
+
+<div class="service-arrow">↗</div>
+
 </div>
 
 </div>
@@ -664,28 +1698,386 @@ Professional visual designs that help your brand build a strong identity.
 </section>
 
 
-<!-- ARTICLES -->
+<!-- PORTFOLIO -->
 
-<section id="articles">
+<section id="portfolio">
 
 <div class="container">
 
-<div class="sectiontag">
-Latest Articles
+<div class="portfolio-head reveal">
+
+<div>
+
+<div class="section-label">
+02 — Selected Work
 </div>
 
-<h2>
-Creative & Useful Articles
+<h2 class="section-title">
+OUR <span>WORK.</span>
 </h2>
 
-<p class="sectionlead">
-Read our latest articles about AI, video editing, design, content creation and digital tools.
+</div>
+
+
+<div class="filters">
+
+<button class="filter active" data-filter="all">
+All
+</button>
+
+<button class="filter" data-filter="video">
+Video
+</button>
+
+<button class="filter" data-filter="design">
+Design
+</button>
+
+<button class="filter" data-filter="ads">
+Ads
+</button>
+
+<button class="filter" data-filter="poster">
+Poster
+</button>
+
+</div>
+
+</div>
+
+
+<div class="portfolio-grid reveal">
+
+
+<div class="project" data-category="video"
+data-title="Cinematic Video Editing">
+
+<div class="project-bg"></div>
+
+<div class="project-content">
+
+<div class="project-category">
+VIDEO EDITING
+</div>
+
+<h3>Cinematic Video</h3>
+
+</div>
+
+<div class="project-view">↗</div>
+
+</div>
+
+
+<div class="project" data-category="design"
+data-title="Creative Graphic Design">
+
+<div class="project-bg"></div>
+
+<div class="project-content">
+
+<div class="project-category">
+GRAPHIC DESIGN
+</div>
+
+<h3>Creative Graphics</h3>
+
+</div>
+
+<div class="project-view">↗</div>
+
+</div>
+
+
+<div class="project" data-category="poster"
+data-title="Modern Poster Design">
+
+<div class="project-bg"></div>
+
+<div class="project-content">
+
+<div class="project-category">
+POSTER DESIGN
+</div>
+
+<h3>Modern Poster</h3>
+
+</div>
+
+<div class="project-view">↗</div>
+
+</div>
+
+
+<div class="project" data-category="ads"
+data-title="Social Media Advertisement">
+
+<div class="project-bg"></div>
+
+<div class="project-content">
+
+<div class="project-category">
+ADVERTISEMENT
+</div>
+
+<h3>Social Campaign</h3>
+
+</div>
+
+<div class="project-view">↗</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PROCESS -->
+
+<section class="process">
+
+<div class="container">
+
+<div class="reveal">
+
+<div class="section-label">
+03 — Process
+</div>
+
+<h2 class="section-title">
+HOW WE <span>WORK.</span>
+</h2>
+
+</div>
+
+
+<div class="process-grid reveal">
+
+<div class="process-step">
+
+<div class="process-step-number">01</div>
+
+<h3>Brief</h3>
+
+<p>
+Tell us about your idea, brand,
+project and requirements.
 </p>
 
-<div id="articlesContainer">
+</div>
 
-<div class="loading">
-Loading articles...
+
+<div class="process-step">
+
+<div class="process-step-number">02</div>
+
+<h3>Concept</h3>
+
+<p>
+We create a visual direction
+that fits your project.
+</p>
+
+</div>
+
+
+<div class="process-step">
+
+<div class="process-step-number">03</div>
+
+<h3>Create</h3>
+
+<p>
+Our creative work turns the
+concept into a finished product.
+</p>
+
+</div>
+
+
+<div class="process-step">
+
+<div class="process-step-number">04</div>
+
+<h3>Deliver</h3>
+
+<p>
+You receive the final project
+ready to use and publish.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PRICING -->
+
+<section id="pricing">
+
+<div class="container">
+
+<div class="reveal">
+
+<div class="section-label">
+04 — Pricing
+</div>
+
+<h2 class="section-title">
+SIMPLE <span>PACKAGES.</span>
+</h2>
+
+</div>
+
+
+<div class="pricing-grid reveal">
+
+
+<div class="price-card">
+
+<h3>Basic</h3>
+
+<div class="price">
+Rs. 1,000
+<small>/ project</small>
+</div>
+
+<ul>
+
+<li>✓ Basic Editing / Design</li>
+<li>✓ HD Quality</li>
+<li>✓ 1 Revision</li>
+<li>✓ Standard Delivery</li>
+
+</ul>
+
+<a href="#contact" class="btn btn-dark">
+Get Started
+</a>
+
+</div>
+
+
+<div class="price-card featured">
+
+<div class="badge">
+POPULAR
+</div>
+
+<h3>Standard</h3>
+
+<div class="price">
+Rs. 2,500
+<small>/ project</small>
+</div>
+
+<ul>
+
+<li>✓ Professional Editing</li>
+<li>✓ Full HD Quality</li>
+<li>✓ 2 Revisions</li>
+<li>✓ Faster Delivery</li>
+
+</ul>
+
+<a href="#contact" class="btn btn-primary">
+Choose Standard
+</a>
+
+</div>
+
+
+<div class="price-card">
+
+<h3>Premium</h3>
+
+<div class="price">
+Custom
+<small>/ quote</small>
+</div>
+
+<ul>
+
+<li>✓ Advanced Project</li>
+<li>✓ Premium Quality</li>
+<li>✓ Multiple Revisions</li>
+<li>✓ Priority Support</li>
+
+</ul>
+
+<a href="#contact" class="btn btn-dark">
+Get Custom Quote
+</a>
+
+</div>
+
+</div>
+
+<p style="color:#555;font-size:11px;margin-top:20px;">
+* Prices are starting prices and may change according to project requirements.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- STATS -->
+
+<section class="stats">
+
+<div class="container">
+
+<div class="stats-grid">
+
+<div class="stat">
+
+<div class="stat-number" data-target="50">
+0
+</div>
+
+<p>Projects</p>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-number" data-target="30">
+0
+</div>
+
+<p>Clients</p>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-number" data-target="100">
+0
+</div>
+
+<p>Designs</p>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-number" data-target="24">
+0
+</div>
+
+<p>Support</p>
+
 </div>
 
 </div>
@@ -701,44 +2093,207 @@ Loading articles...
 
 <div class="container">
 
-<div class="sectiontag">
-About the studio
+<div class="about-grid">
+
+<div class="reveal">
+
+<div class="section-label">
+05 — About
 </div>
 
-<h2>
-Built with creativity, driven by learning.
-</h2>
+<div class="about-big">
+WE DON'T JUST
+CREATE.
+<br>
+WE MAKE
+<br>
+<strong>IMPACT.</strong>
+</div>
 
-<div class="about">
+</div>
 
-<div class="panel">
 
-<h3>
-Meet Ali Abbas
-</h3>
+<div class="reveal">
 
-<p>
-AA Creative Studio is a creative digital studio focused on practical, modern design and content creation.
+<p class="about-text">
+
+AA Creative Studio is a creative design and
+visual content studio focused on turning ideas
+into professional digital experiences.
+
+We create videos, graphics, posters,
+advertisements, thumbnails and social media
+content designed to help brands and creators
+stand out.
+
 </p>
 
+
+<div class="about-points">
+
+<div class="about-point">
+<strong>Creative</strong>
+<span>Fresh visual ideas</span>
 </div>
 
-<div class="panel">
+<div class="about-point">
+<strong>Professional</strong>
+<span>Quality-focused work</span>
+</div>
 
-<h3>
-Why AA Creative Studio?
-</h3>
+<div class="about-point">
+<strong>Fast</strong>
+<span>Efficient workflow</span>
+</div>
 
-<div class="list">
+<div class="about-point">
+<strong>Support</strong>
+<span>Client-focused service</span>
+</div>
 
-<div>✓ <b>Modern</b> & clean designs</div>
+</div>
 
-<div>✓ <b>Creative</b> ideas for your content</div>
+</div>
 
-<div>✓ <b>Professional</b> presentation</div>
+</div>
 
-<div>✓ <b>Mobile-first</b> social media visuals</div>
+</div>
 
+</section>
+
+
+<!-- TESTIMONIALS -->
+
+<section class="testimonials">
+
+<div class="container">
+
+<div class="section-label">
+06 — Testimonials
+</div>
+
+<h2 class="section-title">
+CLIENT <span>WORDS.</span>
+</h2>
+
+
+<div class="testimonial-wrap reveal">
+
+<div class="stars">
+★★★★★
+</div>
+
+<div class="quote" id="quote">
+“Professional creative work with
+great attention to detail.”
+</div>
+
+<div class="client" id="client">
+— Client Review
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FAQ -->
+
+<section id="faq">
+
+<div class="container">
+
+<div class="reveal">
+
+<div class="section-label">
+07 — FAQ
+</div>
+
+<h2 class="section-title">
+QUESTIONS <span>?</span>
+</h2>
+
+</div>
+
+
+<div class="faq reveal">
+
+
+<div class="faq-item">
+
+<div class="faq-question">
+How can I order a project?
+<span class="faq-plus">+</span>
+</div>
+
+<div class="faq-answer">
+You can contact AA Creative Studio through
+WhatsApp or the contact form and send your
+project requirements.
+</div>
+
+</div>
+
+
+<div class="faq-item">
+
+<div class="faq-question">
+How long does a project take?
+<span class="faq-plus">+</span>
+</div>
+
+<div class="faq-answer">
+Delivery time depends on the type and
+complexity of the project. The timeline can
+be confirmed before starting.
+</div>
+
+</div>
+
+
+<div class="faq-item">
+
+<div class="faq-question">
+Can I request revisions?
+<span class="faq-plus">+</span>
+</div>
+
+<div class="faq-answer">
+Yes. Revisions depend on the selected package
+and project requirements.
+</div>
+
+</div>
+
+
+<div class="faq-item">
+
+<div class="faq-question">
+Do you work with YouTube and social media?
+<span class="faq-plus">+</span>
+</div>
+
+<div class="faq-answer">
+Yes. We can create videos, thumbnails,
+graphics, advertisements and other social
+media content.
+</div>
+
+</div>
+
+
+<div class="faq-item">
+
+<div class="faq-question">
+Can I request a custom package?
+<span class="faq-plus">+</span>
+</div>
+
+<div class="faq-answer">
+Yes. Contact us with your requirements and
+we can discuss a custom project and quote.
 </div>
 
 </div>
@@ -752,50 +2307,89 @@ Why AA Creative Studio?
 
 <!-- CONTACT -->
 
-<section id="contact">
+<section class="contact" id="contact">
 
 <div class="container">
 
-<div class="cta">
+<div class="contact-grid">
 
-<div class="sectiontag">
-Let's create
+<div class="reveal">
+
+<div class="section-label">
+08 — Contact
 </div>
 
-<h2>
-Have a project in mind?
+<h2 class="contact-title">
+LET'S CREATE
+<br>
+SOMETHING
+<br>
+GREAT.
 </h2>
 
-<p>
-Tell us what you need and let's turn your idea into something people remember.
+<p class="contact-description">
+Have a project in mind?
+Tell us what you want to create.
 </p>
 
-<a
-class="btn primary"
-href="https://wa.me/923441459250"
-target="_blank"
+</div>
+
+
+<form class="contact-form reveal"
+id="contactForm">
+
+<input
+class="input"
+type="text"
+id="name"
+placeholder="Your Name"
+required
 >
-Start a Project
-</a>
 
-</div>
+<input
+class="input"
+type="email"
+id="email"
+placeholder="Your Email"
+required
+>
 
-<div class="contactgrid">
+<select class="input" id="service">
 
-<div class="contact">
-<small>📞 Phone / WhatsApp</small>
-<strong>0344 1459250</strong>
-</div>
+<option value="">
+Select Service
+</option>
 
-<div class="contact">
-<small>✉️ Email</small>
-<strong>aliabbasalone134@email.com</strong>
-</div>
+<option>Video Editing</option>
+<option>Graphic Design</option>
+<option>Poster Design</option>
+<option>Ad Making</option>
+<option>Thumbnail Design</option>
+<option>Logo Design</option>
+<option>Social Media Design</option>
+<option>Reels & Shorts</option>
 
-<div class="contact">
-<small>📍 Location</small>
-<strong>Hafizabad, Pakistan</strong>
-</div>
+</select>
+
+<input
+class="input"
+type="text"
+id="budget"
+placeholder="Your Budget (Optional)"
+>
+
+<textarea
+class="input"
+id="message"
+placeholder="Tell us about your project..."
+required
+></textarea>
+
+<button class="submit" type="submit">
+SEND PROJECT REQUEST →
+</button>
+
+</form>
 
 </div>
 
@@ -804,25 +2398,47 @@ Start a Project
 </section>
 
 
-<!-- ARTICLE READER -->
+<!-- SOCIAL -->
 
-<div id="articleReader">
+<section class="social-section">
 
-<div class="reader-box">
+<div class="container">
 
-<button
-class="close-reader"
-type="button"
-onclick="closeArticle()"
->
-✕ Close Article
-</button>
+<div class="section-label">
+09 — Connect
+</div>
 
-<div id="readerContent"></div>
+<h2 class="section-title">
+FOLLOW <span>US.</span>
+</h2>
+
+<div class="social-grid">
+
+<a href="#" class="social">
+Instagram
+</a>
+
+<a href="#" class="social">
+Facebook
+</a>
+
+<a href="#" class="social">
+YouTube
+</a>
+
+<a href="#" class="social">
+TikTok
+</a>
+
+<a href="#" class="social">
+WhatsApp
+</a>
 
 </div>
 
 </div>
+
+</section>
 
 
 <!-- FOOTER -->
@@ -831,264 +2447,532 @@ onclick="closeArticle()"
 
 <div class="container">
 
-© 2026 AA Creative Studio · All Rights Reserved.
+<div class="footer-top">
+
+<div class="footer-logo">
+AA Creative
+</div>
+
+<div class="footer-links">
+
+<a href="#home">Home</a>
+<a href="#services">Services</a>
+<a href="#portfolio">Portfolio</a>
+<a href="#pricing">Pricing</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+
+</div>
+
+</div>
+
+
+<div class="footer-bottom">
+
+<span>
+© 2026 AA Creative Studio. All Rights Reserved.
+</span>
+
+<span>
+Designed with creativity.
+</span>
+
+</div>
 
 </div>
 
 </footer>
 
 
+<!-- WHATSAPP -->
+
+<a
+href="https://wa.me/923000000000"
+class="whatsapp"
+target="_blank"
+aria-label="WhatsApp"
+>
+✆
+</a>
+
+
+<!-- PROJECT MODAL -->
+
+<div class="modal" id="modal">
+
+<div class="modal-box">
+
+<button class="modal-close" id="modalClose">
+×
+</button>
+
+<div class="section-label">
+Selected Project
+</div>
+
+<h2 id="modalTitle">
+Project
+</h2>
+
+<p>
+This project preview can be replaced with the
+real portfolio image, video or case study.
+Add your actual completed work here to make
+the portfolio stronger.
+</p>
+
+</div>
+
+</div>
+
+
 <script>
 
-/*
-    PUBLIC ARTICLE SYSTEM
+/* =========================================================
+   LOADER
+========================================================= */
 
-    Articles are loaded from:
-    articles.json
-*/
+window.addEventListener("load",()=>{
+
+    setTimeout(()=>{
+
+        document
+        .getElementById("loader")
+        .classList.add("hide");
+
+    },2200);
+
+});
 
 
-async function loadArticles(){
+/* =========================================================
+   NAVBAR
+========================================================= */
 
-    const container =
-        document.getElementById("articlesContainer");
+const navbar =
+document.getElementById("navbar");
 
-    try{
+window.addEventListener("scroll",()=>{
 
-        const response =
-            await fetch("articles.json", {
-                cache:"no-store"
-            });
+    if(window.scrollY > 50){
+        navbar.classList.add("scrolled");
+    }else{
+        navbar.classList.remove("scrolled");
+    }
 
-        if(!response.ok){
-            throw new Error("articles.json not found");
+});
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const menuBtn =
+document.getElementById("menuBtn");
+
+const navLinks =
+document.getElementById("navLinks");
+
+menuBtn.addEventListener("click",()=>{
+
+    navLinks.classList.toggle("open");
+
+});
+
+document.querySelectorAll(".nav-links a")
+.forEach(link=>{
+
+    link.addEventListener("click",()=>{
+
+        navLinks.classList.remove("open");
+
+    });
+
+});
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const revealElements =
+document.querySelectorAll(".reveal");
+
+const revealObserver =
+new IntersectionObserver((entries)=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("active");
+
         }
 
-        const articles =
-            await response.json();
+    });
 
-        if(!Array.isArray(articles) || articles.length === 0){
+},{
+    threshold:.12
+});
 
-            container.innerHTML =
-                '<div class="no-articles">' +
-                'No articles published yet.' +
-                '</div>';
+revealElements.forEach(el=>{
+    revealObserver.observe(el);
+});
 
-            return;
-        }
 
-        container.innerHTML =
-            '<div class="article-grid" id="articleGrid"></div>';
+/* =========================================================
+   PORTFOLIO FILTER
+========================================================= */
 
-        const grid =
-            document.getElementById("articleGrid");
+const filters =
+document.querySelectorAll(".filter");
 
-        articles
-        .slice()
-        .reverse()
-        .forEach(function(article){
+const projects =
+document.querySelectorAll(".project");
 
-            const card =
-                document.createElement("article");
+filters.forEach(filter=>{
 
-            card.className =
-                "article-card";
+    filter.addEventListener("click",()=>{
 
-            let imageHTML = "";
+        filters.forEach(f=>{
+            f.classList.remove("active");
+        });
 
-            if(article.image && article.image.trim() !== ""){
+        filter.classList.add("active");
 
-                imageHTML =
-                    '<img class="article-image" src="' +
-                    escapeHTML(article.image) +
-                    '" alt="' +
-                    escapeHTML(article.title || "Article") +
-                    '">';
+        const category =
+        filter.dataset.filter;
+
+        projects.forEach(project=>{
+
+            if(
+                category === "all" ||
+                project.dataset.category === category
+            ){
+
+                project.style.display="block";
+
+                setTimeout(()=>{
+                    project.style.opacity="1";
+                    project.style.transform="scale(1)";
+                },50);
 
             }else{
 
-                imageHTML =
-                    '<div class="article-image"></div>';
+                project.style.opacity="0";
+                project.style.transform="scale(.9)";
+
+                setTimeout(()=>{
+                    project.style.display="none";
+                },300);
 
             }
 
-            const preview =
-                String(article.content || "")
-                .replace(/\s+/g," ")
-                .substring(0,160);
+        });
 
-            card.innerHTML =
+    });
 
-                imageHTML +
+});
 
-                '<div class="article-body">' +
 
-                '<div class="article-category">' +
-                escapeHTML(article.category || "Article") +
-                '</div>' +
+/* =========================================================
+   PROJECT MODAL
+========================================================= */
 
-                '<h3>' +
-                escapeHTML(article.title || "Untitled Article") +
-                '</h3>' +
+const modal =
+document.getElementById("modal");
 
-                '<p>' +
-                escapeHTML(preview) +
-                (String(article.content || "").length > 160 ? "..." : "") +
-                '</p>' +
+const modalTitle =
+document.getElementById("modalTitle");
 
-                "<a href=\"article.html?id=" + encodeURIComponent(article.id || "") + "\" class=\"read-btn\">" +
+const modalClose =
+document.getElementById("modalClose");
 
-                'Read Article →' +
+projects.forEach(project=>{
 
-                '</a>' +
+    project.addEventListener("click",()=>{
 
-                '<div class="article-date">' +
-                escapeHTML(article.date || "") +
-                '</div>' +
+        modalTitle.textContent =
+        project.dataset.title;
 
-                '</div>';
+        modal.classList.add("open");
 
-            grid.appendChild(card);
+    });
+
+});
+
+modalClose.addEventListener("click",()=>{
+
+    modal.classList.remove("open");
+
+});
+
+modal.addEventListener("click",(e)=>{
+
+    if(e.target === modal){
+        modal.classList.remove("open");
+    }
+
+});
+
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+document.querySelectorAll(".faq-item")
+.forEach(item=>{
+
+    item.querySelector(".faq-question")
+    .addEventListener("click",()=>{
+
+        item.classList.toggle("open");
+
+    });
+
+});
+
+
+/* =========================================================
+   STATS COUNTER
+========================================================= */
+
+const stats =
+document.querySelectorAll(".stat-number");
+
+let statsStarted=false;
+
+const statsObserver =
+new IntersectionObserver((entries)=>{
+
+    if(
+        entries[0].isIntersecting &&
+        !statsStarted
+    ){
+
+        statsStarted=true;
+
+        stats.forEach(stat=>{
+
+            const target =
+            Number(stat.dataset.target);
+
+            let current=0;
+
+            const increment =
+            Math.max(1,Math.ceil(target/60));
+
+            const timer =
+            setInterval(()=>{
+
+                current += increment;
+
+                if(current >= target){
+
+                    current=target;
+                    clearInterval(timer);
+
+                }
+
+                stat.textContent =
+                current + "+";
+
+            },25);
 
         });
 
+    }
 
-        document
-        .querySelectorAll(".read-btn")
-        .forEach(function(button){
+},{threshold:.5});
 
-            button.addEventListener("click", function(event){
+if(stats.length){
+    statsObserver.observe(stats[0].parentElement);
+}
 
-                event.preventDefault();
 
-                openArticle(
-                    this.getAttribute("data-id")
-                );
+/* =========================================================
+   TESTIMONIAL SLIDER
+========================================================= */
 
-            });
+const testimonials = [
 
-        });
+{
+    quote:"“Professional creative work with great attention to detail.”",
+    client:"— Client Review"
+},
 
-    }catch(error){
+{
+    quote:"“The design looked modern, clean and exactly what we needed.”",
+    client:"— Client Review"
+},
 
-        console.error(error);
+{
+    quote:"“Great communication and a creative approach to the project.”",
+    client:"— Client Review"
+}
 
-        container.innerHTML =
-            '<div class="no-articles">' +
-            '<strong>Articles are temporarily unavailable.</strong>' +
-            '<br><br>' +
-            'Please try again later.' +
-            '</div>';
+];
+
+let testimonialIndex=0;
+
+setInterval(()=>{
+
+    testimonialIndex++;
+
+    if(testimonialIndex >= testimonials.length){
+        testimonialIndex=0;
+    }
+
+    const quote =
+    document.getElementById("quote");
+
+    const client =
+    document.getElementById("client");
+
+    quote.style.opacity="0";
+    client.style.opacity="0";
+
+    setTimeout(()=>{
+
+        quote.textContent =
+        testimonials[testimonialIndex].quote;
+
+        client.textContent =
+        testimonials[testimonialIndex].client;
+
+        quote.style.opacity="1";
+        client.style.opacity="1";
+
+    },400);
+
+},4500);
+
+
+/* =========================================================
+   CONTACT FORM → WHATSAPP
+========================================================= */
+
+document
+.getElementById("contactForm")
+.addEventListener("submit",(e)=>{
+
+    e.preventDefault();
+
+    const name =
+    document.getElementById("name").value;
+
+    const email =
+    document.getElementById("email").value;
+
+    const service =
+    document.getElementById("service").value;
+
+    const budget =
+    document.getElementById("budget").value;
+
+    const message =
+    document.getElementById("message").value;
+
+
+    const phone =
+    "923000000000";
+
+
+    const text =
+`Hello AA Creative Studio!
+
+Name: ${name}
+
+Email: ${email}
+
+Service: ${service}
+
+Budget: ${budget || "Not specified"}
+
+Project Details:
+${message}`;
+
+
+    const url =
+    "https://wa.me/" +
+    phone +
+    "?text=" +
+    encodeURIComponent(text);
+
+
+    window.open(url,"_blank");
+
+});
+
+
+/* =========================================================
+   CUSTOM CURSOR
+========================================================= */
+
+const cursor =
+document.createElement("div");
+
+cursor.className="cursor";
+
+document.body.appendChild(cursor);
+
+document.addEventListener("mousemove",(e)=>{
+
+    cursor.style.left=e.clientX+"px";
+    cursor.style.top=e.clientY+"px";
+
+});
+
+document.querySelectorAll("a,button,.project")
+.forEach(el=>{
+
+    el.addEventListener("mouseenter",()=>{
+        cursor.classList.add("big");
+    });
+
+    el.addEventListener("mouseleave",()=>{
+        cursor.classList.remove("big");
+    });
+
+});
+
+
+/* =========================================================
+   PARALLAX HERO
+========================================================= */
+
+document.addEventListener("mousemove",(e)=>{
+
+    const visual =
+    document.querySelector(".hero-visual");
+
+    if(!visual) return;
+
+    const x =
+    (window.innerWidth/2-e.clientX)/40;
+
+    const y =
+    (window.innerHeight/2-e.clientY)/40;
+
+    visual.style.marginLeft=x+"px";
+    visual.style.marginTop=y+"px";
+
+});
+
+
+/* =========================================================
+   ESC CLOSE MODAL
+========================================================= */
+
+document.addEventListener("keydown",(e)=>{
+
+    if(e.key==="Escape"){
+
+        modal.classList.remove("open");
 
     }
 
-}
-
-
-/* OPEN ARTICLE */
-
-async function openArticle(id){
-
-    try{
-
-        const response =
-            await fetch("articles.json", {
-                cache:"no-store"
-            });
-
-        const articles =
-            await response.json();
-
-        const article =
-            articles.find(function(item){
-
-                return String(item.id) === String(id);
-
-            });
-
-        if(!article){
-            return;
-        }
-
-        let imageHTML = "";
-
-        if(article.image && article.image.trim() !== ""){
-
-            imageHTML =
-                '<img src="' +
-                escapeHTML(article.image) +
-                '" alt="' +
-                escapeHTML(article.title) +
-                '">';
-
-        }
-
-        document.getElementById("readerContent").innerHTML =
-
-            '<div class="article-category">' +
-            escapeHTML(article.category || "Article") +
-            '</div>' +
-
-            '<h2>' +
-            escapeHTML(article.title || "Untitled Article") +
-            '</h2>' +
-
-            '<div class="article-date">' +
-            escapeHTML(article.date || "") +
-            '</div>' +
-
-            imageHTML +
-
-            '<div class="reader-text">' +
-            escapeHTML(article.content || "") +
-            '</div>';
-
-        document.getElementById("articleReader").style.display =
-            "block";
-
-        document.body.style.overflow =
-            "hidden";
-
-    }catch(error){
-
-        console.error(error);
-
-    }
-
-}
-
-
-/* CLOSE ARTICLE */
-
-function closeArticle(){
-
-    document.getElementById("articleReader").style.display =
-        "none";
-
-    document.body.style.overflow =
-        "";
-
-}
-
-
-/* ESCAPE HTML */
-
-function escapeHTML(value){
-
-    const div =
-        document.createElement("div");
-
-    div.textContent =
-        String(value || "");
-
-    return div.innerHTML;
-
-}
-
-
-/* START */
-
-loadArticles();
+});
 
 </script>
 
