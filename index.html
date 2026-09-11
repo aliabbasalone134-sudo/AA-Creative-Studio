@@ -1,5117 +1,1179 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<script>
 
-    <!-- =========================================================
-         BASIC DOCUMENT SETTINGS
-    ========================================================== -->
+    /* =====================================================
+       YEAR
+    ====================================================== */
 
-    <meta charset="UTF-8">
+    const currentYear =
+        document.getElementById("currentYear");
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <meta
-        name="theme-color"
-        content="#080b14"
-    >
-
-    <meta
-        name="color-scheme"
-        content="dark"
-    >
-
-    <!-- =========================================================
-         SEO
-    ========================================================== -->
-
-    <title>
-        AA Creative Studio | Pakistan News, Live Sports & People
-    </title>
-
-    <meta
-        name="description"
-        content="AA Creative Studio — Pakistan's modern digital information portal for latest news, live sports scores, biographies, trending stories and trusted news channels."
-    >
-
-    <meta
-        name="keywords"
-        content="Pakistan news, latest Pakistan news, live cricket score, football live score, hockey, tennis, sports updates, biographies, people search, Pakistani news channels, AA Creative Studio"
-    >
-
-    <meta
-        name="author"
-        content="AA Creative Studio"
-    >
-
-    <meta
-        name="robots"
-        content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
-    >
-
-    <link
-        rel="canonical"
-        href="https://taupe-scone-b2397c.netlify.app/"
-    >
-
-    <!-- =========================================================
-         OPEN GRAPH
-    ========================================================== -->
-
-    <meta
-        property="og:type"
-        content="website"
-    >
-
-    <meta
-        property="og:title"
-        content="AA Creative Studio | News, Sports & People"
-    >
-
-    <meta
-        property="og:description"
-        content="Latest Pakistan news, live sports, biographies, trending stories and digital information."
-    >
-
-    <meta
-        property="og:url"
-        content="https://taupe-scone-b2397c.netlify.app/"
-    >
-
-    <meta
-        property="og:site_name"
-        content="AA Creative Studio"
-    >
-
-    <!-- =========================================================
-         TWITTER / X
-    ========================================================== -->
-
-    <meta
-        name="twitter:card"
-        content="summary_large_image"
-    >
-
-    <meta
-        name="twitter:title"
-        content="AA Creative Studio"
-    >
-
-    <meta
-        name="twitter:description"
-        content="Pakistan news, live sports, biographies and trending information."
-    >
-
-    <!-- =========================================================
-         FONTS
-    ========================================================== -->
-
-    <link
-        rel="preconnect"
-        href="https://fonts.googleapis.com"
-    >
-
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap"
-        rel="stylesheet"
-    >
-
-    <!-- =========================================================
-         ICONS
-    ========================================================== -->
-
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    >
-
-    <!-- =========================================================
-         STRUCTURED DATA
-    ========================================================== -->
-
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "AA Creative Studio",
-        "url": "https://taupe-scone-b2397c.netlify.app/",
-        "description": "Pakistan news, live sports, biographies and digital information portal.",
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://taupe-scone-b2397c.netlify.app/?search={search_term_string}",
-            "query-input": "required name=search_term_string"
-        }
+    if (currentYear) {
+        currentYear.textContent =
+            new Date().getFullYear();
     }
-    </script>
 
-    <!-- =========================================================
-         MAIN CSS
-    ========================================================== -->
 
-    <style>
+    /* =====================================================
+       MOBILE MENU
+    ====================================================== */
 
-        /* =====================================================
-           ROOT VARIABLES
-        ====================================================== */
+    const menuButton =
+        document.getElementById("menuButton");
 
-        :root {
+    const mobileNav =
+        document.getElementById("mobileNav");
 
-            --bg-main: #070910;
-            --bg-secondary: #0b0f1a;
-            --bg-card: #101522;
-            --bg-card-2: #141a29;
+    const mobileClose =
+        document.getElementById("mobileClose");
 
-            --white: #ffffff;
-            --text-main: #f4f7ff;
-            --text-secondary: #a9b2c7;
-            --text-muted: #707b92;
+    const mobileOverlay =
+        document.getElementById("mobileOverlay");
 
-            --border: rgba(255,255,255,0.08);
-            --border-light: rgba(255,255,255,0.13);
 
-            --red: #ff3b5c;
-            --red-soft: #ff526f;
+    function openMobileMenu() {
 
-            --green: #18d67b;
-            --green-soft: #2ee98e;
-
-            --blue: #3f8cff;
-            --blue-soft: #62a1ff;
-
-            --orange: #ff9d42;
-            --yellow: #ffd84d;
-
-            --purple: #a66cff;
-            --pink: #ff5db1;
-
-            --cyan: #20d9e8;
-
-            --shadow:
-                0 20px 60px rgba(0,0,0,0.32);
-
-            --shadow-small:
-                0 10px 30px rgba(0,0,0,0.22);
-
-            --radius-xl: 28px;
-            --radius-lg: 22px;
-            --radius-md: 16px;
-            --radius-sm: 12px;
-
-            --container: 1440px;
-
-            --transition:
-                0.25s ease;
-
-        }
-
-
-        /* =====================================================
-           RESET
-        ====================================================== */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-
-        body {
-
-            background:
-                radial-gradient(
-                    circle at 10% 0%,
-                    rgba(63,140,255,0.09),
-                    transparent 28%
-                ),
-                radial-gradient(
-                    circle at 90% 10%,
-                    rgba(166,108,255,0.07),
-                    transparent 25%
-                ),
-                var(--bg-main);
-
-            color: var(--text-main);
-
-            font-family:
-                "Inter",
-                Arial,
-                sans-serif;
-
-            line-height: 1.6;
-
-            overflow-x: hidden;
-        }
-
-
-        body::selection {
-            background: var(--blue);
-            color: white;
-        }
-
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-
-        button,
-        input {
-            font-family: inherit;
-        }
-
-
-        button {
-            border: none;
-            cursor: pointer;
-        }
-
-
-        img {
-            max-width: 100%;
-            display: block;
-        }
-
-
-        /* =====================================================
-           SCROLLBAR
-        ====================================================== */
-
-        ::-webkit-scrollbar {
-            width: 9px;
-        }
-
-
-        ::-webkit-scrollbar-track {
-            background: #05070c;
-        }
-
-
-        ::-webkit-scrollbar-thumb {
-            background:
-                linear-gradient(
-                    var(--blue),
-                    var(--purple)
-                );
-
-            border-radius: 20px;
-        }
-
-
-        /* =====================================================
-           GLOBAL CONTAINER
-        ====================================================== */
-
-        .container {
-
-            width: min(
-                calc(100% - 40px),
-                var(--container)
-            );
-
-            margin-inline: auto;
-        }
-
-
-        /* =====================================================
-           TOP TICKER
-        ====================================================== */
-
-        .top-ticker {
-
-            height: 38px;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    #111827,
-                    #0b1020,
-                    #111827
-                );
-
-            border-bottom:
-                1px solid var(--border);
-
-            display: flex;
-            align-items: center;
-
-            overflow: hidden;
-        }
-
-
-        .ticker-inner {
-
-            display: flex;
-            align-items: center;
-
-            gap: 18px;
-
-            white-space: nowrap;
-        }
-
-
-        .ticker-label {
-
-            display: inline-flex;
-
-            align-items: center;
-
-            gap: 8px;
-
-            color: var(--red);
-
-            font-size: 11px;
-
-            font-weight: 800;
-
-            letter-spacing: 1.3px;
-
-            text-transform: uppercase;
-        }
-
-
-        .ticker-dot {
-
-            width: 7px;
-            height: 7px;
-
-            border-radius: 50%;
-
-            background: var(--red);
-
-            box-shadow:
-                0 0 12px var(--red);
-
-            animation:
-                pulse 1.4s infinite;
-        }
-
-
-        .ticker-text {
-
-            color: var(--text-secondary);
-
-            font-size: 12px;
-
-            font-weight: 500;
-        }
-
-
-        @keyframes pulse {
-
-            0%,
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-
-            50% {
-                opacity: 0.45;
-                transform: scale(0.75);
-            }
-
-        }
-
-
-        /* =====================================================
-           NAVIGATION
-        ====================================================== */
-
-        .navbar {
-
-            position: sticky;
-
-            top: 0;
-
-            z-index: 1000;
-
-            background:
-                rgba(7,9,16,0.82);
-
-            backdrop-filter:
-                blur(20px);
-
-            -webkit-backdrop-filter:
-                blur(20px);
-
-            border-bottom:
-                1px solid var(--border);
-        }
-
-
-        .nav-inner {
-
-            min-height: 78px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            gap: 30px;
-        }
-
-
-        /* =====================================================
-           LOGO
-        ====================================================== */
-
-        .brand {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 12px;
-
-            flex-shrink: 0;
-        }
-
-
-        .brand-mark {
-
-            width: 45px;
-            height: 45px;
-
-            border-radius: 14px;
-
-            display: grid;
-
-            place-items: center;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--blue),
-                    var(--purple)
-                );
-
-            box-shadow:
-                0 8px 30px
-                rgba(63,140,255,0.28);
-
-            font-size: 19px;
-
-            font-weight: 900;
-        }
-
-
-        .brand-text {
-
-            display: flex;
-
-            flex-direction: column;
-
-            line-height: 1.1;
-        }
-
-
-        .brand-name {
-
-            font-size: 17px;
-
-            font-weight: 900;
-
-            letter-spacing: -0.5px;
-        }
-
-
-        .brand-subtitle {
-
-            margin-top: 4px;
-
-            color: var(--text-muted);
-
-            font-size: 9px;
-
-            font-weight: 700;
-
-            letter-spacing: 1.7px;
-
-            text-transform: uppercase;
-        }
-
-
-        /* =====================================================
-           NAV LINKS
-        ====================================================== */
-
-        .nav-links {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 4px;
-
-            list-style: none;
-        }
-
-
-        .nav-links a {
-
-            display: inline-flex;
-
-            align-items: center;
-
-            gap: 7px;
-
-            padding: 10px 12px;
-
-            border-radius: 10px;
-
-            color: var(--text-secondary);
-
-            font-size: 12px;
-
-            font-weight: 700;
-
-            transition:
-                var(--transition);
-        }
-
-
-        .nav-links a:hover {
-
-            color: var(--white);
-
-            background:
-                rgba(255,255,255,0.06);
-        }
-
-
-        .nav-links a i {
-            font-size: 11px;
-        }
-
-
-        .nav-news:hover {
-            color: var(--red) !important;
-        }
-
-
-        .nav-sports:hover {
-            color: var(--green) !important;
-        }
-
-
-        .nav-people:hover {
-            color: var(--cyan) !important;
-        }
-
-
-        .nav-channels:hover {
-            color: var(--purple) !important;
-        }
-
-
-        /* =====================================================
-           NAV ACTIONS
-        ====================================================== */
-
-        .nav-actions {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 9px;
-        }
-
-
-        .nav-search {
-
-            width: 40px;
-            height: 40px;
-
-            display: grid;
-
-            place-items: center;
-
-            border:
-                1px solid var(--border);
-
-            border-radius: 12px;
-
-            background:
-                rgba(255,255,255,0.035);
-
-            color: var(--text-secondary);
-
-            transition:
-                var(--transition);
-        }
-
-
-        .nav-search:hover {
-
-            color: white;
-
-            border-color:
-                rgba(63,140,255,0.4);
-
-            background:
-                rgba(63,140,255,0.08);
-        }
-
-
-        .live-button {
-
-            display: inline-flex;
-
-            align-items: center;
-
-            gap: 8px;
-
-            padding: 11px 15px;
-
-            border-radius: 12px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--red),
-                    #ff1642
-                );
-
-            color: white;
-
-            font-size: 11px;
-
-            font-weight: 800;
-
-            box-shadow:
-                0 8px 25px
-                rgba(255,59,92,0.2);
-        }
-
-
-        .live-button span {
-
-            width: 6px;
-            height: 6px;
-
-            border-radius: 50%;
-
-            background: white;
-
-            animation:
-                pulse 1.2s infinite;
-        }
-
-
-        .menu-button {
-
-            display: none;
-
-            width: 40px;
-            height: 40px;
-
-            border-radius: 12px;
-
-            background:
-                rgba(255,255,255,0.05);
-
-            color: white;
-
-            font-size: 17px;
-        }
-
-
-        /* =====================================================
-           HERO
-        ====================================================== */
-
-        .hero {
-
-            position: relative;
-
-            padding:
-                82px 0 65px;
-
-            overflow: hidden;
-        }
-
-
-        .hero::before {
-
-            content: "";
-
-            position: absolute;
-
-            width: 500px;
-            height: 500px;
-
-            top: -220px;
-            left: -200px;
-
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(63,140,255,0.16),
-                    transparent 68%
-                );
-
-            pointer-events: none;
-        }
-
-
-        .hero::after {
-
-            content: "";
-
-            position: absolute;
-
-            width: 600px;
-            height: 600px;
-
-            right: -280px;
-            top: -200px;
-
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(166,108,255,0.12),
-                    transparent 68%
-                );
-
-            pointer-events: none;
-        }
-
-
-        .hero-grid {
-
-            position: relative;
-
-            z-index: 1;
-
-            display: grid;
-
-            grid-template-columns:
-                minmax(0, 1.35fr)
-                minmax(320px, 0.65fr);
-
-            gap: 25px;
-
-            align-items: stretch;
-        }
-
-
-        .hero-main {
-
-            min-height: 490px;
-
-            padding: 50px;
-
-            border:
-                1px solid var(--border);
-
-            border-radius:
-                var(--radius-xl);
-
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(17,24,39,0.95),
-                    rgba(10,14,24,0.9)
-                );
-
-            box-shadow:
-                var(--shadow);
-
-            position: relative;
-
-            overflow: hidden;
-        }
-
-
-        .hero-main::before {
-
-            content: "";
-
-            position: absolute;
-
-            width: 340px;
-            height: 340px;
-
-            right: -100px;
-            bottom: -140px;
-
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(32,217,232,0.11),
-                    transparent 70%
-                );
-        }
-
-
-        .hero-badge {
-
-            display: inline-flex;
-
-            align-items: center;
-
-            gap: 8px;
-
-            padding: 7px 11px;
-
-            border:
-                1px solid
-                rgba(63,140,255,0.25);
-
-            border-radius: 999px;
-
-            background:
-                rgba(63,140,255,0.08);
-
-            color: var(--blue-soft);
-
-            font-size: 10px;
-
-            font-weight: 800;
-
-            letter-spacing: 1.1px;
-
-            text-transform: uppercase;
-        }
-
-
-        .hero-badge i {
-            font-size: 9px;
-        }
-
-
-        .hero-title {
-
-            max-width: 820px;
-
-            margin-top: 24px;
-
-            font-family:
-                "Playfair Display",
-                Georgia,
-                serif;
-
-            font-size:
-                clamp(42px, 5.3vw, 76px);
-
-            line-height: 1.02;
-
-            letter-spacing: -2.8px;
-        }
-
-
-        .hero-title .gradient {
-
-            background:
-                linear-gradient(
-                    90deg,
-                    var(--blue),
-                    var(--cyan),
-                    var(--purple)
-                );
-
-            -webkit-background-clip: text;
-
-            background-clip: text;
-
-            color: transparent;
-        }
-
-
-        .hero-description {
-
-            max-width: 680px;
-
-            margin-top: 23px;
-
-            color: var(--text-secondary);
-
-            font-size: 15px;
-
-            line-height: 1.85;
-        }
-
-
-        .hero-actions {
-
-            display: flex;
-
-            align-items: center;
-
-            flex-wrap: wrap;
-
-            gap: 12px;
-
-            margin-top: 32px;
-        }
-
-
-        .primary-btn {
-
-            display: inline-flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            gap: 9px;
-
-            min-height: 48px;
-
-            padding:
-                0 19px;
-
-            border-radius: 13px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--blue),
-                    #725cff
-                );
-
-            color: white;
-
-            font-size: 12px;
-
-            font-weight: 800;
-
-            box-shadow:
-                0 12px 35px
-                rgba(63,140,255,0.22);
-
-            transition:
-                var(--transition);
-        }
-
-
-        .primary-btn:hover {
-
-            transform:
-                translateY(-2px);
-
-            box-shadow:
-                0 17px 40px
-                rgba(63,140,255,0.3);
-        }
-
-
-        .secondary-btn {
-
-            display: inline-flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            gap: 9px;
-
-            min-height: 48px;
-
-            padding:
-                0 19px;
-
-            border:
-                1px solid var(--border-light);
-
-            border-radius: 13px;
-
-            background:
-                rgba(255,255,255,0.035);
-
-            color: var(--text-main);
-
-            font-size: 12px;
-
-            font-weight: 800;
-
-            transition:
-                var(--transition);
-        }
-
-
-        .secondary-btn:hover {
-
-            background:
-                rgba(255,255,255,0.08);
-
-            transform:
-                translateY(-2px);
-        }
-
-
-        /* =====================================================
-           HERO SIDE CARDS
-        ====================================================== */
-
-        .hero-side {
-
-            display: grid;
-
-            grid-template-rows:
-                1fr 1fr;
-
-            gap: 25px;
-        }
-
-
-        .hero-side-card {
-
-            position: relative;
-
-            padding: 30px;
-
-            border:
-                1px solid var(--border);
-
-            border-radius:
-                var(--radius-xl);
-
-            background:
-                var(--bg-card);
-
-            overflow: hidden;
-
-            transition:
-                var(--transition);
-        }
-
-
-        .hero-side-card:hover {
-
-            transform:
-                translateY(-4px);
-
-            border-color:
-                var(--border-light);
-
-            box-shadow:
-                var(--shadow-small);
-        }
-
-
-        .hero-side-card::after {
-
-            content: "";
-
-            position: absolute;
-
-            width: 180px;
-            height: 180px;
-
-            right: -80px;
-            bottom: -90px;
-
-            border-radius: 50%;
-
-            background:
-                radial-gradient(
-                    circle,
-                    currentColor,
-                    transparent 68%
-                );
-
-            opacity: 0.08;
-        }
-
-
-        .hero-side-card.news {
-            color: var(--red);
-        }
-
-
-        .hero-side-card.sports {
-            color: var(--green);
-        }
-
-
-        .hero-card-icon {
-
-            width: 48px;
-            height: 48px;
-
-            display: grid;
-
-            place-items: center;
-
-            border-radius: 15px;
-
-            background:
-                currentColor;
-
-            color: var(--bg-main);
-
-            font-size: 17px;
-        }
-
-
-        .hero-card-title {
-
-            margin-top: 22px;
-
-            color: white;
-
-            font-size: 20px;
-
-            font-weight: 900;
-
-            letter-spacing: -0.5px;
-        }
-
-
-        .hero-card-text {
-
-            margin-top: 9px;
-
-            color: var(--text-muted);
-
-            font-size: 12px;
-
-            line-height: 1.7;
-        }
-
-
-        .hero-card-link {
-
-            display: inline-flex;
-
-            align-items: center;
-
-            gap: 7px;
-
-            margin-top: 19px;
-
-            color: currentColor;
-
-            font-size: 11px;
-
-            font-weight: 800;
-        }
-
-
-        /* =====================================================
-           SECTION COMMON
-        ====================================================== */
-
-        .section {
-
-            padding:
-                72px 0;
-        }
-
-
-        .section-header {
-
-            display: flex;
-
-            align-items: end;
-
-            justify-content: space-between;
-
-            gap: 20px;
-
-            margin-bottom: 28px;
-        }
-
-
-        .section-heading {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 13px;
-        }
-
-
-        .section-icon {
-
-            width: 42px;
-            height: 42px;
-
-            display: grid;
-
-            place-items: center;
-
-            border-radius: 13px;
-
-            font-size: 15px;
-        }
-
-
-        .section-icon.red {
-
-            background:
-                rgba(255,59,92,0.12);
-
-            color: var(--red);
-        }
-
-
-        .section-icon.green {
-
-            background:
-                rgba(24,214,123,0.12);
-
-            color: var(--green);
-        }
-
-
-        .section-icon.cyan {
-
-            background:
-                rgba(32,217,232,0.12);
-
-            color: var(--cyan);
-        }
-
-
-        .section-icon.purple {
-
-            background:
-                rgba(166,108,255,0.12);
-
-            color: var(--purple);
-        }
-
-
-        .section-icon.orange {
-
-            background:
-                rgba(255,157,66,0.12);
-
-            color: var(--orange);
-        }
-
-
-        .section-title {
-
-            font-size: 26px;
-
-            font-weight: 900;
-
-            letter-spacing: -1px;
-        }
-
-
-        .section-subtitle {
-
-            margin-top: 3px;
-
-            color: var(--text-muted);
-
-            font-size: 11px;
-        }
-
-
-        .section-link {
-
-            display: inline-flex;
-
-            align-items: center;
-
-            gap: 7px;
-
-            color: var(--text-secondary);
-
-            font-size: 11px;
-
-            font-weight: 800;
-
-            transition:
-                var(--transition);
-        }
-
-
-        .section-link:hover {
-            color: white;
-        }
-
-
-        /* =====================================================
-           NEWS SECTION
-        ====================================================== */
-
-        .news-layout {
-
-            display: grid;
-
-            grid-template-columns:
-                minmax(0, 1fr)
-                320px;
-
-            gap: 24px;
-        }
-
-
-        .news-list {
-
-            display: grid;
-
-            gap: 12px;
-        }
-
-
-        .news-item {
-
-            display: grid;
-
-            grid-template-columns:
-                82px
-                minmax(0, 1fr)
-                auto;
-
-            gap: 17px;
-
-            align-items: center;
-
-            padding: 14px;
-
-            border:
-                1px solid var(--border);
-
-            border-radius:
-                var(--radius-md);
-
-            background:
-                var(--bg-card);
-
-            transition:
-                var(--transition);
-        }
-
-
-        .news-item:hover {
-
-            transform:
-                translateX(3px);
-
-            background:
-                var(--bg-card-2);
-
-            border-color:
-                rgba(255,59,92,0.22);
-        }
-
-
-        .news-image {
-
-            width: 82px;
-            height: 72px;
-
-            display: grid;
-
-            place-items: center;
-
-            border-radius: 12px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #1c2435,
-                    #111827
-                );
-
-            color: var(--red);
-
-            font-size: 20px;
-        }
-
-
-        .news-category {
-
-            color: var(--red);
-
-            font-size: 9px;
-
-            font-weight: 900;
-
-            letter-spacing: 1.2px;
-
-            text-transform: uppercase;
-        }
-
-
-        .news-title {
-
-            margin-top: 4px;
-
-            color: white;
-
-            font-size: 14px;
-
-            font-weight: 800;
-
-            line-height: 1.45;
-        }
-
-
-        .news-description {
-
-            margin-top: 4px;
-
-            color: var(--text-muted);
-
-            font-size: 10px;
-
-            display: -webkit-box;
-
-            -webkit-line-clamp: 2;
-
-            -webkit-box-orient: vertical;
-
-            overflow: hidden;
-        }
-
-
-        .news-time {
-
-            align-self: start;
-
-            padding-top: 4px;
-
-            color: var(--text-muted);
-
-            font-size: 9px;
-
-            font-weight: 700;
-
-            white-space: nowrap;
-        }
-
-
-        /* =====================================================
-           TRENDING PANEL
-        ====================================================== */
-
-        .trending-panel {
-
-            padding: 24px;
-
-            border:
-                1px solid var(--border);
-
-            border-radius:
-                var(--radius-lg);
-
-            background:
-                linear-gradient(
-                    145deg,
-                    #141421,
-                    #101522
-                );
-        }
-
-
-        .trending-head {
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            padding-bottom: 18px;
-
-            border-bottom:
-                1px solid var(--border);
-        }
-
-
-        .trending-title {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 9px;
-
-            font-size: 14px;
-
-            font-weight: 900;
-        }
-
-
-        .trending-title i {
-            color: var(--yellow);
-        }
-
-
-        .trend-list {
-
-            display: grid;
-
-            gap: 18px;
-
-            padding-top: 19px;
-        }
-
-
-        .trend-item {
-
-            display: grid;
-
-            grid-template-columns:
-                32px
-                1fr;
-
-            gap: 11px;
-        }
-
-
-        .trend-number {
-
-            color:
-                rgba(255,255,255,0.2);
-
-            font-size: 18px;
-
-            font-weight: 900;
-        }
-
-
-        .trend-item a {
-
-            display: block;
-
-            color: var(--text-secondary);
-
-            font-size: 11px;
-
-            font-weight: 700;
-
-            line-height: 1.5;
-
-            transition:
-                var(--transition);
-        }
-
-
-        .trend-item a:hover {
-            color: white;
-        }
-
-
-        .trend-meta {
-
-            margin-top: 4px;
-
-            color: var(--text-muted);
-
-            font-size: 8px;
-        }
-
-
-        /* =====================================================
-           SPORTS
-        ====================================================== */
-
-        .sports-section {
-
-            background:
-                linear-gradient(
-                    180deg,
-                    transparent,
-                    rgba(24,214,123,0.025),
-                    transparent
-                );
-        }
-
-
-        .sports-tabs {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 8px;
-
-            overflow-x: auto;
-
-            padding-bottom: 4px;
-
-            margin-bottom: 22px;
-        }
-
-
-        .sports-tabs::-webkit-scrollbar {
-            height: 0;
-        }
-
-
-        .sport-tab {
-
-            flex-shrink: 0;
-
-            display: inline-flex;
-
-            align-items: center;
-
-            gap: 8px;
-
-            padding:
-                10px 14px;
-
-            border:
-                1px solid var(--border);
-
-            border-radius: 11px;
-
-            background:
-                rgba(255,255,255,0.025);
-
-            color: var(--text-muted);
-
-            font-size: 10px;
-
-            font-weight: 800;
-
-            transition:
-                var(--transition);
-        }
-
-
-        .sport-tab:hover {
-
-            color: white;
-
-            border-color:
-                rgba(24,214,123,0.25);
-        }
-
-
-        .sport-tab.active {
-
-            background:
-                rgba(24,214,123,0.1);
-
-            color: var(--green);
-
-            border-color:
-                rgba(24,214,123,0.3);
-        }
-
-
-        .sports-grid {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(4, minmax(0, 1fr));
-
-            gap: 15px;
-        }
-
-
-        .sport-card {
-
-            position: relative;
-
-            min-height: 180px;
-
-            padding: 22px;
-
-            border:
-                1px solid var(--border);
-
-            border-radius:
-                var(--radius-lg);
-
-            background:
-                var(--bg-card);
-
-            overflow: hidden;
-
-            transition:
-                var(--transition);
-        }
-
-
-        .sport-card:hover {
-
-            transform:
-                translateY(-5px);
-
-            border-color:
-                rgba(255,255,255,0.15);
-
-            box-shadow:
-                var(--shadow-small);
-        }
-
-
-        .sport-card::after {
-
-            content: "";
-
-            position: absolute;
-
-            width: 150px;
-            height: 150px;
-
-            right: -70px;
-            bottom: -80px;
-
-            border-radius: 50%;
-
-            background:
-                currentColor;
-
-            opacity: 0.07;
-        }
-
-
-        .sport-card.cricket {
-            color: var(--green);
-        }
-
-
-        .sport-card.football {
-            color: var(--blue);
-        }
-
-
-        .sport-card.hockey {
-            color: var(--orange);
-        }
-
-
-        .sport-card.tennis {
-            color: var(--yellow);
-        }
-
-
-        .sport-card.basketball {
-            color: var(--red);
-        }
-
-
-        .sport-card.volleyball {
-            color: var(--purple);
-        }
-
-
-        .sport-card.kabaddi {
-            color: var(--cyan);
-        }
-
-
-        .sport-card.motorsport {
-            color: var(--pink);
-        }
-
-
-        .sport-icon {
-
-            width: 45px;
-            height: 45px;
-
-            display: grid;
-
-            place-items: center;
-
-            border-radius: 14px;
-
-            background:
-                currentColor;
-
-            color: var(--bg-main);
-
-            font-size: 17px;
-        }
-
-
-        .sport-name {
-
-            margin-top: 19px;
-
-            color: white;
-
-            font-size: 15px;
-
-            font-weight: 900;
-        }
-
-
-        .sport-status {
-
-            display: inline-flex;
-
-            align-items: center;
-
-            gap: 6px;
-
-            margin-top: 8px;
-
-            color: var(--text-muted);
-
-            font-size: 9px;
-
-            font-weight: 700;
-        }
-
-
-        .status-dot {
-
-            width: 5px;
-            height: 5px;
-
-            border-radius: 50%;
-
-            background: currentColor;
-        }
-
-
-        /* =====================================================
-           PEOPLE SEARCH
-        ====================================================== */
-
-        .people-section {
-
-            position: relative;
-
-            overflow: hidden;
-        }
-
-
-        .people-section::before {
-
-            content: "";
-
-            position: absolute;
-
-            width: 500px;
-            height: 500px;
-
-            left: -250px;
-            top: 0;
-
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(32,217,232,0.07),
-                    transparent 68%
-                );
-        }
-
-
-        .people-search-box {
-
-            position: relative;
-
-            z-index: 1;
-
-            padding: 38px;
-
-            border:
-                1px solid
-                rgba(32,217,232,0.13);
-
-            border-radius:
-                var(--radius-xl);
-
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(16,26,37,0.96),
-                    rgba(12,17,28,0.96)
-                );
-        }
-
-
-        .people-search-heading {
-
-            max-width: 680px;
-
-            font-size: 29px;
-
-            font-weight: 900;
-
-            letter-spacing: -1px;
-        }
-
-
-        .people-search-heading span {
-            color: var(--cyan);
-        }
-
-
-        .people-search-text {
-
-            max-width: 680px;
-
-            margin-top: 8px;
-
-            color: var(--text-muted);
-
-            font-size: 12px;
-        }
-
-
-        .search-form {
-
-            display: flex;
-
-            gap: 10px;
-
-            margin-top: 25px;
-
-            max-width: 850px;
-        }
-
-
-        .search-input-wrap {
-
-            position: relative;
-
-            flex: 1;
-        }
-
-
-        .search-input-wrap i {
-
-            position: absolute;
-
-            left: 16px;
-
-            top: 50%;
-
-            transform:
-                translateY(-50%);
-
-            color: var(--text-muted);
-
-            font-size: 13px;
-        }
-
-
-        .search-input {
-
-            width: 100%;
-
-            min-height: 52px;
-
-            padding:
-                0 18px 0 45px;
-
-            border:
-                1px solid var(--border-light);
-
-            border-radius: 13px;
-
-            outline: none;
-
-            background:
-                rgba(0,0,0,0.22);
-
-            color: white;
-
-            font-size: 12px;
-
-            transition:
-                var(--transition);
-        }
-
-
-        .search-input::placeholder {
-            color: #626d82;
-        }
-
-
-        .search-input:focus {
-
-            border-color:
-                rgba(32,217,232,0.45);
-
-            box-shadow:
-                0 0 0 4px
-                rgba(32,217,232,0.06);
-        }
-
-
-        .search-submit {
-
-            min-width: 125px;
-
-            min-height: 52px;
-
-            padding: 0 18px;
-
-            border-radius: 13px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--cyan),
-                    var(--blue)
-                );
-
-            color: #031014;
-
-            font-size: 11px;
-
-            font-weight: 900;
-
-            transition:
-                var(--transition);
-        }
-
-
-        .search-submit:hover {
-
-            transform:
-                translateY(-2px);
-
-            box-shadow:
-                0 12px 30px
-                rgba(32,217,232,0.18);
-        }
-
-
-        .popular-searches {
-
-            display: flex;
-
-            align-items: center;
-
-            flex-wrap: wrap;
-
-            gap: 8px;
-
-            margin-top: 16px;
-        }
-
-
-        .popular-label {
-
-            color: var(--text-muted);
-
-            font-size: 9px;
-
-            font-weight: 700;
-        }
-
-
-        .person-tag {
-
-            padding:
-                6px 9px;
-
-            border:
-                1px solid var(--border);
-
-            border-radius: 8px;
-
-            background:
-                rgba(255,255,255,0.025);
-
-            color: var(--text-secondary);
-
-            font-size: 9px;
-
-            cursor: pointer;
-
-            transition:
-                var(--transition);
-        }
-
-
-        .person-tag:hover {
-
-            color: var(--cyan);
-
-            border-color:
-                rgba(32,217,232,0.25);
-        }
-
-
-        /* =====================================================
-           CHANNELS
-        ====================================================== */
-
-        .channels-section {
-
-            background:
-                linear-gradient(
-                    180deg,
-                    transparent,
-                    rgba(166,108,255,0.025),
-                    transparent
-                );
-        }
-
-
-        .channels-grid {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(4, minmax(0, 1fr));
-
-            gap: 13px;
-        }
-
-
-        .channel-card {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 13px;
-
-            padding: 17px;
-
-            border:
-                1px solid var(--border);
-
-            border-radius:
-                var(--radius-md);
-
-            background:
-                var(--bg-card);
-
-            transition:
-                var(--transition);
-        }
-
-
-        .channel-card:hover {
-
-            transform:
-                translateY(-3px);
-
-            background:
-                var(--bg-card-2);
-
-            border-color:
-                rgba(166,108,255,0.22);
-        }
-
-
-        .channel-logo {
-
-            width: 43px;
-            height: 43px;
-
-            flex-shrink: 0;
-
-            display: grid;
-
-            place-items: center;
-
-            border-radius: 12px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #242c40,
-                    #151a28
-                );
-
-            color: var(--purple);
-
-            font-size: 14px;
-
-            font-weight: 900;
-        }
-
-
-        .channel-name {
-
-            color: white;
-
-            font-size: 11px;
-
-            font-weight: 800;
-        }
-
-
-        .channel-type {
-
-            margin-top: 2px;
-
-            color: var(--text-muted);
-
-            font-size: 8px;
-
-            font-weight: 600;
-        }
-
-
-        .channel-arrow {
-
-            margin-left: auto;
-
-            color: var(--text-muted);
-
-            font-size: 9px;
-
-            transition:
-                var(--transition);
-        }
-
-
-        .channel-card:hover .channel-arrow {
-            color: var(--purple);
-        }
-
-
-        /* =====================================================
-           CATEGORIES
-        ====================================================== */
-
-        .category-grid {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(6, minmax(0, 1fr));
-
-            gap: 12px;
-        }
-
-
-        .category-card {
-
-            min-height: 125px;
-
-            padding: 19px;
-
-            border:
-                1px solid var(--border);
-
-            border-radius:
-                var(--radius-md);
-
-            background:
-                var(--bg-card);
-
-            transition:
-                var(--transition);
-        }
-
-
-        .category-card:hover {
-
-            transform:
-                translateY(-4px);
-
-            box-shadow:
-                var(--shadow-small);
-        }
-
-
-        .category-icon {
-
-            width: 38px;
-            height: 38px;
-
-            display: grid;
-
-            place-items: center;
-
-            border-radius: 11px;
-
-            font-size: 13px;
-        }
-
-
-        .category-card h3 {
-
-            margin-top: 14px;
-
-            color: white;
-
-            font-size: 11px;
-
-            font-weight: 800;
-        }
-
-
-        .category-card p {
-
-            margin-top: 3px;
-
-            color: var(--text-muted);
-
-            font-size: 8px;
-        }
-
-
-        .cat-red .category-icon {
-
-            background:
-                rgba(255,59,92,0.1);
-
-            color: var(--red);
-        }
-
-
-        .cat-blue .category-icon {
-
-            background:
-                rgba(63,140,255,0.1);
-
-            color: var(--blue);
-        }
-
-
-        .cat-orange .category-icon {
-
-            background:
-                rgba(255,157,66,0.1);
-
-            color: var(--orange);
-        }
-
-
-        .cat-purple .category-icon {
-
-            background:
-                rgba(166,108,255,0.1);
-
-            color: var(--purple);
-        }
-
-
-        .cat-cyan .category-icon {
-
-            background:
-                rgba(32,217,232,0.1);
-
-            color: var(--cyan);
-        }
-
-
-        .cat-green .category-icon {
-
-            background:
-                rgba(24,214,123,0.1);
-
-            color: var(--green);
-        }
-
-
-        /* =====================================================
-           FOOTER
-        ====================================================== */
-
-        .footer {
-
-            margin-top: 50px;
-
-            padding:
-                65px 0 25px;
-
-            border-top:
-                1px solid var(--border);
-
-            background:
-                #05070d;
-        }
-
-
-        .footer-grid {
-
-            display: grid;
-
-            grid-template-columns:
-                1.4fr
-                repeat(3, 1fr);
-
-            gap: 40px;
-        }
-
-
-        .footer-brand {
-
-            max-width: 360px;
-        }
-
-
-        .footer-brand .brand {
-            margin-bottom: 17px;
-        }
-
-
-        .footer-description {
-
-            color: var(--text-muted);
-
-            font-size: 10px;
-
-            line-height: 1.8;
-        }
-
-
-        .footer-heading {
-
-            margin-bottom: 16px;
-
-            color: white;
-
-            font-size: 11px;
-
-            font-weight: 900;
-        }
-
-
-        .footer-links {
-
-            display: grid;
-
-            gap: 9px;
-
-            list-style: none;
-        }
-
-
-        .footer-links a {
-
-            color: var(--text-muted);
-
-            font-size: 10px;
-
-            transition:
-                var(--transition);
-        }
-
-
-        .footer-links a:hover {
-            color: white;
-        }
-
-
-        .footer-bottom {
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            gap: 20px;
-
-            margin-top: 50px;
-
-            padding-top: 20px;
-
-            border-top:
-                1px solid var(--border);
-
-            color: var(--text-muted);
-
-            font-size: 9px;
-        }
-
-
-        .footer-social {
-
-            display: flex;
-
-            gap: 7px;
-        }
-
-
-        .social {
-
-            width: 32px;
-            height: 32px;
-
-            display: grid;
-
-            place-items: center;
-
-            border:
-                1px solid var(--border);
-
-            border-radius: 9px;
-
-            color: var(--text-muted);
-
-            transition:
-                var(--transition);
-        }
-
-
-        .social:hover {
-
-            color: white;
-
-            background:
-                rgba(255,255,255,0.06);
-        }
-
-
-        /* =====================================================
-           BACK TO TOP
-        ====================================================== */
-
-        .back-top {
-
-            position: fixed;
-
-            right: 22px;
-            bottom: 22px;
-
-            width: 42px;
-            height: 42px;
-
-            display: grid;
-
-            place-items: center;
-
-            border:
-                1px solid var(--border-light);
-
-            border-radius: 12px;
-
-            background:
-                rgba(12,16,26,0.88);
-
-            backdrop-filter:
-                blur(15px);
-
-            color: white;
-
-            opacity: 0;
-
-            visibility: hidden;
-
-            transform:
-                translateY(10px);
-
-            transition:
-                var(--transition);
-
-            z-index: 900;
-        }
-
-
-        .back-top.show {
-
-            opacity: 1;
-
-            visibility: visible;
-
-            transform:
-                translateY(0);
-        }
-
-
-        /* =====================================================
-           MOBILE NAV
-        ====================================================== */
-
-        .mobile-nav {
-
-            display: none;
-
-            position: fixed;
-
-            inset:
-                0 0 0 auto;
-
-            width: min(330px, 86vw);
-
-            z-index: 2000;
-
-            padding: 25px;
-
-            background:
-                #0b0f19;
-
-            border-left:
-                1px solid var(--border);
-
-            box-shadow:
-                -20px 0 60px
-                rgba(0,0,0,0.45);
-
-            transform:
-                translateX(100%);
-
-            transition:
-                0.3s ease;
-        }
-
-
-        .mobile-nav.open {
-
-            display: block;
-
-            transform:
-                translateX(0);
-        }
-
-
-        .mobile-close {
-
-            width: 40px;
-            height: 40px;
-
-            display: grid;
-
-            place-items: center;
-
-            margin-left: auto;
-
-            border-radius: 11px;
-
-            background:
-                rgba(255,255,255,0.05);
-
-            color: white;
-        }
-
-
-        .mobile-links {
-
-            display: grid;
-
-            gap: 7px;
-
-            margin-top: 35px;
-
-            list-style: none;
-        }
-
-
-        .mobile-links a {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 12px;
-
-            padding: 14px;
-
-            border-radius: 12px;
-
-            color: var(--text-secondary);
-
-            font-size: 12px;
-
-            font-weight: 800;
-        }
-
-
-        .mobile-links a:hover {
-
-            color: white;
-
-            background:
-                rgba(255,255,255,0.05);
-        }
-
-
-        .mobile-overlay {
-
-            position: fixed;
-
-            inset: 0;
-
-            z-index: 1900;
-
-            background:
-                rgba(0,0,0,0.55);
-
-            opacity: 0;
-
-            visibility: hidden;
-
-            transition:
-                var(--transition);
-        }
-
-
-        .mobile-overlay.show {
-
-            opacity: 1;
-
-            visibility: visible;
-        }
-
-
-        /* =====================================================
-           REVEAL ANIMATION
-        ====================================================== */
-
-        .reveal {
-
-            opacity: 0;
-
-            transform:
-                translateY(20px);
-
-            transition:
-                0.65s ease;
-        }
-
-
-        .reveal.visible {
-
-            opacity: 1;
-
-            transform:
-                translateY(0);
-        }
-
-
-        /* =====================================================
-           RESPONSIVE — 1200
-        ====================================================== */
-
-        @media (max-width: 1200px) {
-
-            .sports-grid {
-                grid-template-columns:
-                    repeat(3, minmax(0, 1fr));
-            }
-
-            .channels-grid {
-                grid-template-columns:
-                    repeat(3, minmax(0, 1fr));
-            }
-
-            .category-grid {
-                grid-template-columns:
-                    repeat(4, minmax(0, 1fr));
-            }
-
-        }
-
-
-        /* =====================================================
-           RESPONSIVE — 950
-        ====================================================== */
-
-        @media (max-width: 950px) {
-
-            .nav-links {
-                display: none;
-            }
-
-            .menu-button {
-                display: grid;
-                place-items: center;
-            }
-
-            .hero-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-main {
-                min-height: auto;
-            }
-
-            .news-layout {
-                grid-template-columns: 1fr;
-            }
-
-            .trending-panel {
-                order: 2;
-            }
-
-            .footer-grid {
-                grid-template-columns:
-                    repeat(2, 1fr);
-            }
-
-        }
-
-
-        /* =====================================================
-           RESPONSIVE — 700
-        ====================================================== */
-
-        @media (max-width: 700px) {
-
-            .container {
-                width:
-                    min(
-                        calc(100% - 26px),
-                        var(--container)
-                    );
-            }
-
-            .top-ticker {
-                height: 34px;
-            }
-
-            .nav-inner {
-                min-height: 68px;
-            }
-
-            .live-button {
-                display: none;
-            }
-
-            .hero {
-                padding:
-                    45px 0 40px;
-            }
-
-            .hero-main {
-                padding: 30px 24px;
-                border-radius: 21px;
-            }
-
-            .hero-title {
-                font-size: 42px;
-                letter-spacing: -1.8px;
-            }
-
-            .hero-description {
-                font-size: 13px;
-            }
-
-            .hero-side {
-                grid-template-rows: 1fr;
-            }
-
-            .section {
-                padding:
-                    50px 0;
-            }
-
-            .section-header {
-                align-items: start;
-            }
-
-            .section-link {
-                display: none;
-            }
-
-            .section-title {
-                font-size: 22px;
-            }
-
-            .news-item {
-                grid-template-columns:
-                    64px
-                    minmax(0,1fr);
-            }
-
-            .news-image {
-                width: 64px;
-                height: 64px;
-            }
-
-            .news-time {
-                display: none;
-            }
-
-            .sports-grid {
-                grid-template-columns:
-                    repeat(2, minmax(0, 1fr));
-            }
-
-            .channels-grid {
-                grid-template-columns:
-                    repeat(2, minmax(0, 1fr));
-            }
-
-            .category-grid {
-                grid-template-columns:
-                    repeat(2, minmax(0, 1fr));
-            }
-
-            .people-search-box {
-                padding: 27px 20px;
-            }
-
-            .people-search-heading {
-                font-size: 23px;
-            }
-
-            .search-form {
-                flex-direction: column;
-            }
-
-            .search-submit {
-                width: 100%;
-            }
-
-            .footer-grid {
-                grid-template-columns:
-                    1fr 1fr;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-
-                align-items: flex-start;
-            }
-
-        }
-
-
-        /* =====================================================
-           RESPONSIVE — 450
-        ====================================================== */
-
-        @media (max-width: 450px) {
-
-            .brand-subtitle {
-                display: none;
-            }
-
-            .brand-name {
-                font-size: 15px;
-            }
-
-            .brand-mark {
-                width: 40px;
-                height: 40px;
-            }
-
-            .hero-title {
-                font-size: 36px;
-            }
-
-            .hero-actions {
-                flex-direction: column;
-
-                align-items: stretch;
-            }
-
-            .primary-btn,
-            .secondary-btn {
-                width: 100%;
-            }
-
-            .sports-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .sport-card {
-                min-height: 150px;
-
-                padding: 17px;
-            }
-
-            .channels-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-grid {
-                grid-template-columns:
-                    1fr;
-            }
-
-        }
-
-    </style>
-
-</head>
-
-
-<body>
-
-    <!-- =========================================================
-         TOP LIVE TICKER
-    ========================================================== -->
-
-    <div class="top-ticker">
-
-        <div class="container">
-
-            <div class="ticker-inner">
-
-                <div class="ticker-label">
-
-                    <span class="ticker-dot"></span>
-
-                    LIVE
-
-                </div>
-
-                <div
-                    class="ticker-text"
-                    id="tickerText"
-                >
-                    AA Creative Studio — Pakistan's digital
-                    information hub
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- =========================================================
-         NAVIGATION
-    ========================================================== -->
-
-    <header class="navbar">
-
-        <div class="container">
-
-            <div class="nav-inner">
-
-                <a
-                    href="#home"
-                    class="brand"
-                    aria-label="AA Creative Studio Home"
-                >
-
-                    <div class="brand-mark">
-                        AA
-                    </div>
-
-                    <div class="brand-text">
-
-                        <div class="brand-name">
-                            AA Creative Studio
-                        </div>
-
-                        <div class="brand-subtitle">
-                            Information • Media • Culture
-                        </div>
-
-                    </div>
-
-                </a>
-
-
-                <nav>
-
-                    <ul class="nav-links">
-
-                        <li>
-                            <a
-                                href="#news"
-                                class="nav-news"
-                            >
-                                <i class="fa-solid fa-newspaper"></i>
-                                News
-                            </a>
-                        </li>
-
-                        <li>
-                            <a
-                                href="#sports"
-                                class="nav-sports"
-                            >
-                                <i class="fa-solid fa-trophy"></i>
-                                Sports
-                            </a>
-                        </li>
-
-                        <li>
-                            <a
-                                href="#people"
-                                class="nav-people"
-                            >
-                                <i class="fa-solid fa-user"></i>
-                                People
-                            </a>
-                        </li>
-
-                        <li>
-                            <a
-                                href="#channels"
-                                class="nav-channels"
-                            >
-                                <i class="fa-solid fa-tv"></i>
-                                Channels
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#categories">
-                                <i class="fa-solid fa-layer-group"></i>
-                                Explore
-                            </a>
-                        </li>
-
-                    </ul>
-
-                </nav>
-
-
-                <div class="nav-actions">
-
-                    <button
-                        class="nav-search"
-                        id="navSearchButton"
-                        aria-label="Search"
-                    >
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </button>
-
-
-                    <a
-                        href="#sports"
-                        class="live-button"
-                    >
-                        <span></span>
-                        LIVE SPORTS
-                    </a>
-
-
-                    <button
-                        class="menu-button"
-                        id="menuButton"
-                        aria-label="Open menu"
-                    >
-                        <i class="fa-solid fa-bars"></i>
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </header>
-
-
-    <!-- =========================================================
-         MOBILE OVERLAY
-    ========================================================== -->
-
-    <div
-        class="mobile-overlay"
-        id="mobileOverlay"
-    ></div>
-
-
-    <!-- =========================================================
-         MOBILE NAV
-    ========================================================== -->
-
-    <aside
-        class="mobile-nav"
-        id="mobileNav"
-    >
-
-        <button
-            class="mobile-close"
-            id="mobileClose"
-            aria-label="Close menu"
-        >
-            <i class="fa-solid fa-xmark"></i>
-        </button>
-
-
-        <ul class="mobile-links">
-
-            <li>
-                <a href="#home">
-                    <i class="fa-solid fa-house"></i>
-                    Home
-                </a>
-            </li>
-
-            <li>
-                <a href="#news">
-                    <i class="fa-solid fa-newspaper"></i>
-                    Pakistan News
-                </a>
-            </li>
-
-            <li>
-                <a href="#sports">
-                    <i class="fa-solid fa-trophy"></i>
-                    Live Sports
-                </a>
-            </li>
-
-            <li>
-                <a href="#people">
-                    <i class="fa-solid fa-user"></i>
-                    People & Biographies
-                </a>
-            </li>
-
-            <li>
-                <a href="#channels">
-                    <i class="fa-solid fa-tv"></i>
-                    News Channels
-                </a>
-            </li>
-
-            <li>
-                <a href="#categories">
-                    <i class="fa-solid fa-layer-group"></i>
-                    Explore Categories
-                </a>
-            </li>
-
-        </ul>
-
-    </aside>
-
-
-    <!-- =========================================================
-         MAIN
-    ========================================================== -->
-
-    <main id="home">
-
-
-        <!-- =====================================================
-             HERO
-        ====================================================== -->
-
-        <section class="hero">
-
-            <div class="container">
-
-                <div class="hero-grid">
-
-
-                    <!-- HERO MAIN -->
-
-                    <div class="hero-main reveal">
-
-                        <div class="hero-badge">
-
-                            <i class="fa-solid fa-sparkles"></i>
-
-                            Pakistan Digital Information Hub
-
-                        </div>
-
-
-                        <h1 class="hero-title">
-
-                            Know what is
-                            <span class="gradient">
-                                happening.
-                            </span>
-
-                            <br>
-
-                            Discover who
-                            <span class="gradient">
-                                matters.
-                            </span>
-
-                        </h1>
-
-
-                        <p class="hero-description">
-
-                            Latest Pakistan news, live sports,
-                            biographies, trending stories and
-                            trusted information — brought together
-                            in one modern digital platform.
-
-                        </p>
-
-
-                        <div class="hero-actions">
-
-                            <a
-                                href="#news"
-                                class="primary-btn"
-                            >
-                                <i class="fa-solid fa-bolt"></i>
-                                Explore Latest News
-                            </a>
-
-
-                            <a
-                                href="#sports"
-                                class="secondary-btn"
-                            >
-                                <i class="fa-solid fa-chart-simple"></i>
-                                Live Sports
-                            </a>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- HERO SIDE -->
-
-                    <div class="hero-side">
-
-
-                        <article
-                            class="hero-side-card news reveal"
-                        >
-
-                            <div class="hero-card-icon">
-
-                                <i class="fa-solid fa-newspaper"></i>
-
-                            </div>
-
-
-                            <h2 class="hero-card-title">
-                                Pakistan News
-                            </h2>
-
-
-                            <p class="hero-card-text">
-
-                                Latest headlines from Pakistan,
-                                major cities, business, politics,
-                                education, technology and more.
-
-                            </p>
-
-
-                            <a
-                                href="#news"
-                                class="hero-card-link"
-                            >
-                                View latest
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </a>
-
-                        </article>
-
-
-                        <article
-                            class="hero-side-card sports reveal"
-                        >
-
-                            <div class="hero-card-icon">
-
-                                <i class="fa-solid fa-trophy"></i>
-
-                            </div>
-
-
-                            <h2 class="hero-card-title">
-                                Live Sports
-                            </h2>
-
-
-                            <p class="hero-card-text">
-
-                                Cricket, football, hockey, tennis,
-                                basketball, motorsport and more.
-
-                            </p>
-
-
-                            <a
-                                href="#sports"
-                                class="hero-card-link"
-                            >
-                                View sports
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </a>
-
-                        </article>
-
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             NEWS
-        ====================================================== -->
-
-        <section
-            class="section"
-            id="news"
-        >
-
-            <div class="container">
-
-
-                <div class="section-header">
-
-                    <div class="section-heading">
-
-                        <div class="section-icon red">
-
-                            <i class="fa-solid fa-newspaper"></i>
-
-                        </div>
-
-                        <div>
-
-                            <h2 class="section-title">
-                                Pakistan News
-                            </h2>
-
-                            <p class="section-subtitle">
-                                Latest headlines from connected sources
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <a
-                        href="#news"
-                        class="section-link"
-                    >
-                        View all
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-
-                </div>
-
-
-                <div class="news-layout">
-
-
-                    <!-- NEWS LIST -->
-
-                    <div
-                        class="news-list"
-                        id="newsList"
-                    >
-
-                        <!-- Loading state -->
-
-                        <article class="news-item">
-
-                            <div class="news-image">
-
-                                <i class="fa-solid fa-spinner fa-spin"></i>
-
-                            </div>
-
-                            <div>
-
-                                <div class="news-category">
-                                    LIVE NEWS
-                                </div>
-
-                                <h3 class="news-title">
-                                    Loading latest Pakistan news...
-                                </h3>
-
-                                <p class="news-description">
-                                    Connecting to the live news service.
-                                </p>
-
-                            </div>
-
-                            <div class="news-time">
-                                LIVE
-                            </div>
-
-                        </article>
-
-
-                        <article class="news-item">
-
-                            <div class="news-image">
-
-                                <i class="fa-solid fa-globe"></i>
-
-                            </div>
-
-                            <div>
-
-                                <div class="news-category">
-                                    INFORMATION
-                                </div>
-
-                                <h3 class="news-title">
-                                    News feeds will appear here automatically.
-                                </h3>
-
-                                <p class="news-description">
-                                    Multiple categories and locations will
-                                    be connected through the backend.
-                                </p>
-
-                            </div>
-
-                            <div class="news-time">
-                                —
-                            </div>
-
-                        </article>
-
-                    </div>
-
-
-                    <!-- TRENDING -->
-
-                    <aside class="trending-panel">
-
-                        <div class="trending-head">
-
-                            <div class="trending-title">
-
-                                <i class="fa-solid fa-fire"></i>
-
-                                Trending
-
-                            </div>
-
-                            <span
-                                style="
-                                color:var(--text-muted);
-                                font-size:9px;
-                                "
-                            >
-                                NOW
-                            </span>
-
-                        </div>
-
-
-                        <div class="trend-list">
-
-                            <div class="trend-item">
-
-                                <div class="trend-number">
-                                    01
-                                </div>
-
-                                <div>
-
-                                    <a href="#">
-                                        Pakistan latest developments
-                                    </a>
-
-                                    <div class="trend-meta">
-                                        Trending
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-
-                            <div class="trend-item">
-
-                                <div class="trend-number">
-                                    02
-                                </div>
-
-                                <div>
-
-                                    <a href="#">
-                                        Cricket updates & scores
-                                    </a>
-
-                                    <div class="trend-meta">
-                                        Sports
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-
-                            <div class="trend-item">
-
-                                <div class="trend-number">
-                                    03
-                                </div>
-
-                                <div>
-
-                                    <a href="#">
-                                        Business & economy
-                                    </a>
-
-                                    <div class="trend-meta">
-                                        Business
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-
-                            <div class="trend-item">
-
-                                <div class="trend-number">
-                                    04
-                                </div>
-
-                                <div>
-
-                                    <a href="#">
-                                        Technology & digital world
-                                    </a>
-
-                                    <div class="trend-meta">
-                                        Technology
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-
-                            <div class="trend-item">
-
-                                <div class="trend-number">
-                                    05
-                                </div>
-
-                                <div>
-
-                                    <a href="#">
-                                        Entertainment & culture
-                                    </a>
-
-                                    <div class="trend-meta">
-                                        Culture
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </aside>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             SPORTS
-        ====================================================== -->
-
-        <section
-            class="section sports-section"
-            id="sports"
-        >
-
-            <div class="container">
-
-
-                <div class="section-header">
-
-                    <div class="section-heading">
-
-                        <div class="section-icon green">
-
-                            <i class="fa-solid fa-trophy"></i>
-
-                        </div>
-
-                        <div>
-
-                            <h2 class="section-title">
-                                Live Sports
-                            </h2>
-
-                            <p class="section-subtitle">
-                                Scores, fixtures, results and updates
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <a
-                        href="#sports"
-                        class="section-link"
-                    >
-                        All sports
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-
-                </div>
-
-
-                <!-- SPORT TABS -->
-
-                <div class="sports-tabs">
-
-                    <button
-                        class="sport-tab active"
-                        data-sport="all"
-                    >
-                        <i class="fa-solid fa-border-all"></i>
-                        All
-                    </button>
-
-
-                    <button
-                        class="sport-tab"
-                        data-sport="cricket"
-                    >
-                        <i class="fa-solid fa-baseball-bat-ball"></i>
-                        Cricket
-                    </button>
-
-
-                    <button
-                        class="sport-tab"
-                        data-sport="football"
-                    >
-                        <i class="fa-solid fa-futbol"></i>
-                        Football
-                    </button>
-
-
-                    <button
-                        class="sport-tab"
-                        data-sport="hockey"
-                    >
-                        <i class="fa-solid fa-hockey-puck"></i>
-                        Hockey
-                    </button>
-
-
-                    <button
-                        class="sport-tab"
-                        data-sport="tennis"
-                    >
-                        <i class="fa-solid fa-table-tennis-paddle-ball"></i>
-                        Tennis
-                    </button>
-
-
-                    <button
-                        class="sport-tab"
-                        data-sport="basketball"
-                    >
-                        <i class="fa-solid fa-basketball"></i>
-                        Basketball
-                    </button>
-
-
-                    <button
-                        class="sport-tab"
-                        data-sport="volleyball"
-                    >
-                        <i class="fa-solid fa-volleyball"></i>
-                        Volleyball
-                    </button>
-
-
-                    <button
-                        class="sport-tab"
-                        data-sport="motorsport"
-                    >
-                        <i class="fa-solid fa-flag-checkered"></i>
-                        Motorsport
-                    </button>
-
-                </div>
-
-
-                <!-- SPORTS GRID -->
-
-                <div
-                    class="sports-grid"
-                    id="sportsGrid"
-                >
-
-
-                    <article
-                        class="sport-card cricket reveal"
-                        data-sport-card="cricket"
-                    >
-
-                        <div class="sport-icon">
-
-                            <i class="fa-solid fa-baseball-bat-ball"></i>
-
-                        </div>
-
-                        <h3 class="sport-name">
-                            Cricket
-                        </h3>
-
-                        <div class="sport-status">
-                            <span class="status-dot"></span>
-                            Live scores coming
-                        </div>
-
-                    </article>
-
-
-                    <article
-                        class="sport-card football reveal"
-                        data-sport-card="football"
-                    >
-
-                        <div class="sport-icon">
-
-                            <i class="fa-solid fa-futbol"></i>
-
-                        </div>
-
-                        <h3 class="sport-name">
-                            Football
-                        </h3>
-
-                        <div class="sport-status">
-                            <span class="status-dot"></span>
-                            Live scores coming
-                        </div>
-
-                    </article>
-
-
-                    <article
-                        class="sport-card hockey reveal"
-                        data-sport-card="hockey"
-                    >
-
-                        <div class="sport-icon">
-
-                            <i class="fa-solid fa-hockey-puck"></i>
-
-                        </div>
-
-                        <h3 class="sport-name">
-                            Hockey
-                        </h3>
-
-                        <div class="sport-status">
-                            <span class="status-dot"></span>
-                            Updates coming
-                        </div>
-
-                    </article>
-
-
-                    <article
-                        class="sport-card tennis reveal"
-                        data-sport-card="tennis"
-                    >
-
-                        <div class="sport-icon">
-
-                            <i class="fa-solid fa-table-tennis-paddle-ball"></i>
-
-                        </div>
-
-                        <h3 class="sport-name">
-                            Tennis
-                        </h3>
-
-                        <div class="sport-status">
-                            <span class="status-dot"></span>
-                            Live updates coming
-                        </div>
-
-                    </article>
-
-
-                    <article
-                        class="sport-card basketball reveal"
-                        data-sport-card="basketball"
-                    >
-
-                        <div class="sport-icon">
-
-                            <i class="fa-solid fa-basketball"></i>
-
-                        </div>
-
-                        <h3 class="sport-name">
-                            Basketball
-                        </h3>
-
-                        <div class="sport-status">
-                            <span class="status-dot"></span>
-                            Live updates coming
-                        </div>
-
-                    </article>
-
-
-                    <article
-                        class="sport-card volleyball reveal"
-                        data-sport-card="volleyball"
-                    >
-
-                        <div class="sport-icon">
-
-                            <i class="fa-solid fa-volleyball"></i>
-
-                        </div>
-
-                        <h3 class="sport-name">
-                            Volleyball
-                        </h3>
-
-                        <div class="sport-status">
-                            <span class="status-dot"></span>
-                            Live updates coming
-                        </div>
-
-                    </article>
-
-
-                    <article
-                        class="sport-card kabaddi reveal"
-                        data-sport-card="kabaddi"
-                    >
-
-                        <div class="sport-icon">
-
-                            <i class="fa-solid fa-people-group"></i>
-
-                        </div>
-
-                        <h3 class="sport-name">
-                            Kabaddi
-                        </h3>
-
-                        <div class="sport-status">
-                            <span class="status-dot"></span>
-                            Updates coming
-                        </div>
-
-                    </article>
-
-
-                    <article
-                        class="sport-card motorsport reveal"
-                        data-sport-card="motorsport"
-                    >
-
-                        <div class="sport-icon">
-
-                            <i class="fa-solid fa-flag-checkered"></i>
-
-                        </div>
-
-                        <h3 class="sport-name">
-                            Motorsport
-                        </h3>
-
-                        <div class="sport-status">
-                            <span class="status-dot"></span>
-                            Race updates coming
-                        </div>
-
-                    </article>
-
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             PEOPLE / BIOGRAPHIES
-        ====================================================== -->
-
-        <section
-            class="section people-section"
-            id="people"
-        >
-
-            <div class="container">
-
-                <div class="people-search-box reveal">
-
-
-                    <h2 class="people-search-heading">
-
-                        Search the world's
-                        <span>people.</span>
-
-                    </h2>
-
-
-                    <p class="people-search-text">
-
-                        Search public biographical information
-                        about historical figures, athletes,
-                        politicians, artists, scientists and
-                        other notable people.
-
-                    </p>
-
-
-                    <form
-                        class="search-form"
-                        id="personSearchForm"
-                    >
-
-                        <div class="search-input-wrap">
-
-                            <i class="fa-solid fa-user"></i>
-
-                            <input
-                                type="text"
-                                class="search-input"
-                                id="personSearchInput"
-                                placeholder="Search a person e.g. Albert Einstein..."
-                                autocomplete="off"
-                            >
-
-                        </div>
-
-
-                        <button
-                            type="submit"
-                            class="search-submit"
-                        >
-
-                            <i class="fa-solid fa-magnifying-glass"></i>
-
-                            Search Person
-
-                        </button>
-
-                    </form>
-
-
-                    <div class="popular-searches">
-
-                        <span class="popular-label">
-                            Popular:
-                        </span>
-
-
-                        <button
-                            type="button"
-                            class="person-tag"
-                            data-person="Muhammad Ali Jinnah"
-                        >
-                            Muhammad Ali Jinnah
-                        </button>
-
-
-                        <button
-                            type="button"
-                            class="person-tag"
-                            data-person="Babar Azam"
-                        >
-                            Babar Azam
-                        </button>
-
-
-                        <button
-                            type="button"
-                            class="person-tag"
-                            data-person="Albert Einstein"
-                        >
-                            Albert Einstein
-                        </button>
-
-
-                        <button
-                            type="button"
-                            class="person-tag"
-                            data-person="Allama Iqbal"
-                        >
-                            Allama Iqbal
-                        </button>
-
-
-                    </div>
-
-
-                    <div
-                        id="personResults"
-                        style="margin-top:25px;"
-                    ></div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             NEWS CHANNELS
-        ====================================================== -->
-
-        <section
-            class="section channels-section"
-            id="channels"
-        >
-
-            <div class="container">
-
-
-                <div class="section-header">
-
-                    <div class="section-heading">
-
-                        <div class="section-icon purple">
-
-                            <i class="fa-solid fa-tv"></i>
-
-                        </div>
-
-                        <div>
-
-                            <h2 class="section-title">
-                                News Channels
-                            </h2>
-
-                            <p class="section-subtitle">
-                                Direct links to trusted news sources
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div
-                    class="channels-grid"
-                    id="channelsGrid"
-                >
-
-
-                    <a
-                        href="https://www.dawn.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="channel-card reveal"
-                    >
-
-                        <div class="channel-logo">
-                            D
-                        </div>
-
-                        <div>
-
-                            <div class="channel-name">
-                                Dawn
-                            </div>
-
-                            <div class="channel-type">
-                                News & Newspaper
-                            </div>
-
-                        </div>
-
-                        <i class="fa-solid fa-arrow-up-right-from-square channel-arrow"></i>
-
-                    </a>
-
-
-                    <a
-                        href="https://www.geo.tv/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="channel-card reveal"
-                    >
-
-                        <div class="channel-logo">
-                            G
-                        </div>
-
-                        <div>
-
-                            <div class="channel-name">
-                                Geo News
-                            </div>
-
-                            <div class="channel-type">
-                                Television News
-                            </div>
-
-                        </div>
-
-                        <i class="fa-solid fa-arrow-up-right-from-square channel-arrow"></i>
-
-                    </a>
-
-
-                    <a
-                        href="https://arynews.tv/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="channel-card reveal"
-                    >
-
-                        <div class="channel-logo">
-                            A
-                        </div>
-
-                        <div>
-
-                            <div class="channel-name">
-                                ARY News
-                            </div>
-
-                            <div class="channel-type">
-                                Television News
-                            </div>
-
-                        </div>
-
-                        <i class="fa-solid fa-arrow-up-right-from-square channel-arrow"></i>
-
-                    </a>
-
-
-                    <a
-                        href="https://www.express.pk/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="channel-card reveal"
-                    >
-
-                        <div class="channel-logo">
-                            E
-                        </div>
-
-                        <div>
-
-                            <div class="channel-name">
-                                Express
-                            </div>
-
-                            <div class="channel-type">
-                                News & Media
-                            </div>
-
-                        </div>
-
-                        <i class="fa-solid fa-arrow-up-right-from-square channel-arrow"></i>
-
-                    </a>
-
-
-                    <a
-                        href="https://www.samaa.tv/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="channel-card reveal"
-                    >
-
-                        <div class="channel-logo">
-                            S
-                        </div>
-
-                        <div>
-
-                            <div class="channel-name">
-                                Samaa
-                            </div>
-
-                            <div class="channel-type">
-                                News Network
-                            </div>
-
-                        </div>
-
-                        <i class="fa-solid fa-arrow-up-right-from-square channel-arrow"></i>
-
-                    </a>
-
-
-                    <a
-                        href="https://www.thenews.com.pk/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="channel-card reveal"
-                    >
-
-                        <div class="channel-logo">
-                            T
-                        </div>
-
-                        <div>
-
-                            <div class="channel-name">
-                                The News
-                            </div>
-
-                            <div class="channel-type">
-                                National News
-                            </div>
-
-                        </div>
-
-                        <i class="fa-solid fa-arrow-up-right-from-square channel-arrow"></i>
-
-                    </a>
-
-
-                    <a
-                        href="https://www.brecorder.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="channel-card reveal"
-                    >
-
-                        <div class="channel-logo">
-                            B
-                        </div>
-
-                        <div>
-
-                            <div class="channel-name">
-                                Business Recorder
-                            </div>
-
-                            <div class="channel-type">
-                                Business News
-                            </div>
-
-                        </div>
-
-                        <i class="fa-solid fa-arrow-up-right-from-square channel-arrow"></i>
-
-                    </a>
-
-
-                    <a
-                        href="https://www.app.com.pk/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="channel-card reveal"
-                    >
-
-                        <div class="channel-logo">
-                            APP
-                        </div>
-
-                        <div>
-
-                            <div class="channel-name">
-                                Associated Press of Pakistan
-                            </div>
-
-                            <div class="channel-type">
-                                National News Agency
-                            </div>
-
-                        </div>
-
-                        <i class="fa-solid fa-arrow-up-right-from-square channel-arrow"></i>
-
-                    </a>
-
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             EXPLORE CATEGORIES
-        ====================================================== -->
-
-        <section
-            class="section"
-            id="categories"
-        >
-
-            <div class="container">
-
-
-                <div class="section-header">
-
-                    <div class="section-heading">
-
-                        <div class="section-icon orange">
-
-                            <i class="fa-solid fa-layer-group"></i>
-
-                        </div>
-
-                        <div>
-
-                            <h2 class="section-title">
-                                Explore
-                            </h2>
-
-                            <p class="section-subtitle">
-                                More information in one place
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="category-grid">
-
-
-                    <a
-                        href="#news"
-                        class="category-card cat-red reveal"
-                    >
-
-                        <div class="category-icon">
-                            <i class="fa-solid fa-landmark"></i>
-                        </div>
-
-                        <h3>
-                            Politics
-                        </h3>
-
-                        <p>
-                            Pakistan & world politics
-                        </p>
-
-                    </a>
-
-
-                    <a
-                        href="#news"
-                        class="category-card cat-orange reveal"
-                    >
-
-                        <div class="category-icon">
-                            <i class="fa-solid fa-chart-line"></i>
-                        </div>
-
-                        <h3>
-                            Business
-                        </h3>
-
-                        <p>
-                            Markets & economy
-                        </p>
-
-                    </a>
-
-
-                    <a
-                        href="#news"
-                        class="category-card cat-blue reveal"
-                    >
-
-                        <div class="category-icon">
-                            <i class="fa-solid fa-microchip"></i>
-                        </div>
-
-                        <h3>
-                            Technology
-                        </h3>
-
-                        <p>
-                            Digital world
-                        </p>
-
-                    </a>
-
-
-                    <a
-                        href="#news"
-                        class="category-card cat-purple reveal"
-                    >
-
-                        <div class="category-icon">
-                            <i class="fa-solid fa-film"></i>
-                        </div>
-
-                        <h3>
-                            Entertainment
-                        </h3>
-
-                        <p>
-                            Movies & culture
-                        </p>
-
-                    </a>
-
-
-                    <a
-                        href="#people"
-                        class="category-card cat-cyan reveal"
-                    >
-
-                        <div class="category-icon">
-                            <i class="fa-solid fa-users"></i>
-                        </div>
-
-                        <h3>
-                            People
-                        </h3>
-
-                        <p>
-                            Biographies & profiles
-                        </p>
-
-                    </a>
-
-
-                    <a
-                        href="#sports"
-                        class="category-card cat-green reveal"
-                    >
-
-                        <div class="category-icon">
-                            <i class="fa-solid fa-medal"></i>
-                        </div>
-
-                        <h3>
-                            Sports
-                        </h3>
-
-                        <p>
-                            Scores & competitions
-                        </p>
-
-                    </a>
-
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-    </main>
-
-
-    <!-- =========================================================
-         FOOTER
-    ========================================================== -->
-
-    <footer class="footer">
-
-        <div class="container">
-
-
-            <div class="footer-grid">
-
-
-                <div class="footer-brand">
-
-                    <a
-                        href="#home"
-                        class="brand"
-                    >
-
-                        <div class="brand-mark">
-                            AA
-                        </div>
-
-                        <div class="brand-text">
-
-                            <div class="brand-name">
-                                AA Creative Studio
-                            </div>
-
-                            <div class="brand-subtitle">
-                                Digital Information Hub
-                            </div>
-
-                        </div>
-
-                    </a>
-
-
-                    <p class="footer-description">
-
-                        A modern digital platform bringing
-                        together news, sports, people,
-                        culture and useful information.
-
-                    </p>
-
-                </div>
-
-
-                <div>
-
-                    <h3 class="footer-heading">
-                        Explore
-                    </h3>
-
-                    <ul class="footer-links">
-
-                        <li>
-                            <a href="#news">
-                                Pakistan News
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#sports">
-                                Live Sports
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#people">
-                                People Search
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#channels">
-                                News Channels
-                            </a>
-                        </li>
-
-                    </ul>
-
-                </div>
-
-
-                <div>
-
-                    <h3 class="footer-heading">
-                        Sports
-                    </h3>
-
-                    <ul class="footer-links">
-
-                        <li>
-                            <a href="#sports">
-                                Cricket
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#sports">
-                                Football
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#sports">
-                                Hockey
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#sports">
-                                Tennis
-                            </a>
-                        </li>
-
-                    </ul>
-
-                </div>
-
-
-                <div>
-
-                    <h3 class="footer-heading">
-                        Information
-                    </h3>
-
-                    <ul class="footer-links">
-
-                        <li>
-                            <a href="#categories">
-                                Technology
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#categories">
-                                Business
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#categories">
-                                Entertainment
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#categories">
-                                Culture
-                            </a>
-                        </li>
-
-                    </ul>
-
-                </div>
-
-
-            </div>
-
-
-            <div class="footer-bottom">
-
-                <div>
-
-                    ©
-                    <span id="currentYear">
-                        2026
-                    </span>
-
-                    AA Creative Studio.
-                    All rights reserved.
-
-                </div>
-
-
-                <div class="footer-social">
-
-                    <a
-                        href="#"
-                        class="social"
-                        aria-label="Facebook"
-                    >
-                        <i class="fa-brands fa-facebook-f"></i>
-                    </a>
-
-                    <a
-                        href="#"
-                        class="social"
-                        aria-label="X"
-                    >
-                        <i class="fa-brands fa-x-twitter"></i>
-                    </a>
-
-                    <a
-                        href="#"
-                        class="social"
-                        aria-label="YouTube"
-                    >
-                        <i class="fa-brands fa-youtube"></i>
-                    </a>
-
-                    <a
-                        href="#"
-                        class="social"
-                        aria-label="Instagram"
-                    >
-                        <i class="fa-brands fa-instagram"></i>
-                    </a>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </footer>
-
-
-    <!-- =========================================================
-         BACK TO TOP
-    ========================================================== -->
-
-    <button
-        class="back-top"
-        id="backTop"
-        aria-label="Back to top"
-    >
-
-        <i class="fa-solid fa-arrow-up"></i>
-
-    </button>
-
-
-    <!-- =========================================================
-         FRONTEND JAVASCRIPT
-    ========================================================== -->
-
-    <script>
-
-        /* =====================================================
-           YEAR
-        ====================================================== */
-
-        const currentYear =
-            document.getElementById("currentYear");
-
-        if (currentYear) {
-
-            currentYear.textContent =
-                new Date().getFullYear();
-
+        if (!mobileNav) {
+            return;
         }
 
+        mobileNav.classList.add("open");
 
-        /* =====================================================
-           MOBILE MENU
-        ====================================================== */
+        mobileOverlay.classList.add("show");
 
-        const menuButton =
-            document.getElementById("menuButton");
+        document.body.style.overflow =
+            "hidden";
+    }
 
-        const mobileNav =
-            document.getElementById("mobileNav");
 
-        const mobileClose =
-            document.getElementById("mobileClose");
+    function closeMobileMenu() {
 
-        const mobileOverlay =
-            document.getElementById("mobileOverlay");
-
-
-        function openMobileMenu() {
-
-            if (!mobileNav) {
-                return;
-            }
-
-            mobileNav.classList.add("open");
-
-            mobileOverlay.classList.add("show");
-
-            document.body.style.overflow =
-                "hidden";
+        if (!mobileNav) {
+            return;
         }
 
+        mobileNav.classList.remove("open");
 
-        function closeMobileMenu() {
+        mobileOverlay.classList.remove("show");
 
-            if (!mobileNav) {
-                return;
-            }
+        document.body.style.overflow =
+            "";
+    }
 
-            mobileNav.classList.remove("open");
 
-            mobileOverlay.classList.remove("show");
+    if (menuButton) {
+        menuButton.addEventListener(
+            "click",
+            openMobileMenu
+        );
+    }
 
-            document.body.style.overflow =
-                "";
-        }
 
+    if (mobileClose) {
+        mobileClose.addEventListener(
+            "click",
+            closeMobileMenu
+        );
+    }
 
-        if (menuButton) {
 
-            menuButton.addEventListener(
-                "click",
-                openMobileMenu
-            );
-
-        }
+    if (mobileOverlay) {
+        mobileOverlay.addEventListener(
+            "click",
+            closeMobileMenu
+        );
+    }
 
 
-        if (mobileClose) {
+    document
+        .querySelectorAll(".mobile-links a")
+        .forEach(link => {
 
-            mobileClose.addEventListener(
+            link.addEventListener(
                 "click",
                 closeMobileMenu
             );
 
-        }
+        });
 
 
-        if (mobileOverlay) {
+    /* =====================================================
+       REVEAL ANIMATION
+    ====================================================== */
 
-            mobileOverlay.addEventListener(
-                "click",
-                closeMobileMenu
-            );
+    const revealObserver =
+        new IntersectionObserver(
+            entries => {
 
-        }
+                entries.forEach(entry => {
 
+                    if (entry.isIntersecting) {
 
-        document
-            .querySelectorAll(".mobile-links a")
-            .forEach(link => {
+                        entry.target
+                            .classList
+                            .add("visible");
 
-                link.addEventListener(
-                    "click",
-                    closeMobileMenu
-                );
+                        revealObserver
+                            .unobserve(
+                                entry.target
+                            );
 
-            });
+                    }
 
-
-        /* =====================================================
-           REVEAL ANIMATION
-        ====================================================== */
-
-        const revealObserver =
-            new IntersectionObserver(
-                entries => {
-
-                    entries.forEach(entry => {
-
-                        if (entry.isIntersecting) {
-
-                            entry.target
-                                .classList
-                                .add("visible");
-
-                            revealObserver
-                                .unobserve(
-                                    entry.target
-                                );
-
-                        }
-
-                    });
-
-                },
-                {
-                    threshold: 0.08
-                }
-            );
-
-
-        document
-            .querySelectorAll(".reveal")
-            .forEach(element => {
-
-                revealObserver.observe(element);
-
-            });
-
-
-        /* =====================================================
-           BACK TO TOP
-        ====================================================== */
-
-        const backTop =
-            document.getElementById("backTop");
-
-
-        window.addEventListener(
-            "scroll",
-            () => {
-
-                if (!backTop) {
-                    return;
-                }
-
-                if (window.scrollY > 500) {
-
-                    backTop.classList
-                        .add("show");
-
-                } else {
-
-                    backTop.classList
-                        .remove("show");
-
-                }
+                });
 
             },
             {
-                passive: true
+                threshold: 0.08
             }
         );
 
 
-        if (backTop) {
+    document
+        .querySelectorAll(".reveal")
+        .forEach(element => {
 
-            backTop.addEventListener(
-                "click",
-                () => {
+            revealObserver.observe(element);
 
-                    window.scrollTo({
-                        top: 0,
-                        behavior: "smooth"
-                    });
+        });
 
-                }
+
+    /* =====================================================
+       BACK TO TOP
+    ====================================================== */
+
+    const backTop =
+        document.getElementById("backTop");
+
+
+    window.addEventListener(
+        "scroll",
+        () => {
+
+            if (!backTop) {
+                return;
+            }
+
+            if (window.scrollY > 500) {
+
+                backTop.classList
+                    .add("show");
+
+            } else {
+
+                backTop.classList
+                    .remove("show");
+
+            }
+
+        },
+        {
+            passive: true
+        }
+    );
+
+
+    if (backTop) {
+
+        backTop.addEventListener(
+            "click",
+            () => {
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       LIVE SPORTS
+       SPORT SCORE API
+    ====================================================== */
+
+    const sportTabs =
+        document.querySelectorAll(
+            ".sport-tab"
+        );
+
+    const sportsGrid =
+        document.getElementById(
+            "sportsGrid"
+        );
+
+
+    const sportIcons = {
+
+        cricket:
+            "fa-baseball-bat-ball",
+
+        football:
+            "fa-futbol",
+
+        tennis:
+            "fa-table-tennis-paddle-ball",
+
+        basketball:
+            "fa-basketball"
+
+    };
+
+
+    const sportNames = {
+
+        cricket:
+            "Cricket",
+
+        football:
+            "Football",
+
+        tennis:
+            "Tennis",
+
+        basketball:
+            "Basketball"
+
+    };
+
+
+    const sportColors = {
+
+        cricket:
+            "cricket",
+
+        football:
+            "football",
+
+        tennis:
+            "tennis",
+
+        basketball:
+            "basketball"
+
+    };
+
+
+    let liveSportsData = [];
+
+
+    function escapeSportHTML(value) {
+
+        return String(value ?? "")
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+
+    }
+
+
+    function getTeamName(team) {
+
+        if (!team) {
+            return "Unknown";
+        }
+
+        if (typeof team === "string") {
+            return team;
+        }
+
+        return (
+            team.name ||
+            team.title ||
+            team.shortName ||
+            "Unknown"
+        );
+
+    }
+
+
+    function getScore(score) {
+
+        if (
+            score === null ||
+            score === undefined
+        ) {
+            return "-";
+        }
+
+        if (typeof score === "string") {
+            return score;
+        }
+
+        if (typeof score === "number") {
+            return String(score);
+        }
+
+        return (
+            score.display ||
+            score.value ||
+            score.current ||
+            score.total ||
+            "-"
+        );
+
+    }
+
+
+    function getMatchStatus(match) {
+
+        return (
+            match.status?.short ||
+            match.status?.long ||
+            match.statusText ||
+            match.status ||
+            match.state ||
+            "LIVE"
+        );
+
+    }
+
+
+    function isMatchLive(match) {
+
+        const text =
+            JSON.stringify(match)
+                .toLowerCase();
+
+        return (
+            text.includes("live") ||
+            text.includes("in progress") ||
+            text.includes("playing")
+        );
+
+    }
+
+
+    function getMatchTeams(match) {
+
+        const home =
+            match.home ||
+            match.homeTeam ||
+            match.team1 ||
+            match.participant1 ||
+            match.teams?.home ||
+            match.teams?.[0];
+
+        const away =
+            match.away ||
+            match.awayTeam ||
+            match.team2 ||
+            match.participant2 ||
+            match.teams?.away ||
+            match.teams?.[1];
+
+        return {
+            home: getTeamName(home),
+            away: getTeamName(away)
+        };
+
+    }
+
+
+    function getMatchScores(match) {
+
+        const homeScore =
+            match.homeScore ??
+            match.home_score ??
+            match.score?.home ??
+            match.scores?.home ??
+            match.result?.home;
+
+        const awayScore =
+            match.awayScore ??
+            match.away_score ??
+            match.score?.away ??
+            match.scores?.away ??
+            match.result?.away;
+
+        return {
+            home: getScore(homeScore),
+            away: getScore(awayScore)
+        };
+
+    }
+
+
+    function normalizeSportMatches(
+        data,
+        sport
+    ) {
+
+        const matches =
+            Array.isArray(data)
+                ? data
+                : (
+                    data.matches ||
+                    data.data ||
+                    data.results ||
+                    []
+                );
+
+
+        return matches.map(
+            match => {
+
+                const teams =
+                    getMatchTeams(match);
+
+                const scores =
+                    getMatchScores(match);
+
+                return {
+
+                    sport,
+
+                    home:
+                        teams.home,
+
+                    away:
+                        teams.away,
+
+                    homeScore:
+                        scores.home,
+
+                    awayScore:
+                        scores.away,
+
+                    status:
+                        getMatchStatus(match),
+
+                    live:
+                        isMatchLive(match),
+
+                    raw:
+                        match
+
+                };
+
+            }
+        );
+
+    }
+
+
+    async function fetchSportMatches(
+        sport
+    ) {
+
+        const url =
+            `https://sportscore.com/api/widget/matches/?sport=${sport}&limit=10`;
+
+
+        try {
+
+            const response =
+                await fetch(url, {
+                    method: "GET",
+                    headers: {
+                        "Accept":
+                            "application/json"
+                    }
+                });
+
+
+            if (!response.ok) {
+
+                throw new Error(
+                    `HTTP ${response.status}`
+                );
+
+            }
+
+
+            const data =
+                await response.json();
+
+
+            return normalizeSportMatches(
+                data,
+                sport
             );
+
+        } catch (error) {
+
+            console.error(
+                `SportScore ${sport} error:`,
+                error
+            );
+
+            return [];
+
+        }
+
+    }
+
+
+    function createSportCard(match) {
+
+        const sport =
+            match.sport;
+
+        const sportClass =
+            sportColors[sport] ||
+            "football";
+
+        const icon =
+            sportIcons[sport] ||
+            "fa-trophy";
+
+        const sportName =
+            sportNames[sport] ||
+            sport;
+
+
+        const liveBadge =
+            match.live
+                ? `
+                    <span
+                        style="
+                            color:#ff3b5c;
+                            font-weight:900;
+                        "
+                    >
+                        ● LIVE
+                    </span>
+                `
+                : `
+                    <span>
+                        ${escapeSportHTML(
+                            match.status
+                        )}
+                    </span>
+                `;
+
+
+        return `
+
+            <article
+                class="sport-card ${sportClass}"
+                data-sport-card="${escapeSportHTML(sport)}"
+            >
+
+                <div class="sport-icon">
+
+                    <i class="fa-solid ${icon}"></i>
+
+                </div>
+
+
+                <div
+                    style="
+                        margin-top:15px;
+                        color:#707b92;
+                        font-size:8px;
+                        font-weight:800;
+                        text-transform:uppercase;
+                        letter-spacing:1px;
+                    "
+                >
+                    ${escapeSportHTML(
+                        sportName
+                    )}
+                </div>
+
+
+                <h3
+                    class="sport-name"
+                    style="
+                        font-size:13px;
+                        line-height:1.4;
+                    "
+                >
+                    ${escapeSportHTML(
+                        match.home
+                    )}
+                </h3>
+
+
+                <div
+                    style="
+                        display:flex;
+                        align-items:center;
+                        justify-content:space-between;
+                        gap:10px;
+                        margin-top:5px;
+                    "
+                >
+
+                    <span
+                        style="
+                            color:white;
+                            font-size:12px;
+                            font-weight:900;
+                        "
+                    >
+                        ${escapeSportHTML(
+                            match.homeScore
+                        )}
+                    </span>
+
+                    <span
+                        style="
+                            color:#707b92;
+                            font-size:9px;
+                        "
+                    >
+                        vs
+                    </span>
+
+                    <span
+                        style="
+                            color:white;
+                            font-size:12px;
+                            font-weight:900;
+                            text-align:right;
+                        "
+                    >
+                        ${escapeSportHTML(
+                            match.awayScore
+                        )}
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="sport-status"
+                >
+
+                    <span
+                        class="status-dot"
+                        style="
+                            background:
+                            ${
+                                match.live
+                                    ? "#ff3b5c"
+                                    : "currentColor"
+                            };
+                        "
+                    ></span>
+
+                    ${liveBadge}
+
+                </div>
+
+            </article>
+
+        `;
+
+    }
+
+
+    function createNoMatchCard(
+        sport
+    ) {
+
+        const sportClass =
+            sportColors[sport] ||
+            "football";
+
+        const icon =
+            sportIcons[sport] ||
+            "fa-trophy";
+
+        const sportName =
+            sportNames[sport] ||
+            sport;
+
+
+        return `
+
+            <article
+                class="sport-card ${sportClass}"
+                data-sport-card="${sport}"
+            >
+
+                <div class="sport-icon">
+
+                    <i class="fa-solid ${icon}"></i>
+
+                </div>
+
+
+                <h3 class="sport-name">
+
+                    ${escapeSportHTML(
+                        sportName
+                    )}
+
+                </h3>
+
+
+                <div class="sport-status">
+
+                    <span
+                        class="status-dot"
+                    ></span>
+
+                    No live match right now
+
+                </div>
+
+            </article>
+
+        `;
+
+    }
+
+
+    function addSportScoreAttribution() {
+
+        const existing =
+            document.getElementById(
+                "sportScoreAttribution"
+            );
+
+        if (existing) {
+            return;
+        }
+
+
+        if (!sportsGrid) {
+            return;
+        }
+
+
+        const attribution =
+            document.createElement("div");
+
+
+        attribution.id =
+            "sportScoreAttribution";
+
+
+        attribution.style.cssText = `
+            grid-column:1/-1;
+            text-align:right;
+            margin-top:4px;
+            font-size:9px;
+            color:#707b92;
+        `;
+
+
+        attribution.innerHTML = `
+            Data from
+            <a
+                href="https://sportscore.com/"
+                target="_blank"
+                rel="dofollow noopener noreferrer"
+                style="
+                    color:#20d9e8;
+                    font-weight:800;
+                "
+            >
+                SportScore
+            </a>
+        `;
+
+
+        sportsGrid.appendChild(
+            attribution
+        );
+
+    }
+
+
+    async function loadLiveSports() {
+
+        if (!sportsGrid) {
+            return;
+        }
+
+
+        sportsGrid.innerHTML = `
+
+            <article
+                class="sport-card cricket"
+            >
+
+                <div class="sport-icon">
+
+                    <i
+                        class="fa-solid
+                        fa-spinner fa-spin"
+                    ></i>
+
+                </div>
+
+                <h3 class="sport-name">
+                    Loading Live Scores...
+                </h3>
+
+                <div class="sport-status">
+                    Connecting to SportScore
+                </div>
+
+            </article>
+
+        `;
+
+
+        const sports = [
+            "cricket",
+            "football",
+            "tennis",
+            "basketball"
+        ];
+
+
+        const results =
+            await Promise.all(
+                sports.map(
+                    sport =>
+                        fetchSportMatches(
+                            sport
+                        )
+                )
+            );
+
+
+        liveSportsData =
+            results.flat();
+
+
+        if (!liveSportsData.length) {
+
+            sportsGrid.innerHTML = `
+
+                <article
+                    class="sport-card cricket"
+                    data-sport-card="cricket"
+                >
+
+                    <div class="sport-icon">
+
+                        <i
+                            class="fa-solid
+                            fa-circle-exclamation"
+                        ></i>
+
+                    </div>
+
+                    <h3 class="sport-name">
+                        Live Sports
+                    </h3>
+
+                    <div class="sport-status">
+                        No live scores available right now
+                    </div>
+
+                </article>
+
+            `;
+
+            addSportScoreAttribution();
+
+            return;
 
         }
 
 
-        /* =====================================================
-           SPORTS TABS
-        ====================================================== */
+        renderSports(
+            "all"
+        );
 
-        const sportTabs =
-            document.querySelectorAll(
-                ".sport-tab"
-            );
-
-        const sportCards =
-            document.querySelectorAll(
-                "[data-sport-card]"
-            );
+    }
 
 
-        sportTabs.forEach(tab => {
+    function renderSports(
+        selectedSport
+    ) {
 
-            tab.addEventListener(
+        if (!sportsGrid) {
+            return;
+        }
+
+
+        let matches;
+
+
+        if (
+            selectedSport ===
+            "all"
+        ) {
+
+            matches =
+                liveSportsData;
+
+        } else {
+
+            matches =
+                liveSportsData.filter(
+                    match =>
+                        match.sport ===
+                        selectedSport
+                );
+
+        }
+
+
+        if (!matches.length) {
+
+            if (
+                selectedSport ===
+                "all"
+            ) {
+
+                sportsGrid.innerHTML =
+                    `
+                    <article
+                        class="sport-card cricket"
+                    >
+
+                        <div class="sport-icon">
+
+                            <i
+                                class="fa-solid
+                                fa-circle-info"
+                            ></i>
+
+                        </div>
+
+                        <h3 class="sport-name">
+                            No live matches
+                        </h3>
+
+                        <div class="sport-status">
+                            There are no live matches right now.
+                        </div>
+
+                    </article>
+                    `;
+
+            } else {
+
+                sportsGrid.innerHTML =
+                    createNoMatchCard(
+                        selectedSport
+                    );
+
+            }
+
+
+            addSportScoreAttribution();
+
+            return;
+
+        }
+
+
+        sportsGrid.innerHTML =
+            matches
+                .map(
+                    match =>
+                        createSportCard(
+                            match
+                        )
+                )
+                .join("");
+
+
+        addSportScoreAttribution();
+
+    }
+
+
+    /* =====================================================
+       SPORTS TABS
+    ====================================================== */
+
+    sportTabs.forEach(tab => {
+
+        tab.addEventListener(
+            "click",
+            () => {
+
+                sportTabs.forEach(
+                    item => {
+
+                        item.classList
+                            .remove(
+                                "active"
+                            );
+
+                    }
+                );
+
+
+                tab.classList.add(
+                    "active"
+                );
+
+
+                const selectedSport =
+                    tab.dataset.sport;
+
+
+                renderSports(
+                    selectedSport
+                );
+
+            }
+        );
+
+    });
+
+
+    /* =====================================================
+       START LIVE SPORTS
+    ====================================================== */
+
+    loadLiveSports();
+
+
+    /* Refresh every 60 seconds */
+
+    setInterval(
+        () => {
+
+            loadLiveSports();
+
+        },
+        60000
+    );
+
+
+    /* =====================================================
+       PERSON SEARCH — PLACEHOLDER
+    ====================================================== */
+
+    const personForm =
+        document.getElementById(
+            "personSearchForm"
+        );
+
+    const personInput =
+        document.getElementById(
+            "personSearchInput"
+        );
+
+    const personResults =
+        document.getElementById(
+            "personResults"
+        );
+
+
+    function showPersonMessage(name) {
+
+        if (!personResults) {
+            return;
+        }
+
+
+        personResults.innerHTML = `
+
+            <div
+                style="
+                    padding:18px;
+                    border:1px solid rgba(32,217,232,0.16);
+                    border-radius:14px;
+                    background:rgba(32,217,232,0.04);
+                    color:#a9b2c7;
+                    font-size:11px;
+                "
+            >
+
+                <strong
+                    style="
+                        display:block;
+                        color:#20d9e8;
+                        margin-bottom:5px;
+                    "
+                >
+                    Searching for:
+                </strong>
+
+                ${escapeHTML(name)}
+
+                <div
+                    style="
+                        margin-top:7px;
+                        color:#707b92;
+                        font-size:9px;
+                    "
+                >
+                    Biography service will be connected
+                    in the next backend stage.
+                </div>
+
+            </div>
+
+        `;
+
+    }
+
+
+    function escapeHTML(value) {
+
+        return String(value)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+
+    }
+
+
+    if (personForm) {
+
+        personForm.addEventListener(
+            "submit",
+            event => {
+
+                event.preventDefault();
+
+
+                const name =
+                    personInput.value.trim();
+
+
+                if (!name) {
+
+                    personInput.focus();
+
+                    return;
+
+                }
+
+
+                showPersonMessage(name);
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       POPULAR PERSON TAGS
+    ====================================================== */
+
+    document
+        .querySelectorAll(".person-tag")
+        .forEach(tag => {
+
+            tag.addEventListener(
                 "click",
                 () => {
 
-                    sportTabs.forEach(
-                        item => {
-
-                            item.classList
-                                .remove(
-                                    "active"
-                                );
-
-                        }
-                    );
+                    const name =
+                        tag.dataset.person;
 
 
-                    tab.classList.add(
-                        "active"
-                    );
+                    if (personInput) {
 
+                        personInput.value =
+                            name;
 
-                    const selectedSport =
-                        tab.dataset.sport;
+                        personInput.focus();
 
-
-                    sportCards.forEach(card => {
-
-                        if (
-                            selectedSport ===
-                            "all"
-                        ) {
-
-                            card.style.display =
-                                "";
-
-                            return;
-
-                        }
-
-
-                        if (
-                            card.dataset
-                                .sportCard ===
-                            selectedSport
-                        ) {
-
-                            card.style.display =
-                                "";
-
-                        } else {
-
-                            card.style.display =
-                                "none";
-
-                        }
-
-                    });
+                    }
 
                 }
             );
@@ -5119,267 +1181,119 @@
         });
 
 
-        /* =====================================================
-           PERSON SEARCH — PLACEHOLDER
-           REAL API WILL BE CONNECTED IN PART 4
-        ====================================================== */
+    /* =====================================================
+       NAV SEARCH
+    ====================================================== */
 
-        const personForm =
-            document.getElementById(
-                "personSearchForm"
-            );
-
-        const personInput =
-            document.getElementById(
-                "personSearchInput"
-            );
-
-        const personResults =
-            document.getElementById(
-                "personResults"
-            );
+    const navSearchButton =
+        document.getElementById(
+            "navSearchButton"
+        );
 
 
-        function showPersonMessage(name) {
+    if (navSearchButton) {
 
-            if (!personResults) {
+        navSearchButton.addEventListener(
+            "click",
+            () => {
+
+                const people =
+                    document.getElementById(
+                        "people"
+                    );
+
+
+                if (people) {
+
+                    people.scrollIntoView({
+                        behavior: "smooth"
+                    });
+
+
+                    setTimeout(
+                        () => {
+
+                            if (personInput) {
+                                personInput.focus();
+                            }
+
+                        },
+                        500
+                    );
+
+                }
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       DEMO TICKER ROTATION
+    ====================================================== */
+
+    const tickerMessages = [
+
+        "AA Creative Studio — Pakistan's digital information hub",
+
+        "Latest Pakistan news will update automatically",
+
+        "Live cricket, football, hockey and tennis updates",
+
+        "Search biographies and information about notable people",
+
+        "Trusted Pakistani news sources in one place"
+
+    ];
+
+
+    let tickerIndex = 0;
+
+
+    const tickerText =
+        document.getElementById(
+            "tickerText"
+        );
+
+
+    setInterval(
+        () => {
+
+            if (!tickerText) {
                 return;
             }
 
 
-            personResults.innerHTML = `
-
-                <div
-                    style="
-                        padding:18px;
-                        border:1px solid rgba(32,217,232,0.16);
-                        border-radius:14px;
-                        background:rgba(32,217,232,0.04);
-                        color:#a9b2c7;
-                        font-size:11px;
-                    "
-                >
-
-                    <strong
-                        style="
-                            display:block;
-                            color:#20d9e8;
-                            margin-bottom:5px;
-                        "
-                    >
-                        Searching for:
-                    </strong>
-
-                    ${escapeHTML(name)}
-
-                    <div
-                        style="
-                            margin-top:7px;
-                            color:#707b92;
-                            font-size:9px;
-                        "
-                    >
-                        Biography service will be connected
-                        in the next backend stage.
-                    </div>
-
-                </div>
-
-            `;
-
-        }
+            tickerIndex =
+                (
+                    tickerIndex + 1
+                ) %
+                tickerMessages.length;
 
 
-        function escapeHTML(value) {
-
-            return String(value)
-                .replace(/&/g, "&amp;")
-                .replace(/</g, "&lt;")
-                .replace(/>/g, "&gt;")
-                .replace(/"/g, "&quot;")
-                .replace(/'/g, "&#039;");
-
-        }
+            tickerText.style.opacity =
+                "0";
 
 
-        if (personForm) {
-
-            personForm.addEventListener(
-                "submit",
-                event => {
-
-                    event.preventDefault();
-
-
-                    const name =
-                        personInput.value.trim();
-
-
-                    if (!name) {
-
-                        personInput.focus();
-
-                        return;
-
-                    }
-
-
-                    showPersonMessage(name);
-
-                }
-            );
-
-        }
-
-
-        /* =====================================================
-           POPULAR PERSON TAGS
-        ====================================================== */
-
-        document
-            .querySelectorAll(".person-tag")
-            .forEach(tag => {
-
-                tag.addEventListener(
-                    "click",
-                    () => {
-
-                        const name =
-                            tag.dataset.person;
-
-
-                        if (personInput) {
-
-                            personInput.value =
-                                name;
-
-                            personInput.focus();
-
-                        }
-
-                    }
-                );
-
-            });
-
-
-        /* =====================================================
-           NAV SEARCH
-        ====================================================== */
-
-        const navSearchButton =
-            document.getElementById(
-                "navSearchButton"
-            );
-
-
-        if (navSearchButton) {
-
-            navSearchButton.addEventListener(
-                "click",
+            setTimeout(
                 () => {
 
-                    const people =
-                        document.getElementById(
-                            "people"
-                        );
+                    tickerText.textContent =
+                        tickerMessages[
+                            tickerIndex
+                        ];
 
+                    tickerText.style.opacity =
+                        "1";
 
-                    if (people) {
-
-                        people.scrollIntoView({
-                            behavior: "smooth"
-                        });
-
-                        setTimeout(
-                            () => {
-
-                                if (personInput) {
-                                    personInput.focus();
-                                }
-
-                            },
-                            500
-                        );
-
-                    }
-
-                }
+                },
+                250
             );
 
-        }
+        },
+        4500
+    );
 
 
-        /* =====================================================
-           DEMO TICKER ROTATION
-           REAL NEWS WILL CONTROL THIS LATER
-        ====================================================== */
-
-        const tickerMessages = [
-
-            "AA Creative Studio — Pakistan's digital information hub",
-
-            "Latest Pakistan news will update automatically",
-
-            "Live cricket, football, hockey and tennis updates",
-
-            "Search biographies and information about notable people",
-
-            "Trusted Pakistani news sources in one place"
-
-        ];
-
-
-        let tickerIndex = 0;
-
-
-        const tickerText =
-            document.getElementById(
-                "tickerText"
-            );
-
-
-        setInterval(
-            () => {
-
-                if (!tickerText) {
-                    return;
-                }
-
-
-                tickerIndex =
-                    (
-                        tickerIndex + 1
-                    ) %
-                    tickerMessages.length;
-
-
-                tickerText.style.opacity =
-                    "0";
-
-
-                setTimeout(
-                    () => {
-
-                        tickerText.textContent =
-                            tickerMessages[
-                                tickerIndex
-                            ];
-
-                        tickerText.style.opacity =
-                            "1";
-
-                    },
-                    250
-                );
-
-            },
-            4500
-        );
-
-
-    </script>
-
-
-</body>
-</html>
+</script>
