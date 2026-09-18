@@ -5490,7 +5490,7 @@ if (personForm) {
 ====================================================== */
 /* =====================================================
    AA CRICKET LIVE SCORE
-   REAL API DATA ONLY
+   HIGHLIGHTLY API
 ===================================================== */
 
 const cricketLiveContent =
@@ -5499,16 +5499,17 @@ const cricketLiveContent =
 const cricketLiveApi =
     "https://aa-cricket-api-live.aliabbasalone134.workers.dev/live";
 
-let cricketLiveCache = [];
-
+let cricketRefreshTimer = null;
 
 /* =====================================================
-   HTML SECURITY
+   SECURITY
 ===================================================== */
 
 function cricketSafe(value) {
-
-    if (value === null || value === undefined) {
+    if (
+        value === null ||
+        value === undefined
+    ) {
         return "";
     }
 
@@ -5520,162 +5521,246 @@ function cricketSafe(value) {
         .replace(/'/g, "&#039;");
 }
 
-
 /* =====================================================
-   TEAMS
+   LIVE STATE CHECK
 ===================================================== */
 
-function cricketTeams(match) {
+function cricketIsLive(match) {
 
-    if (
-        Array.isArray(match.teams) &&
-        match.teams.length >= 2
-    ) {
-        return [
-            match.teams[0],
-            match.teams[1]
-        ];
-    }
-
-    return [
-        match.t1 || "Team 1",
-        match.t2 || "Team 2"
-    ];
-}
-
-
-/* =====================================================
-   REAL LIVE MATCH CHECK
-===================================================== */
-
-function cricketIsActuallyLive(match) {
-
-    if (
-        match.matchStarted === true &&
-        match.matchEnded !== true
-    ) {
-        return true;
-    }
-
-    const status =
-        String(match.status || "").toLowerCase();
+    const description =
+        String(
+            match?.state?.description || ""
+        ).toLowerCase();
 
     return (
-        status.includes("live") ||
-        status.includes("innings") ||
-        status.includes("stumps") ||
-        status.includes("break") ||
-        status.includes("day ")
+        description === "in play" ||
+        description === "stumps" ||
+        description === "lunch" ||
+        description === "innings break" ||
+        description === "drinks" ||
+        description === "timeout" ||
+        description === "tea" ||
+        description.includes("in play")
     );
 }
 
-
 /* =====================================================
-   SCORE
+   TEAM SCORE
 ===================================================== */
 
-function cricketScore(match) {
+function cricketTeamScore(team) {
+
+    if (!team) {
+        return `
+            <span style="opacity:.55;">
+                —
+            </span>
+        `;
+    }
+
+    const score =
+        team.score;
+
+    const info =
+        team.info;
 
     if (
-        !Array.isArray(match.score) ||
-        match.score.length === 0
+        score === null ||
+        score === undefined ||
+        score === ""
     ) {
         return `
             <div
                 style="
-                    margin-top:10px;
-                    padding:10px;
-                    border-radius:8px;
-                    background:rgba(255,255,255,.05);
-                    opacity:.7;
-                    font-size:12px;
+                    font-size:16px;
+                    font-weight:800;
+                    opacity:.55;
                 "
             >
-                Live score is not available from the API yet.
+                —
             </div>
         `;
     }
 
+    return `
+        <div
+            style="
+                display:flex;
+                flex-direction:column;
+                align-items:flex-end;
+                gap:3px;
+            "
+        >
+            <strong
+                style="
+                    font-size:21px;
+                    line-height:1;
+                    white-space:nowrap;
+                "
+            >
+                ${cricketSafe(score)}
+            </strong>
 
-    return match.score
-        .map(item => {
-
-            const runs =
-                item.r !== undefined
-                    ? item.r
-                    : "-";
-
-            const wickets =
-                item.w !== undefined
-                    ? item.w
-                    : 0;
-
-            const overs =
-                item.o !== undefined
-                    ? item.o
-                    : "-";
-
-            const inning =
-                cricketSafe(
-                    item.inning || ""
-                );
-
-
-            return `
-                <div
-                    style="
-                        display:flex;
-                        justify-content:space-between;
-                        align-items:center;
-                        gap:12px;
-                        padding:9px 0;
-                        border-bottom:1px solid
-                        rgba(255,255,255,.07);
-                    "
-                >
-
-                    <span
-                        style="
-                            font-size:12px;
-                            opacity:.72;
-                        "
-                    >
-                        ${inning}
-                    </span>
-
-                    <strong
-                        style="
-                            font-size:18px;
-                            white-space:nowrap;
-                        "
-                    >
-                        ${runs}/${wickets}
+            ${
+                info
+                    ? `
                         <span
                             style="
                                 font-size:11px;
-                                opacity:.65;
+                                opacity:.62;
+                                white-space:nowrap;
                             "
                         >
-                            (${overs} ov)
+                            ${cricketSafe(info)}
                         </span>
-                    </strong>
-
-                </div>
-            `;
-        })
-        .join("");
+                    `
+                    : ""
+            }
+        </div>
+    `;
 }
 
+/* =====================================================
+   TEAM ROW
+===================================================== */
+
+function cricketTeamRow(
+    team,
+    scoreTeam
+) {
+
+    if (!team) {
+        return "";
+    }
+
+    const name =
+        cricketSafe(
+            team.name ||
+            "Unknown Team"
+        );
+
+    const abbreviation =
+        cricketSafe(
+            team.abbreviation ||
+            ""
+        );
+
+    const logo =
+        team.logo;
+
+    return `
+        <div
+            style="
+                display:flex;
+                align-items:center;
+                justify-content:space-between;
+                gap:12px;
+                padding:11px 0;
+                border-bottom:1px solid
+                    rgba(255,255,255,.07);
+            "
+        >
+
+            <div
+                style="
+                    display:flex;
+                    align-items:center;
+                    gap:10px;
+                    min-width:0;
+                "
+            >
+
+                ${
+                    logo
+                        ? `
+                            <img
+                                src="${cricketSafe(logo)}"
+                                alt=""
+                                loading="lazy"
+                                style="
+                                    width:34px;
+                                    height:34px;
+                                    object-fit:contain;
+                                    border-radius:50%;
+                                    background:
+                                        rgba(255,255,255,.06);
+                                    padding:3px;
+                                    flex-shrink:0;
+                                "
+                            >
+                        `
+                        : `
+                            <div
+                                style="
+                                    width:34px;
+                                    height:34px;
+                                    border-radius:50%;
+                                    background:
+                                        rgba(255,255,255,.07);
+                                    display:flex;
+                                    align-items:center;
+                                    justify-content:center;
+                                    font-size:13px;
+                                    font-weight:900;
+                                    flex-shrink:0;
+                                "
+                            >
+                                🏏
+                            </div>
+                        `
+                }
+
+                <div
+                    style="
+                        min-width:0;
+                    "
+                >
+                    <div
+                        style="
+                            font-size:14px;
+                            font-weight:800;
+                            overflow:hidden;
+                            text-overflow:ellipsis;
+                            white-space:nowrap;
+                        "
+                    >
+                        ${name}
+                    </div>
+
+                    ${
+                        abbreviation
+                            ? `
+                                <div
+                                    style="
+                                        margin-top:2px;
+                                        font-size:10px;
+                                        opacity:.5;
+                                    "
+                                >
+                                    ${abbreviation}
+                                </div>
+                            `
+                            : ""
+                    }
+                </div>
+
+            </div>
+
+            ${cricketTeamScore(scoreTeam)}
+
+        </div>
+    `;
+}
 
 /* =====================================================
-   DATE
+   MATCH DATE / TIME
 ===================================================== */
 
 function cricketMatchTime(match) {
 
     const value =
-        match.dateTimeGMT ||
-        match.date;
+        match?.startTime ||
+        match?.startDate;
 
     if (!value) {
         return "";
@@ -5684,7 +5769,11 @@ function cricketMatchTime(match) {
     const date =
         new Date(value);
 
-    if (isNaN(date.getTime())) {
+    if (
+        isNaN(
+            date.getTime()
+        )
+    ) {
         return "";
     }
 
@@ -5699,100 +5788,143 @@ function cricketMatchTime(match) {
     );
 }
 
-
 /* =====================================================
    LIVE MATCH CARD
 ===================================================== */
 
 function cricketLiveCard(match) {
 
-    const teams =
-        cricketTeams(match);
+    const homeTeam =
+        match?.homeTeam;
 
-    const team1 =
-        cricketSafe(teams[0]);
+    const awayTeam =
+        match?.awayTeam;
 
-    const team2 =
-        cricketSafe(teams[1]);
+    const homeScore =
+        match?.state?.teams?.home;
 
-    const series =
-        cricketSafe(
-            match.series ||
-            match.name ||
-            "Cricket Match"
-        );
-
-    const type =
-        cricketSafe(
-            String(
-                match.matchType || ""
-            ).toUpperCase()
-        );
+    const awayScore =
+        match?.state?.teams?.away;
 
     const status =
         cricketSafe(
-            match.status ||
-            "LIVE"
+            match?.state?.description ||
+            "Live"
         );
 
-    const score =
-        cricketScore(match);
+    const report =
+        cricketSafe(
+            match?.state?.report ||
+            ""
+        );
+
+    const format =
+        cricketSafe(
+            match?.format ||
+            ""
+        );
+
+    const league =
+        cricketSafe(
+            match?.league?.name ||
+            ""
+        );
+
+    const country =
+        cricketSafe(
+            match?.country?.name ||
+            ""
+        );
 
     const time =
         cricketMatchTime(match);
-
 
     return `
         <article
             class="cricket-match-card"
             style="
                 margin-top:14px;
-                padding:16px;
-                border-radius:16px;
+                padding:17px;
+                border-radius:17px;
                 background:
                     linear-gradient(
                         145deg,
-                        rgba(255,255,255,.08),
+                        rgba(255,255,255,.085),
                         rgba(255,255,255,.035)
                     );
                 border:1px solid
-                    rgba(255,255,255,.10);
+                    rgba(255,255,255,.11);
                 box-shadow:
-                    0 8px 25px
-                    rgba(0,0,0,.20);
+                    0 10px 30px
+                    rgba(0,0,0,.22);
             "
         >
 
-            <!-- HEADER -->
+            <!-- TOP -->
 
             <div
                 style="
                     display:flex;
                     justify-content:space-between;
-                    align-items:center;
+                    align-items:flex-start;
                     gap:10px;
                 "
             >
 
                 <div
                     style="
-                        font-size:11px;
-                        color:#22c55e;
-                        font-weight:700;
+                        min-width:0;
                     "
                 >
-                    ${series}
+
+                    ${
+                        league
+                            ? `
+                                <div
+                                    style="
+                                        font-size:11px;
+                                        font-weight:800;
+                                        color:#22c55e;
+                                        overflow:hidden;
+                                        text-overflow:ellipsis;
+                                        white-space:nowrap;
+                                    "
+                                >
+                                    ${league}
+                                </div>
+                            `
+                            : ""
+                    }
+
+                    ${
+                        country
+                            ? `
+                                <div
+                                    style="
+                                        margin-top:3px;
+                                        font-size:10px;
+                                        opacity:.48;
+                                    "
+                                >
+                                    ${country}
+                                </div>
+                            `
+                            : ""
+                    }
+
                 </div>
 
                 <div
                     style="
+                        flex-shrink:0;
                         padding:5px 9px;
                         border-radius:20px;
                         background:
-                            rgba(255,50,80,.15);
+                            rgba(255,50,80,.14);
                         color:#ff526b;
-                        font-size:11px;
+                        font-size:10px;
                         font-weight:900;
+                        white-space:nowrap;
                     "
                 >
                     ● LIVE
@@ -5800,68 +5932,109 @@ function cricketLiveCard(match) {
 
             </div>
 
-
             <!-- TEAMS -->
 
             <div
                 style="
-                    margin-top:15px;
-                    font-size:16px;
-                    font-weight:900;
-                    line-height:1.9;
+                    margin-top:12px;
                 "
             >
-                ${team1}
-                <br>
-                ${team2}
+
+                ${cricketTeamRow(
+                    homeTeam,
+                    homeScore
+                )}
+
+                ${cricketTeamRow(
+                    awayTeam,
+                    awayScore
+                )}
+
             </div>
-
-
-            <!-- REAL API SCORE -->
-
-            <div
-                style="
-                    margin-top:8px;
-                "
-            >
-                ${score}
-            </div>
-
 
             <!-- STATUS -->
 
             <div
                 style="
-                    margin-top:10px;
-                    font-size:12px;
-                    font-weight:700;
-                    color:#facc15;
+                    margin-top:12px;
+                    display:flex;
+                    align-items:center;
+                    justify-content:space-between;
+                    gap:10px;
                 "
             >
-                ${status}
+
+                <div
+                    style="
+                        font-size:12px;
+                        font-weight:800;
+                        color:#facc15;
+                    "
+                >
+                    ${status}
+                </div>
+
+                ${
+                    format
+                        ? `
+                            <div
+                                style="
+                                    font-size:10px;
+                                    opacity:.55;
+                                    font-weight:700;
+                                "
+                            >
+                                ${format}
+                            </div>
+                        `
+                        : ""
+                }
+
             </div>
 
+            ${
+                report
+                    ? `
+                        <div
+                            style="
+                                margin-top:8px;
+                                padding:9px 10px;
+                                border-radius:9px;
+                                background:
+                                    rgba(255,255,255,.045);
+                                font-size:11px;
+                                line-height:1.5;
+                                opacity:.72;
+                            "
+                        >
+                            ${report}
+                        </div>
+                    `
+                    : ""
+            }
 
-            <!-- INFO -->
-
-            <div
-                style="
-                    margin-top:7px;
-                    font-size:11px;
-                    opacity:.6;
-                "
-            >
-                ${type}
-                ${time ? " • " + time : ""}
-            </div>
+            ${
+                time
+                    ? `
+                        <div
+                            style="
+                                margin-top:8px;
+                                font-size:10px;
+                                opacity:.42;
+                            "
+                        >
+                            ${time}
+                        </div>
+                    `
+                    : ""
+            }
 
         </article>
     `;
 }
 
-
 /* =====================================================
-   LOAD REAL LIVE DATA
+   LOAD LIVE CRICKET
 ===================================================== */
 
 async function loadCricketLive() {
@@ -5869,15 +6042,6 @@ async function loadCricketLive() {
     if (!cricketLiveContent) {
         return;
     }
-
-
-    cricketLiveContent.innerHTML = `
-        <div class="sport-status">
-            <span class="status-dot"></span>
-            Checking live cricket...
-        </div>
-    `;
-
 
     try {
 
@@ -5889,61 +6053,74 @@ async function loadCricketLive() {
                 }
             );
 
-
         if (!response.ok) {
             throw new Error(
-                "HTTP " + response.status
+                "HTTP " +
+                response.status
             );
         }
-
 
         const result =
             await response.json();
 
-
         if (
             !result ||
-            !Array.isArray(result.data)
+            !Array.isArray(
+                result.data
+            )
         ) {
             throw new Error(
-                "Invalid CricketData response"
+                "Invalid Highlightly response"
             );
         }
 
-
-        cricketLiveCache =
-            result.data;
-
-
-        /* ONLY REAL LIVE MATCHES */
-
         const liveMatches =
-            cricketLiveCache.filter(
-                cricketIsActuallyLive
+            result.data.filter(
+                cricketIsLive
             );
-
 
         let html = `
             <div
                 style="
-                    font-size:17px;
-                    font-weight:900;
+                    display:flex;
+                    align-items:center;
+                    justify-content:space-between;
+                    gap:10px;
                     margin-top:5px;
                 "
             >
-                🔴 LIVE CRICKET
+
+                <div
+                    style="
+                        font-size:17px;
+                        font-weight:900;
+                    "
+                >
+                    🔴 LIVE CRICKET
+                </div>
+
+                <div
+                    style="
+                        font-size:10px;
+                        opacity:.45;
+                    "
+                >
+                    Auto update
+                </div>
+
             </div>
         `;
 
-
-        if (liveMatches.length === 0) {
+        if (
+            liveMatches.length === 0
+        ) {
 
             html += `
                 <div
                     style="
                         margin-top:12px;
-                        padding:14px;
-                        border-radius:10px;
+                        padding:15px;
+                        border-radius:11px;
                         background:
                             rgba(255,255,255,.05);
                         font-size:13px;
@@ -5951,37 +6128,36 @@ async function loadCricketLive() {
                     "
                 >
                     No live cricket match is
-                    currently available from the API.
+                    currently available.
                 </div>
             `;
 
         } else {
 
-            html += liveMatches
-                .map(
-                    cricketLiveCard
-                )
-                .join("");
+            html +=
+                liveMatches
+                    .map(
+                        cricketLiveCard
+                    )
+                    .join("");
         }
-
 
         cricketLiveContent.innerHTML =
             html;
 
-
     } catch (error) {
 
         console.error(
-            "AA Cricket Live Error:",
+            "AA Highlightly Cricket Error:",
             error
         );
-
 
         cricketLiveContent.innerHTML = `
             <div
                 style="
                     color:#ff6b6b;
                     font-weight:700;
+                    font-size:13px;
                 "
             >
                 Unable to load live cricket.
@@ -5995,18 +6171,17 @@ async function loadCricketLive() {
                     border:0;
                     border-radius:8px;
                     cursor:pointer;
+                    font-weight:700;
                 "
             >
                 Retry
             </button>
         `;
 
-
         const retry =
             document.getElementById(
                 "retryCricketLive"
             );
-
 
         if (retry) {
             retry.onclick =
@@ -6015,23 +6190,31 @@ async function loadCricketLive() {
     }
 }
 
-
 /* =====================================================
    FIRST LOAD
 ===================================================== */
 
 loadCricketLive();
 
-
 /* =====================================================
-   AUTOMATIC LIVE REFRESH
-   100 API HITS/DAY LIMIT
+   AUTOMATIC REFRESH
+   60 SECONDS
 ===================================================== */
 
-setInterval(
-    loadCricketLive,
-    15 * 60 * 1000
-);
+if (
+    cricketRefreshTimer
+) {
+    clearInterval(
+        cricketRefreshTimer
+    );
+}
+
+cricketRefreshTimer =
+    setInterval(
+        loadCricketLive,
+        60 * 1000
+    );
+
      
 </script>  </body>    
 </html>
