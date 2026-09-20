@@ -1767,6 +1767,67 @@ type="application/ld+json">
         1fr;   
     }   
   }   
+
+/* =====================================================
+   AA CRICKET DATA MODAL / QUICK LINK PANELS
+===================================================== */
+.aa-data-modal{
+  position:fixed; inset:0; z-index:5000; display:none;
+  align-items:center; justify-content:center; padding:20px;
+  background:rgba(0,0,0,.72); backdrop-filter:blur(12px);
+}
+.aa-data-modal.open{display:flex}
+.aa-data-dialog{
+  width:min(1050px,96vw); max-height:88vh; overflow:hidden;
+  border:1px solid var(--border-light); border-radius:22px;
+  background:linear-gradient(145deg,#111827,#0b0f1a);
+  box-shadow:0 30px 90px rgba(0,0,0,.55);
+}
+.aa-data-head{
+  display:flex; align-items:center; justify-content:space-between; gap:15px;
+  padding:18px 20px; border-bottom:1px solid var(--border);
+}
+.aa-data-head h3{font-size:18px;font-weight:900}
+.aa-data-head p{margin-top:2px;color:var(--text-muted);font-size:9px}
+.aa-data-close{
+  width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.06);
+  color:white;font-size:16px;cursor:pointer
+}
+.aa-data-toolbar{
+  display:flex;flex-wrap:wrap;gap:8px;padding:14px 18px;
+  border-bottom:1px solid var(--border);background:rgba(255,255,255,.02)
+}
+.aa-data-select,.aa-data-btn{
+  min-height:36px;padding:0 11px;border:1px solid var(--border);
+  border-radius:9px;background:rgba(255,255,255,.04);color:var(--text-secondary);
+  font-size:10px;font-weight:800
+}
+.aa-data-btn{cursor:pointer;color:white}
+.aa-data-btn:hover{background:rgba(255,255,255,.08)}
+.aa-data-body{padding:18px;max-height:62vh;overflow:auto}
+.aa-data-loading,.aa-data-error{
+  padding:35px 18px;text-align:center;color:var(--text-muted);font-size:11px
+}
+.aa-data-table{width:100%;border-collapse:collapse;font-size:10px}
+.aa-data-table th,.aa-data-table td{
+  padding:11px 9px;border-bottom:1px solid var(--border);text-align:left
+}
+.aa-data-table th{color:var(--text-muted);font-size:8px;text-transform:uppercase;letter-spacing:.7px}
+.aa-data-table td{color:var(--text-secondary)}
+.aa-data-table strong{color:white}
+.aa-data-card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.aa-data-card{
+  padding:14px;border:1px solid var(--border);border-radius:13px;
+  background:rgba(255,255,255,.03)
+}
+.aa-data-card-title{font-size:12px;font-weight:900;color:white}
+.aa-data-card-meta{margin-top:4px;color:var(--text-muted);font-size:9px}
+@media(max-width:700px){
+  .aa-data-card-grid{grid-template-columns:1fr}
+  .aa-data-dialog{max-height:92vh}
+  .aa-data-body{max-height:68vh}
+}
+
 </style> </head> <body> <!-
 =========================================================   
    TOP LIVE TICKER   
@@ -2247,13 +2308,13 @@ id="home">  <!-- =====================================================
       </div>
 
       <div class="aa-quick-links">
-        <a class="aa-quick-link" href="#sports"><i class="fa-solid fa-calendar-days"></i> Today's Matches</a>
-        <a class="aa-quick-link" href="#sports"><i class="fa-solid fa-flag"></i> Pakistan Fixtures</a>
-        <a class="aa-quick-link" href="#sports"><i class="fa-solid fa-list"></i> Series & Results</a>
-        <a class="aa-quick-link" href="#sports"><i class="fa-solid fa-people-group"></i> Teams</a>
-        <a class="aa-quick-link" href="#sports"><i class="fa-solid fa-ranking-star"></i> Rankings</a>
-        <a class="aa-quick-link" href="#sports"><i class="fa-solid fa-user"></i> Players</a>
-        <a class="aa-quick-link" href="#news"><i class="fa-solid fa-newspaper"></i> Cricket News</a>
+        <button type="button" class="aa-quick-link aa-cricket-action" data-action="today"><i class="fa-solid fa-calendar-days"></i> Today's Matches</button>
+        <button type="button" class="aa-quick-link aa-cricket-action" data-action="pakistan"><i class="fa-solid fa-flag"></i> Pakistan Fixtures</button>
+        <button type="button" class="aa-quick-link aa-cricket-action" data-action="series"><i class="fa-solid fa-list"></i> Series & Results</button>
+        <button type="button" class="aa-quick-link aa-cricket-action" data-action="teams"><i class="fa-solid fa-people-group"></i> Teams</button>
+        <button type="button" class="aa-quick-link aa-cricket-action" data-action="rankings"><i class="fa-solid fa-ranking-star"></i> Rankings</button>
+        <button type="button" class="aa-quick-link aa-cricket-action" data-action="players"><i class="fa-solid fa-user"></i> Players</button>
+        <button type="button" class="aa-quick-link" type="button" onclick="document.getElementById('news')?.scrollIntoView({behavior:'smooth'})"><i class="fa-solid fa-newspaper"></i> Cricket News</button>
       </div>
 
       <div class="aa-score-lower">
@@ -2824,7 +2885,29 @@ aria-label="Back to top"
 </button>  <!-
 =========================================================   
    FRONTEND JAVASCRIPT   
-========================================================== -->  <script>   
+========================================================== -->  
+<!-- =====================================================
+     AA CRICKET DATA MODAL
+====================================================== -->
+<div class="aa-data-modal" id="aaCricketDataModal" aria-hidden="true">
+  <div class="aa-data-dialog" role="dialog" aria-modal="true" aria-labelledby="aaDataTitle">
+    <div class="aa-data-head">
+      <div>
+        <h3 id="aaDataTitle">Cricket Data</h3>
+        <p id="aaDataSubtitle">Live data from AA Creative Studio API</p>
+      </div>
+      <button class="aa-data-close" id="aaDataClose" type="button" aria-label="Close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <div class="aa-data-toolbar" id="aaDataToolbar"></div>
+    <div class="aa-data-body" id="aaDataBody">
+      <div class="aa-data-loading"><i class="fa-solid fa-spinner fa-spin"></i> Loading cricket data…</div>
+    </div>
+  </div>
+</div>
+
+<script>   
   /* =====================================================   
     YEAR   
   ====================================================== */   
@@ -3463,6 +3546,222 @@ async function loadCricketLive() {
 loadCricketLive();
 if (cricketRefreshTimer) clearInterval(cricketRefreshTimer);
 cricketRefreshTimer = setInterval(loadCricketLive, 60 * 1000);
+
+
+
+/* =====================================================
+   AA CREATIVE STUDIO — CRICKET QUICK LINKS
+   Uses the Cloudflare Worker as the secure API gateway.
+===================================================== */
+(() => {
+  const API = "https://aa-cricket-api-live.aliabbasalone134.workers.dev";
+  const modal = document.getElementById("aaCricketDataModal");
+  const body = document.getElementById("aaDataBody");
+  const title = document.getElementById("aaDataTitle");
+  const subtitle = document.getElementById("aaDataSubtitle");
+  const toolbar = document.getElementById("aaDataToolbar");
+  const close = document.getElementById("aaDataClose");
+
+  if (!modal || !body || !title || !subtitle || !toolbar) return;
+
+  const esc = (v) => {
+    if (v === null || v === undefined) return "";
+    return String(v).replace(/[&<>"']/g, c => ({
+      "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+    }[c]));
+  };
+
+  const openModal = (t, s) => {
+    title.textContent = t;
+    subtitle.textContent = s || "Live data from AA Creative Studio API";
+    modal.classList.add("open");
+    modal.setAttribute("aria-hidden","false");
+  };
+
+  const closeModal = () => {
+    modal.classList.remove("open");
+    modal.setAttribute("aria-hidden","true");
+  };
+
+  close?.addEventListener("click", closeModal);
+  modal.addEventListener("click", e => { if (e.target === modal) closeModal(); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
+
+  async function getJson(url) {
+    const r = await fetch(url, {cache:"no-store"});
+    const j = await r.json().catch(() => null);
+    if (!r.ok) throw new Error(j?.error || ("HTTP " + r.status));
+    return j;
+  }
+
+  function loading() {
+    body.innerHTML = '<div class="aa-data-loading"><i class="fa-solid fa-spinner fa-spin"></i> Loading real cricket data…</div>';
+  }
+
+  function errorBox(err) {
+    body.innerHTML = `<div class="aa-data-error"><strong>Unable to load this data.</strong><br>${esc(err?.message || err)}<br><button class="aa-data-btn" style="margin-top:12px" onclick="location.reload()">Retry</button></div>`;
+  }
+
+  function emptyBox(message="No data available right now.") {
+    body.innerHTML = `<div class="aa-data-error">${esc(message)}</div>`;
+  }
+
+  function fixtureArray(j) {
+    if (Array.isArray(j?.data)) return j.data;
+    if (Array.isArray(j?.data?.fixtures)) return j.data.fixtures;
+    if (Array.isArray(j?.fixtures)) return j.fixtures;
+    return [];
+  }
+
+  function renderFixtures(j) {
+    const rows = fixtureArray(j);
+    if (!rows.length) return emptyBox("No fixtures were returned for this date.");
+    body.innerHTML = `
+      <div class="aa-data-card-grid">
+        ${rows.map((m,i) => {
+          const home = m?.homeTeam?.name || m?.localteam || m?.teams?.home || m?.home_team || "Home";
+          const away = m?.awayTeam?.name || m?.visitorteam || m?.teams?.away || m?.away_team || "Away";
+          const score = m?.score?.summary || m?.localteam_score || "";
+          const status = m?.status || m?.state?.description || m?.match_status || "Scheduled";
+          const format = m?.format || m?.type || "";
+          return `<div class="aa-data-card">
+            <div class="aa-data-card-title">${esc(home)} vs ${esc(away)}</div>
+            <div class="aa-data-card-meta">${esc(status)}${format ? " · "+esc(format) : ""}${score ? " · "+esc(score) : ""}</div>
+          </div>`;
+        }).join("")}
+      </div>`;
+  }
+
+  function renderRankings(j, kind, category) {
+    const rows = Array.isArray(j?.data) ? j.data : [];
+    if (!rows.length) return emptyBox("No ranking data returned.");
+    const isPlayer = kind === "player";
+    body.innerHTML = `
+      <div style="overflow:auto">
+        <table class="aa-data-table">
+          <thead><tr>
+            <th>Rank</th><th>${isPlayer ? "Player" : "Team"}</th>
+            <th>${isPlayer ? "Country" : "Rating"}</th>
+            ${isPlayer ? "<th>Rating</th>" : "<th>Change</th>"}
+          </tr></thead>
+          <tbody>
+          ${rows.map(r => `<tr>
+            <td><strong>#${esc(r.rank)}</strong></td>
+            <td><strong>${esc(r.name || r.team || r.team_name || "Unknown")}</strong></td>
+            <td>${esc(r.country || r.rating || "")}</td>
+            <td>${esc(isPlayer ? (r.rating ?? "") : (r.change ?? ""))}</td>
+          </tr>`).join("")}
+          </tbody>
+        </table>
+      </div>`;
+  }
+
+  function renderList(j, titleField, metaFields) {
+    let rows = Array.isArray(j?.data) ? j.data : [];
+    if (!rows.length && Array.isArray(j?.data?.items)) rows = j.data.items;
+    if (!rows.length) return emptyBox("No data returned.");
+    body.innerHTML = `
+      <div class="aa-data-card-grid">
+        ${rows.map(x => {
+          const name = x?.[titleField] || x?.name || x?.short_name || x?.team_name || "Unknown";
+          const meta = metaFields.map(k => x?.[k]).filter(Boolean).join(" · ");
+          return `<div class="aa-data-card"><div class="aa-data-card-title">${esc(name)}</div>${meta ? `<div class="aa-data-card-meta">${esc(meta)}</div>` : ""}</div>`;
+        }).join("")}
+      </div>`;
+  }
+
+  function addRankingToolbar() {
+    toolbar.innerHTML = `
+      <select class="aa-data-select" id="aaRankFormat">
+        <option value="test">Test</option>
+        <option value="odi">ODI</option>
+        <option value="t20i" selected>T20I</option>
+      </select>
+      <select class="aa-data-select" id="aaRankType">
+        <option value="team">Teams</option>
+        <option value="player" selected>Players</option>
+      </select>
+      <select class="aa-data-select" id="aaRankCategory">
+        <option value="batting">Batting</option>
+        <option value="bowling">Bowling</option>
+        <option value="allrounder">All-rounder</option>
+      </select>
+      <button class="aa-data-btn" id="aaRankLoad" type="button"><i class="fa-solid fa-rotate"></i> Load</button>`;
+    const type = document.getElementById("aaRankType");
+    const cat = document.getElementById("aaRankCategory");
+    const sync = () => { cat.style.display = type.value === "player" ? "" : "none"; };
+    type.addEventListener("change", sync); sync();
+    document.getElementById("aaRankLoad").addEventListener("click", loadRankings);
+  }
+
+  async function loadRankings() {
+    loading();
+    const f = document.getElementById("aaRankFormat").value;
+    const t = document.getElementById("aaRankType").value;
+    const c = document.getElementById("aaRankCategory").value;
+    try {
+      const j = await getJson(`${API}/rankings?format=${encodeURIComponent(f)}&type=${encodeURIComponent(t)}${t==="player" ? `&category=${encodeURIComponent(c)}` : ""}`);
+      renderRankings(j,t,c);
+    } catch(e) { errorBox(e); }
+  }
+
+  async function action(action) {
+    toolbar.innerHTML = "";
+    loading();
+
+    if (action === "today" || action === "pakistan") {
+      const d = new Date().toISOString().slice(0,10);
+      openModal(action === "today" ? "Today's Matches" : "Pakistan Fixtures",
+                 action === "today" ? "Today's cricket fixtures" : "Today's fixtures — Pakistan filter");
+      try {
+        const j = await getJson(`${API}/matches?date=${d}`);
+        let rows = fixtureArray(j);
+        if (action === "pakistan") {
+          rows = rows.filter(m => JSON.stringify(m).toLowerCase().includes("pakistan"));
+        }
+        renderFixtures({data:rows});
+      } catch(e) { errorBox(e); }
+      return;
+    }
+
+    if (action === "series") {
+      openModal("Series & Results","Fixtures and completed cricket data");
+      try {
+        const j = await getJson(`${API}/series`);
+        renderList(j,"name",["season","start_date","end_date"]);
+      } catch(e) { errorBox(e); }
+      return;
+    }
+
+    if (action === "teams") {
+      openModal("Teams","Cricket teams from Cricwix");
+      try {
+        const j = await getJson(`${API}/teams`);
+        renderList(j,"name",["country","short_name"]);
+      } catch(e) { errorBox(e); }
+      return;
+    }
+
+    if (action === "players") {
+      openModal("Players","Cricket players from Cricwix");
+      try {
+        const j = await getJson(`${API}/players`);
+        renderList(j,"name",["country","role"]);
+      } catch(e) { errorBox(e); }
+      return;
+    }
+
+    if (action === "rankings") {
+      openModal("ICC Rankings","Current rankings returned by Cricwix");
+      addRankingToolbar();
+      await loadRankings();
+    }
+  }
+
+  document.querySelectorAll(".aa-cricket-action").forEach(btn => {
+    btn.addEventListener("click", () => action(btn.dataset.action));
+  });
+})();
 
 </script> </body>   
 </html> 
