@@ -976,155 +976,104 @@ type="application/ld+json">
     color: var(--text-muted);   
     font-size: 8px;   
   }   
-  /* =====================================================   
-    SPORTS   
-  ====================================================== */   
-  .sports-section {   
-    background:   
-      linear-gradient(   
-        180deg,   
-        transparent,   
-        rgba(24,214,123,0.025),   
-        transparent   
-      );   
-  }   
-  .sports-tabs {   
-    display: flex;   
-    align-items: center;   
-    gap: 8px;   
-    overflow-x: auto;   
-    padding-bottom: 4px;   
-    margin-bottom: 22px;   
-  }   
-  .sports-tabs::-webkit-scrollbar {   
-    height: 0;   
-  }   
-  .sport-tab {   
-    flex-shrink: 0;   
-    display: inline-flex;   
-    align-items: center;   
-    gap: 8px;   
-    padding:   
-      10px 14px;   
-    border:   
-      1px solid var(--border);   
-    border-radius: 11px;   
-    background:   
-      rgba(255,255,255,0.025);   
-    color: var(--text-muted);   
-    font-size: 10px;   
-    font-weight: 800;   
-    transition:   
-      var(--transition);   
-  }   
-  .sport-tab:hover {   
-    color: white;   
-    border-color:   
-      rgba(24,214,123,0.25);   
-  }   
-  .sport-tab.active {   
-    background:   
-      rgba(24,214,123,0.1);   
-    color: var(--green);   
-    border-color:   
-      rgba(24,214,123,0.3);   
-  }   
-  .sports-grid {   
-    display: grid;   
-    grid-template-columns:   
-      repeat(4, minmax(0, 1fr));   
-    gap: 15px;   
-  }   
-  .sport-card {   
-    position: relative;   
-    min-height: 180px;   
-    padding: 22px;   
-    border:   
-      1px solid var(--border);   
-    border-radius:   
-      var(--radius-lg);   
-    background:   
-      var(--bg-card);   
-    overflow: hidden;   
-    transition:   
-      var(--transition);   
-  }   
-  .sport-card:hover {   
-    transform:   
-      translateY(-5px);   
-    border-color:   
-      rgba(255,255,255,0.15);   
-    box-shadow:   
-      var(--shadow-small);   
-  }   
-  .sport-card::after {   
-    content: "";   
-    position: absolute;   
-    width: 150px;   
-    height: 150px;   
-    right: -70px;   
-    bottom: -80px;   
-    border-radius: 50%;   
-    background:   
-      currentColor;   
-    opacity: 0.07;   
-  }   
-  .sport-card.cricket {   
-    color: var(--green);   
-  }   
-  .sport-card.football {   
-    color: var(--blue);   
-  }   
-  .sport-card.hockey {   
-    color: var(--orange);   
-  }   
-  .sport-card.tennis {   
-    color: var(--yellow);   
-  }   
-  .sport-card.basketball {   
-    color: var(--red);   
-  }   
-  .sport-card.volleyball {   
-    color: var(--purple);   
-  }   
-  .sport-card.kabaddi {   
-    color: var(--cyan);   
-  }   
-  .sport-card.motorsport {   
-    color: var(--pink);   
-  }   
-  .sport-icon {   
-    width: 45px;   
-    height: 45px;   
-    display: grid;   
-    place-items: center;   
-    border-radius: 14px;   
-    background:   
-      currentColor;   
-    color: var(--bg-main);   
-    font-size: 17px;   
-  }   
-  .sport-name {   
-    margin-top: 19px;   
-    color: white;   
-    font-size: 15px;   
-    font-weight: 900;   
-  }   
-  .sport-status {   
-    display: inline-flex;   
-    align-items: center;   
-    gap: 6px;   
-    margin-top: 8px;   
-    color: var(--text-muted);   
-    font-size: 9px;   
-    font-weight: 700;   
-  }   
-  .status-dot {   
-    width: 5px;   
-    height: 5px;   
-    border-radius: 50%;   
-    background: currentColor;   
-  }   
+
+  /* =====================================================
+    SPORTS / LIVE SCORE DASHBOARD
+  ====================================================== */
+  .sports-section {
+    background: linear-gradient(180deg, transparent, rgba(24,214,123,0.025), transparent);
+  }
+  .sports-tabs {
+    display:flex; align-items:center; gap:8px; overflow-x:auto;
+    padding-bottom:4px; margin-bottom:22px; scrollbar-width:none;
+  }
+  .sports-tabs::-webkit-scrollbar { height:0; }
+  .sport-tab {
+    flex-shrink:0; display:inline-flex; align-items:center; gap:8px;
+    padding:10px 14px; border:1px solid var(--border); border-radius:11px;
+    background:rgba(255,255,255,.025); color:var(--text-muted);
+    font-size:10px; font-weight:800; transition:var(--transition);
+  }
+  .sport-tab:hover { color:#fff; border-color:rgba(24,214,123,.25); }
+  .sport-tab.active { background:rgba(24,214,123,.10); color:var(--green); border-color:rgba(24,214,123,.30); }
+
+  .aa-score-dashboard {
+    border:1px solid var(--border); border-radius:24px;
+    background:linear-gradient(145deg,rgba(16,21,34,.98),rgba(10,14,24,.98));
+    box-shadow:var(--shadow); overflow:hidden;
+  }
+  .aa-score-topbar {
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    padding:18px 20px; border-bottom:1px solid var(--border);
+  }
+  .aa-score-brand { display:flex; align-items:center; gap:10px; min-width:0; }
+  .aa-score-brand-dot { width:8px; height:8px; border-radius:50%; background:var(--red); box-shadow:0 0 12px var(--red); animation:pulse 1.4s infinite; }
+  .aa-score-brand-title { font-size:16px; font-weight:900; letter-spacing:-.3px; }
+  .aa-score-brand-sub { color:var(--text-muted); font-size:9px; font-weight:700; margin-top:2px; }
+  .aa-score-update { color:var(--text-muted); font-size:9px; font-weight:700; white-space:nowrap; }
+
+  .aa-match-strip {
+    display:flex; gap:10px; overflow-x:auto; padding:16px 18px 18px;
+    scroll-snap-type:x mandatory; scrollbar-width:thin;
+  }
+  .aa-match-card {
+    flex:0 0 300px; min-width:300px; padding:15px;
+    border:1px solid rgba(255,255,255,.09); border-radius:15px;
+    background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025));
+    scroll-snap-align:start; transition:var(--transition);
+  }
+  .aa-match-card:hover { transform:translateY(-3px); border-color:rgba(255,255,255,.16); box-shadow:var(--shadow-small); }
+  .aa-match-meta { display:flex; align-items:center; justify-content:space-between; gap:8px; }
+  .aa-match-league { color:var(--green); font-size:9px; font-weight:900; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .aa-live-pill { padding:4px 8px; border-radius:999px; background:rgba(255,59,92,.13); color:#ff627a; font-size:8px; font-weight:900; white-space:nowrap; }
+  .aa-match-format { margin-top:5px; color:var(--text-muted); font-size:8px; font-weight:700; }
+  .aa-team-row { display:flex; align-items:center; justify-content:space-between; gap:10px; min-height:48px; }
+  .aa-team { display:flex; align-items:center; gap:9px; min-width:0; }
+  .aa-team-logo { width:30px; height:30px; object-fit:contain; flex:0 0 30px; border-radius:50%; }
+  .aa-team-fallback { width:30px; height:30px; border-radius:50%; display:grid; place-items:center; background:rgba(255,255,255,.07); color:var(--text-muted); flex:0 0 30px; font-size:11px; }
+  .aa-team-name { font-size:12px; font-weight:800; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .aa-team-abbr { margin-top:1px; color:var(--text-muted); font-size:8px; }
+  .aa-team-score { text-align:right; flex:0 0 auto; }
+  .aa-score-main { font-size:19px; line-height:1.1; font-weight:900; white-space:nowrap; }
+  .aa-score-info { margin-top:3px; color:var(--text-muted); font-size:8px; white-space:nowrap; }
+  .aa-match-divider { height:1px; background:rgba(255,255,255,.07); }
+  .aa-match-status { margin-top:8px; padding-top:8px; border-top:1px solid rgba(255,255,255,.07); color:var(--yellow); font-size:9px; font-weight:800; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .aa-match-report { margin-top:4px; color:var(--text-muted); font-size:8px; line-height:1.45; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+  .aa-match-actions { display:flex; gap:7px; margin-top:10px; }
+  .aa-mini-link { display:inline-flex; align-items:center; gap:5px; padding:6px 8px; border:1px solid var(--border); border-radius:8px; color:var(--text-secondary); font-size:8px; font-weight:800; }
+
+  .aa-quick-links { display:flex; gap:8px; overflow-x:auto; padding:0 18px 18px; scrollbar-width:none; }
+  .aa-quick-links::-webkit-scrollbar { height:0; }
+  .aa-quick-link { flex:0 0 auto; display:inline-flex; align-items:center; gap:7px; padding:9px 11px; border:1px solid var(--border); border-radius:10px; background:rgba(255,255,255,.025); color:var(--text-secondary); font-size:9px; font-weight:800; }
+  .aa-quick-link:hover { color:#fff; background:rgba(255,255,255,.06); }
+
+  .aa-score-lower { display:grid; grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr); gap:0; border-top:1px solid var(--border); }
+  .aa-featured-match { padding:24px; border-right:1px solid var(--border); }
+  .aa-panel-title { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:16px; }
+  .aa-panel-title h3 { font-size:17px; font-weight:900; }
+  .aa-panel-kicker { color:var(--text-muted); font-size:8px; font-weight:800; text-transform:uppercase; letter-spacing:1px; }
+  .aa-feature-card { min-height:180px; padding:20px; border:1px solid var(--border); border-radius:17px; background:linear-gradient(135deg,rgba(63,140,255,.08),rgba(166,108,255,.05),rgba(255,255,255,.025)); }
+  .aa-feature-empty { color:var(--text-muted); font-size:11px; line-height:1.7; }
+  .aa-feature-match-name { color:var(--text-muted); font-size:9px; font-weight:800; }
+  .aa-feature-teams { display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:14px; margin-top:20px; }
+  .aa-feature-team { text-align:center; }
+  .aa-feature-team img { width:48px; height:48px; object-fit:contain; margin:0 auto 8px; }
+  .aa-feature-team-name { font-size:13px; font-weight:900; }
+  .aa-feature-team-score { margin-top:4px; font-size:20px; font-weight:900; }
+  .aa-feature-vs { color:var(--text-muted); font-size:10px; font-weight:900; }
+
+  .aa-number-crunching { padding:24px; }
+  .aa-stat-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .aa-stat-card { padding:16px; border:1px solid var(--border); border-radius:14px; background:rgba(255,255,255,.035); }
+  .aa-stat-label { color:var(--text-muted); font-size:8px; font-weight:800; text-transform:uppercase; letter-spacing:.8px; }
+  .aa-stat-value { margin-top:7px; font-size:24px; line-height:1; font-weight:900; }
+  .aa-stat-note { margin-top:6px; color:var(--text-muted); font-size:8px; line-height:1.4; }
+
+  .aa-dashboard-empty { padding:30px 18px; text-align:center; color:var(--text-muted); font-size:11px; }
+  .aa-dashboard-empty strong { display:block; color:var(--text-secondary); font-size:13px; margin-bottom:5px; }
+
+  .sports-grid { display:none; }
+  .sport-card { display:none; }
   /* =====================================================   
     PEOPLE SEARCH   
   ====================================================== */   
@@ -2249,215 +2198,95 @@ id="home">  <!-- =====================================================
     </div>   
   </div>   
 </section>   
-<!-- =====================================================   
-   SPORTS   
-====================================================== -->   
-        <div>   
-          <h2 class="section-title">   
-            Live Sports   
-          </h2>   
-          <p class="section-subtitle">   
-            Scores, fixtures, results and updates   
-          </p>   
-        </div>   
-      </div>   
-      <a   
-        href="#sports"   
-        class="section-link"   
-      >   
-        All sports   
-        <i class="fa-solid fa-arrow-right"></i>   
-      </a>   
-    </div>   
-    <!-- SPORT TABS -->   
-    <div class="sports-tabs">   
-      <button   
-        class="sport-tab active"   
-        data-sport="all"   
-      >   
-        <i class="fa-solid fa-border-all"></i>   
-        All   
-      </button>   
-      <button   
-        class="sport-tab"   
-        data-sport="cricket"   
-      >   
-        <i class="fa-solid fa-baseball-bat-ball"></i>   
-        Cricket   
-      </button>   
-      <button   
-        class="sport-tab"   
-        data-sport="football"   
-      >   
-        <i class="fa-solid fa-futbol"></i>   
-        Football   
-      </button>   
-      <button   
-        class="sport-tab"   
-        data-sport="hockey"   
-      >   
-        <i class="fa-solid fa-hockey-puck"></i>   
-        Hockey   
-      </button>   
-      <button   
-        class="sport-tab"   
-        data-sport="tennis"   
-      >   
-        <i class="fa-solid fa-table-tennis-paddle-ball"></i>   
-        Tennis   
-      </button>   
-      <button   
-        class="sport-tab"   
-        data-sport="basketball"   
-      >   
-        <i class="fa-solid fa-basketball"></i>   
-        Basketball   
-      </button>   
-      <button   
-        class="sport-tab"   
-        data-sport="volleyball"   
-      >   
-        <i class="fa-solid fa-volleyball"></i>   
-        Volleyball   
-      </button>   
-      <button   
-        class="sport-tab"   
-        data-sport="motorsport"   
-      >   
-        <i class="fa-solid fa-flag-checkered"></i>   
-        Motorsport   
-      </button>   
-    </div>   
-    <!-- SPORTS GRID -->   
-    <div   
-      class="sports-grid"   
-      id="sportsGrid"   
-    >   
-      <article   
-        class="sport-card cricket reveal"   
-        data-sport-card="cricket"   
-      >   
-        <div class="sport-icon">   
-          <i class="fa-solid fa-baseball-bat-ball"></i>   
-        </div>   
-        <h3 class="sport-name">   
-          Cricket   
-        </h3>   
-        <div id="cricketLiveContent">
-  <div class="sport-status">
-    <span class="status-dot"></span>
-    Loading live scores...
+<!-- =====================================================
+   SPORTS / LIVE SCORE DASHBOARD
+====================================================== -->
+<section
+  class="section sports-section"
+  id="sports"
+>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-heading">
+        <div class="section-icon green">
+          <i class="fa-solid fa-trophy"></i>
+        </div>
+        <div>
+          <h2 class="section-title">Live Sports</h2>
+          <p class="section-subtitle">Scores, fixtures, results and updates</p>
+        </div>
+      </div>
+      <a href="#sports" class="section-link">All sports <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+    <div class="sports-tabs">
+      <button class="sport-tab active" data-sport="all"><i class="fa-solid fa-border-all"></i> All</button>
+      <button class="sport-tab" data-sport="cricket"><i class="fa-solid fa-baseball-bat-ball"></i> Cricket</button>
+      <button class="sport-tab" data-sport="football"><i class="fa-solid fa-futbol"></i> Football</button>
+      <button class="sport-tab" data-sport="hockey"><i class="fa-solid fa-hockey-puck"></i> Hockey</button>
+      <button class="sport-tab" data-sport="tennis"><i class="fa-solid fa-table-tennis-paddle-ball"></i> Tennis</button>
+      <button class="sport-tab" data-sport="basketball"><i class="fa-solid fa-basketball"></i> Basketball</button>
+      <button class="sport-tab" data-sport="volleyball"><i class="fa-solid fa-volleyball"></i> Volleyball</button>
+      <button class="sport-tab" data-sport="motorsport"><i class="fa-solid fa-flag-checkered"></i> Motorsport</button>
+    </div>
+
+    <div class="aa-score-dashboard reveal" id="aaCricketDashboard">
+      <div class="aa-score-topbar">
+        <div class="aa-score-brand">
+          <span class="aa-score-brand-dot"></span>
+          <div>
+            <div class="aa-score-brand-title">Live Cricket</div>
+            <div class="aa-score-brand-sub">AA Creative Studio · real-time match centre</div>
+          </div>
+        </div>
+        <div class="aa-score-update" id="aaCricketUpdate">Updating live scores…</div>
+      </div>
+
+      <div id="cricketLiveContent">
+        <div class="aa-dashboard-empty"><strong>Loading live cricket…</strong>Getting the latest score data.</div>
+      </div>
+
+      <div class="aa-quick-links">
+        <a class="aa-quick-link" href="#sports"><i class="fa-solid fa-calendar-days"></i> Today's Matches</a>
+        <a class="aa-quick-link" href="#sports"><i class="fa-solid fa-flag"></i> Pakistan Fixtures</a>
+        <a class="aa-quick-link" href="#sports"><i class="fa-solid fa-list"></i> Series & Results</a>
+        <a class="aa-quick-link" href="#sports"><i class="fa-solid fa-people-group"></i> Teams</a>
+        <a class="aa-quick-link" href="#sports"><i class="fa-solid fa-ranking-star"></i> Rankings</a>
+        <a class="aa-quick-link" href="#sports"><i class="fa-solid fa-user"></i> Players</a>
+        <a class="aa-quick-link" href="#news"><i class="fa-solid fa-newspaper"></i> Cricket News</a>
+      </div>
+
+      <div class="aa-score-lower">
+        <div class="aa-featured-match">
+          <div class="aa-panel-title">
+            <div>
+              <div class="aa-panel-kicker">Featured</div>
+              <h3>Live Match Centre</h3>
+            </div>
+            <span class="aa-panel-kicker">LIVE</span>
+          </div>
+          <div class="aa-feature-card" id="aaFeaturedCricket">
+            <div class="aa-feature-empty">Live match details will appear here automatically.</div>
+          </div>
+        </div>
+        <aside class="aa-number-crunching">
+          <div class="aa-panel-title">
+            <div>
+              <div class="aa-panel-kicker">Live data</div>
+              <h3>Number Crunching</h3>
+            </div>
+          </div>
+          <div class="aa-stat-grid" id="aaCricketStats">
+            <div class="aa-stat-card"><div class="aa-stat-label">Live matches</div><div class="aa-stat-value">—</div><div class="aa-stat-note">Waiting for API data</div></div>
+            <div class="aa-stat-card"><div class="aa-stat-label">Teams in play</div><div class="aa-stat-value">—</div><div class="aa-stat-note">Updated with live matches</div></div>
+            <div class="aa-stat-card"><div class="aa-stat-label">Competitions</div><div class="aa-stat-value">—</div><div class="aa-stat-note">Active live competitions</div></div>
+            <div class="aa-stat-card"><div class="aa-stat-label">Refresh</div><div class="aa-stat-value">60s</div><div class="aa-stat-note">Automatic score refresh</div></div>
+          </div>
+        </aside>
+      </div>
+    </div>
   </div>
-</div>
-      </article>   
-      <article   
-        class="sport-card football reveal"   
-        data-sport-card="football"   
-      >   
-        <div class="sport-icon">   
-          <i class="fa-solid fa-futbol"></i>   
-        </div>   
-        <h3 class="sport-name">   
-          Football   
-        </h3>   
-        <div class="sport-status">   
-          <span class="status-dot"></span>   
-          Live scores coming   
-        </div>   
-      </article>   
-      <article   
-        class="sport-card hockey reveal"   
-        data-sport-card="hockey"   
-      >   
-        <div class="sport-icon">   
-          <i class="fa-solid fa-hockey-puck"></i>   
-        </div>   
-        <h3 class="sport-name">   
-          Hockey   
-        </h3>   
-        <div class="sport-status">   
-          <span class="status-dot"></span>   
-          Updates coming   
-        </div>   
-      </article>   
-      <article   
-        class="sport-card tennis reveal"   
-        data-sport-card="tennis"   
-      >   
-        <div class="sport-icon">   
-          <i class="fa-solid fa-table-tennis-paddle-ball"></i>   
-        </div>   
-        <h3 class="sport-name">   
-          Tennis   
-        </h3>   
-        <div class="sport-status">   
-          <span class="status-dot"></span>   
-          Live updates coming   
-        </div>   
-      </article>   
-      <article   
-        class="sport-card basketball reveal"   
-        data-sport-card="basketball"   
-      >   
-        <div class="sport-icon">   
-          <i class="fa-solid fa-basketball"></i>   
-        </div>   
-        <h3 class="sport-name">   
-          Basketball   
-        </h3>   
-        <div class="sport-status">   
-          <span class="status-dot"></span>   
-          Live updates coming   
-        </div>   
-      </article>   
-      <article   
-        class="sport-card volleyball reveal"   
-        data-sport-card="volleyball"   
-      >   
-        <div class="sport-icon">   
-          <i class="fa-solid fa-volleyball"></i>   
-        </div>   
-        <h3 class="sport-name">   
-          Volleyball   
-        </h3>   
-        <div class="sport-status">   
-          <span class="status-dot"></span>   
-          Live updates coming   
-        </div>   
-      </article>   
-      <article   
-        class="sport-card kabaddi reveal"   
-        data-sport-card="kabaddi"   
-      >   
-        <div class="sport-icon">   
-          <i class="fa-solid fa-people-group"></i>   
-        </div>   
-        <h3 class="sport-name">   
-          Kabaddi   
-        </h3>   
-        <div class="sport-status">   
-          <span class="status-dot"></span>   
-          Updates coming   
-        </div>   
-      </article>   
-      <article   
-        class="sport-card motorsport reveal"   
-        data-sport-card="motorsport"   
-      >   
-        <div class="sport-icon">   
-          <i class="fa-solid fa-flag-checkered"></i>   
-        </div>   
-        <h3 class="sport-name">   
-          Motorsport   
-        </h3>   
-        <div class="sport-status">   
-          <span class="status-dot"></span>   
-          Race updates coming   
-        </div>   
-      </article>   
-    </div>   
-  </div>   
-</section>   
+</section>
 <!-- =====================================================   
    PEOPLE / BIOGRAPHIES   
 ====================================================== -->   
@@ -3522,604 +3351,118 @@ if (personForm) {
     4500   
   );   
  /* =====================================================
-  CRICKET LIVE SCORES
-====================================================== */
-/* =====================================================
-  AA CREATIVE STUDIO
-  HORIZONTAL LIVE CRICKET SCORES
-  HIGHLIGHTLY API
+  AA CREATIVE STUDIO — LIVE CRICKET DASHBOARD
+  Existing API preserved exactly; dashboard is presentation layer.
 ===================================================== */
-const cricketLiveContent =
-  document.getElementById("cricketLiveContent");
-const cricketLiveApi =
-  "https://aa-cricket-api-live.aliabbasalone134.workers.dev/live";
+const cricketLiveContent = document.getElementById("cricketLiveContent");
+const cricketLiveApi = "https://aa-cricket-api-live.aliabbasalone134.workers.dev/live";
+const cricketUpdate = document.getElementById("aaCricketUpdate");
+const featuredCricket = document.getElementById("aaFeaturedCricket");
+const cricketStats = document.getElementById("aaCricketStats");
 let cricketRefreshTimer = null;
-/* =====================================================
-  SECURITY
-===================================================== */
+
 function cricketSafe(value) {
-  if (
-    value === null ||
-    value === undefined
-  ) {
-    return "";
-  }
-  return String(value)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
+  if (value === null || value === undefined) return "";
+  return String(value).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#039;");
 }
-/* =====================================================
-  CHECK LIVE MATCH
-===================================================== */
+
 function cricketIsLive(match) {
-  const state =
-    String(
-      match?.state?.description || ""
-    ).toLowerCase();
-  return (
-    state === "in play" ||
-    state === "stumps" ||
-    state === "lunch" ||
-    state === "innings break" ||
-    state === "drinks" ||
-    state === "timeout" ||
-    state === "tea" ||
-    state.includes("in play")
-  );
+  const state = String(match?.state?.description || "").toLowerCase();
+  return state === "in play" || state === "stumps" || state === "lunch" || state === "innings break" || state === "drinks" || state === "timeout" || state === "tea" || state.includes("in play");
 }
-/* =====================================================
-  SCORE
-===================================================== */
-function cricketScore(team) {
-  if (!team) {
-    return `
-      <div
-        style="
-          font-size:21px;
-          font-weight:900;
-          opacity:.45;
-        "
-      >
-        —
-      </div>
-    `;
+
+function cricketScoreMarkup(team) {
+  if (!team || team.score === null || team.score === undefined || team.score === "") {
+    return `<div class="aa-team-score"><div class="aa-score-main">—</div></div>`;
   }
-  const score =
-    team.score;
-  const info =
-    team.info;
-  if (
-    score === null ||
-    score === undefined ||
-    score === ""
-  ) {
-    return `
-      <div
-        style="
-          font-size:21px;
-          font-weight:900;
-          opacity:.45;
-        "
-      >
-        —
-      </div>
-    `;
-  }
-  return `
-    <div
-      style="
-        text-align:right;
-        flex-shrink:0;
-      "
-    >
-      <div
-        style="
-          font-size:20px;
-          font-weight:900;
-          line-height:1.1;
-          white-space:nowrap;
-        "
-      >
-        ${cricketSafe(score)}
-      </div>
-      ${
-        info
-          ? `
-            <div
-              style="
-                margin-top:4px;
-                font-size:10px;
-                opacity:.58;
-                white-space:nowrap;
-              "
-            >
-              ${cricketSafe(info)}
-            </div>
-          `
-          : ""
-      }
-    </div>
-  `;
+  return `<div class="aa-team-score"><div class="aa-score-main">${cricketSafe(team.score)}</div>${team.info ? `<div class="aa-score-info">${cricketSafe(team.info)}</div>` : ""}</div>`;
 }
-/* =====================================================
-  TEAM
-===================================================== */
-function cricketTeam(
-  team,
-  scoreTeam
-) {
-  if (!team) {
-    return "";
-  }
-  const name =
-    cricketSafe(
-      team.name ||
-      "Unknown Team"
-    );
-  const abbreviation =
-    cricketSafe(
-      team.abbreviation ||
-      ""
-    );
-  const logo =
-    cricketSafe(
-      team.logo ||
-      ""
-    );
-  return `
-    <div
-      style="
-        display:flex;
-        align-items:center;
-        justify-content:space-between;
-        gap:12px;
-        min-height:52px;
-      "
-    >
-      <div
-        style="
-          display:flex;
-          align-items:center;
-          gap:9px;
-          min-width:0;
-        "
-      >
-        ${
-          logo
-            ? `
-              <img
-                src="${logo}"
-                alt=""
-                loading="lazy"
-                style="
-                  width:32px;
-                  height:32px;
-                  object-fit:contain;
-                  flex-shrink:0;
-                "
-              >
-            `
-            : `
-              <div
-                style="
-                  width:32px;
-                  height:32px;
-                  border-radius:50%;
-                  background:
-                    rgba(255,255,255,.07);
-                  display:flex;
-                  align-items:center;
-                  justify-content:center;
-                  flex-shrink:0;
-                  font-size:14px;
-                "
-              >
-                
-              </div>
-            `
-        }
-        <div
-          style="
-            min-width:0;
-          "
-        >
-          <div
-            style="
-              font-size:13px;
-              font-weight:800;
-              overflow:hidden;
-              text-overflow:ellipsis;
-              white-space:nowrap;
-            "
-          >
-            ${name}
-          </div>
-          ${
-            abbreviation
-              ? `
-                <div
-                  style="
-                    margin-top:2px;
-                    font-size:9px;
-                    opacity:.45;
-                  "
-                >
-                  ${abbreviation}
-                </div>
-              `
-              : ""
-          }
-        </div>
-      </div>
-      ${cricketScore(scoreTeam)}
-    </div>
-  `;
+
+function cricketTeamMarkup(team, scoreTeam) {
+  if (!team) return "";
+  const name = cricketSafe(team.name || "Unknown Team");
+  const abbr = cricketSafe(team.abbreviation || "");
+  const logo = cricketSafe(team.logo || "");
+  const initials = cricketSafe((team.abbreviation || team.name || "?").slice(0,2).toUpperCase());
+  return `<div class="aa-team-row"><div class="aa-team">${logo ? `<img class="aa-team-logo" src="${logo}" alt="" loading="lazy">` : `<div class="aa-team-fallback">${initials}</div>`}<div style="min-width:0"><div class="aa-team-name">${name}</div>${abbr ? `<div class="aa-team-abbr">${abbr}</div>` : ""}</div></div>${cricketScoreMarkup(scoreTeam)}</div>`;
 }
-/* =====================================================
-  MATCH CARD
-===================================================== */
+
 function cricketMatchCard(match) {
-  const homeTeam =
-    match?.homeTeam;
-  const awayTeam =
-    match?.awayTeam;
-  const homeScore =
-    match?.state?.teams?.home;
-  const awayScore =
-    match?.state?.teams?.away;
-  const league =
-    cricketSafe(
-      match?.league?.name ||
-      "Cricket"
-    );
-  const format =
-    cricketSafe(
-      match?.format ||
-      ""
-    );
-  const status =
-    cricketSafe(
-      match?.state?.description ||
-      "Live"
-    );
-  const report =
-    cricketSafe(
-      match?.state?.report ||
-      ""
-    );
-  return `
-    <article
-      class="aa-cricket-horizontal-card"
-      style="
-        flex:0 0 290px;
-        width:290px;
-        min-width:290px;
-        box-sizing:border-box;
-        padding:15px;
-        border-radius:14px;
-        background:
-          linear-gradient(
-            145deg,
-            rgba(255,255,255,.10),
-            rgba(255,255,255,.045)
-          );
-        border:1px solid
-          rgba(255,255,255,.10);
-        box-shadow:
-          0 7px 22px
-          rgba(0,0,0,.20);
-        scroll-snap-align:start;
-      "
-    >
-      <!-- TOP -->
-      <div
-        style="
-          display:flex;
-          align-items:center;
-          justify-content:space-between;
-          gap:8px;
-          min-height:24px;
-        "
-      >
-        <div
-          style="
-            font-size:10px;
-            font-weight:800;
-            color:#22c55e;
-            overflow:hidden;
-            text-overflow:ellipsis;
-            white-space:nowrap;
-          "
-        >
-          ${league}
-        </div>
-        <div
-          style="
-            padding:4px 8px;
-            border-radius:20px;
-            background:
-              rgba(255,55,75,.14);
-            color:#ff526b;
-            font-size:9px;
-            font-weight:900;
-            white-space:nowrap;
-          "
-        >
-          ● LIVE
-        </div>
-      </div>
-      <!-- FORMAT -->
-      ${
-        format
-          ? `
-            <div
-              style="
-                margin-top:5px;
-                font-size:9px;
-                opacity:.48;
-                font-weight:700;
-              "
-            >
-              ${format}
-            </div>
-          `
-          : ""
-      }
-      <!-- TEAMS -->
-      <div
-        style="
-          margin-top:9px;
-          padding-top:3px;
-        "
-      >
-        ${cricketTeam(
-          homeTeam,
-          homeScore
-        )}
-        <div
-          style="
-            height:1px;
-            background:
-              rgba(255,255,255,.07);
-          "
-        ></div>
-        ${cricketTeam(
-          awayTeam,
-          awayScore
-        )}
-      </div>
-      <!-- STATUS -->
-      <div
-        style="
-          margin-top:9px;
-          padding-top:9px;
-          border-top:1px solid
-            rgba(255,255,255,.07);
-          font-size:10px;
-          font-weight:800;
-          color:#facc15;
-          white-space:nowrap;
-          overflow:hidden;
-          text-overflow:ellipsis;
-        "
-      >
-        ${status}
-      </div>
-      ${
-        report
-          ? `
-            <div
-              style="
-                margin-top:5px;
-                font-size:9px;
-                line-height:1.35;
-                opacity:.55;
-                overflow:hidden;
-                display:-webkit-box;
-                -webkit-line-clamp:2;
-                -webkit-box-orient:vertical;
-              "
-            >
-              ${report}
-            </div>
-          `
-          : ""
-      }
-    </article>
-  `;
+  const homeTeam = match?.homeTeam;
+  const awayTeam = match?.awayTeam;
+  const homeScore = match?.state?.teams?.home;
+  const awayScore = match?.state?.teams?.away;
+  const league = cricketSafe(match?.league?.name || "Cricket");
+  const format = cricketSafe(match?.format || "");
+  const status = cricketSafe(match?.state?.description || "Live");
+  const report = cricketSafe(match?.state?.report || "");
+  return `<article class="aa-match-card">
+    <div class="aa-match-meta"><div class="aa-match-league">${league}</div><div class="aa-live-pill">● LIVE</div></div>
+    ${format ? `<div class="aa-match-format">${format}</div>` : ""}
+    <div style="margin-top:8px">${cricketTeamMarkup(homeTeam,homeScore)}<div class="aa-match-divider"></div>${cricketTeamMarkup(awayTeam,awayScore)}</div>
+    <div class="aa-match-status">${status}</div>
+    ${report ? `<div class="aa-match-report">${report}</div>` : ""}
+    <div class="aa-match-actions"><a class="aa-mini-link" href="#sports"><i class="fa-solid fa-chart-simple"></i> Scorecard</a><a class="aa-mini-link" href="#sports"><i class="fa-solid fa-table-list"></i> Match</a></div>
+  </article>`;
 }
-/* =====================================================
-  LOAD LIVE CRICKET
-===================================================== */
+
+function cricketFeaturedMarkup(match) {
+  if (!match) return `<div class="aa-feature-empty"><strong>No live match right now.</strong>When a real live match is available, its teams, score and current status will appear here automatically.</div>`;
+  const h = match.homeTeam, a = match.awayTeam;
+  const hs = match?.state?.teams?.home, as = match?.state?.teams?.away;
+  const hLogo = cricketSafe(h?.logo || ""), aLogo = cricketSafe(a?.logo || "");
+  const hName = cricketSafe(h?.name || "Home"), aName = cricketSafe(a?.name || "Away");
+  const hScore = cricketSafe(hs?.score ?? "—"), aScore = cricketSafe(as?.score ?? "—");
+  return `<div class="aa-feature-match-name">${cricketSafe(match?.league?.name || "Cricket")} · ${cricketSafe(match?.format || "Live match")}</div>
+    <div class="aa-feature-teams">
+      <div class="aa-feature-team">${hLogo ? `<img src="${hLogo}" alt="" loading="lazy">` : `<div class="aa-team-fallback" style="margin:0 auto 8px">${cricketSafe((h?.abbreviation||h?.name||"?").slice(0,2).toUpperCase())}</div>`}<div class="aa-feature-team-name">${hName}</div><div class="aa-feature-team-score">${hScore}</div></div>
+      <div class="aa-feature-vs">VS</div>
+      <div class="aa-feature-team">${aLogo ? `<img src="${aLogo}" alt="" loading="lazy">` : `<div class="aa-team-fallback" style="margin:0 auto 8px">${cricketSafe((a?.abbreviation||a?.name||"?").slice(0,2).toUpperCase())}</div>`}<div class="aa-feature-team-name">${aName}</div><div class="aa-feature-team-score">${aScore}</div></div>
+    </div>
+    <div class="aa-match-status">${cricketSafe(match?.state?.description || "Live")}</div>
+    ${match?.state?.report ? `<div class="aa-feature-empty" style="margin-top:7px">${cricketSafe(match.state.report)}</div>` : ""}`;
+}
+
+function updateCricketStats(liveMatches) {
+  const teams = new Set();
+  const leagues = new Set();
+  liveMatches.forEach(m => { if (m?.homeTeam?.name) teams.add(m.homeTeam.name); if (m?.awayTeam?.name) teams.add(m.awayTeam.name); if (m?.league?.name) leagues.add(m.league.name); });
+  cricketStats.innerHTML = `
+    <div class="aa-stat-card"><div class="aa-stat-label">Live matches</div><div class="aa-stat-value">${liveMatches.length}</div><div class="aa-stat-note">Real matches returned by the live API</div></div>
+    <div class="aa-stat-card"><div class="aa-stat-label">Teams in play</div><div class="aa-stat-value">${teams.size}</div><div class="aa-stat-note">Across the current live matches</div></div>
+    <div class="aa-stat-card"><div class="aa-stat-label">Competitions</div><div class="aa-stat-value">${leagues.size}</div><div class="aa-stat-note">Active live competitions</div></div>
+    <div class="aa-stat-card"><div class="aa-stat-label">Refresh</div><div class="aa-stat-value">60s</div><div class="aa-stat-note">Automatic score refresh</div></div>`;
+}
+
 async function loadCricketLive() {
-  if (!cricketLiveContent) {
-    return;
-  }
+  if (!cricketLiveContent) return;
   try {
-    const response =
-      await fetch(
-        cricketLiveApi,
-        {
-        }
-      );
-          cache:"no-store"
-    if (!response.ok) {
-      throw new Error(
-        "HTTP " +
-        response.status
-      );
+    cricketUpdate.textContent = "Updating live scores…";
+    const response = await fetch(cricketLiveApi, { cache:"no-store" });
+    if (!response.ok) throw new Error("HTTP " + response.status);
+    const result = await response.json();
+    if (!result || !Array.isArray(result.data)) throw new Error("Invalid API response");
+    const liveMatches = result.data.filter(cricketIsLive);
+    cricketUpdate.textContent = `Updated ${new Date().toLocaleTimeString([], {hour:"2-digit", minute:"2-digit"})}`;
+    updateCricketStats(liveMatches);
+    featuredCricket.innerHTML = cricketFeaturedMarkup(liveMatches[0]);
+    if (!liveMatches.length) {
+      cricketLiveContent.innerHTML = `<div class="aa-dashboard-empty"><strong>No live cricket match is currently available.</strong>The dashboard will keep checking automatically.</div>`;
+      return;
     }
-    const result =
-      await response.json();
-    if (
-      !result ||
-      !Array.isArray(
-        result.data
-      )
-    ) {
-      throw new Error(
-        "Invalid API response"
-      );
-    }
-    /* ONLY REAL LIVE MATCHES */
-    const liveMatches =
-      result.data.filter(
-        cricketIsLive
-      );
-    /* HEADER */
-    let html = `
-      <div
-        style="
-          display:flex;
-          align-items:center;
-          justify-content:space-between;
-          gap:10px;
-          margin-bottom:10px;
-        "
-      >
-        <div
-          style="
-            display:flex;
-            align-items:center;
-            gap:8px;
-            font-size:17px;
-            font-weight:900;
-          "
-        >
-          <span
-            style="
-              display:inline-block;
-              width:9px;
-              height:9px;
-              border-radius:50%;
-              background:#ef4444;
-              box-shadow:
-                0 0 10px
-                rgba(239,68,68,.8);
-            "
-          ></span>
-          LIVE CRICKET
-        </div>
-        <div
-          style="
-            font-size:9px;
-            opacity:.45;
-          "
-        >
-          Auto update
-        </div>
-      </div>
-    `;
-    /* NO LIVE MATCH */
-    if (
-      liveMatches.length === 0
-    ) {
-      html += `
-        <div
-          style="
-            padding:15px;
-            border-radius:11px;
-            background:
-              rgba(255,255,255,.05);
-            font-size:12px;
-            opacity:.65;
-          "
-        >
-          No live cricket match is
-          currently available.
-        </div>
-      `;
-    } else {
-      /* HORIZONTAL ROW */
-      html += `
-        <div
-          class="aa-cricket-horizontal-scroll"
-          style="
-            display:flex;
-            gap:12px;
-            overflow-x:auto;
-            overflow-y:hidden;
-            padding:
-              2px 2px
-              12px 2px;
-            scroll-snap-type:x mandatory;
-            -webkit-overflow-scrolling:touch;
-            scrollbar-width:thin;
-          "
-        >
-          ${liveMatches
-            .map(
-              cricketMatchCard
-            )
-            .join("")}
-        </div>
-      `;
-    }
-    cricketLiveContent.innerHTML =
-      html;
+    cricketLiveContent.innerHTML = `<div class="aa-match-strip">${liveMatches.map(cricketMatchCard).join("")}</div>`;
   } catch (error) {
-    console.error(
-      "AA Cricket Live Error:",
-      error
-    );
-    cricketLiveContent.innerHTML = `
-      <div
-        style="
-          padding:12px;
-          border-radius:10px;
-          background:
-            rgba(255,255,255,.05);
-          color:#ff6b6b;
-          font-size:12px;
-          font-weight:700;
-        "
-      >
-        Unable to load live cricket.
-      </div>
-      <button
-        id="retryCricketLive"
-        style="
-          margin-top:9px;
-          padding:8px 13px;
-          border:0;
-          border-radius:8px;
-          cursor:pointer;
-          font-weight:700;
-        "
-      >
-        Retry
-      </button>
-    `;
-    const retry =
-      document.getElementById(
-        "retryCricketLive"
-      );
-    if (retry) {
-      retry.onclick =
-        loadCricketLive;
-    }
+    console.error("AA Cricket Live Error:", error);
+    cricketUpdate.textContent = "Live score connection unavailable";
+    cricketLiveContent.innerHTML = `<div class="aa-dashboard-empty"><strong>Unable to load live cricket.</strong>Please try again. <button id="retryCricketLive" class="aa-mini-link" style="margin-top:10px;background:transparent;cursor:pointer"><i class="fa-solid fa-rotate"></i> Retry</button></div>`;
+    const retry = document.getElementById("retryCricketLive");
+    if (retry) retry.onclick = loadCricketLive;
   }
 }
-/* =====================================================
-  FIRST LOAD
-===================================================== */
+
 loadCricketLive();
-/* =====================================================
-  AUTO UPDATE
-  EVERY 60 SECONDS
-===================================================== */
-if (cricketRefreshTimer) {
-  clearInterval(
-    cricketRefreshTimer
-  );
-}
-cricketRefreshTimer =
-  setInterval(
-    loadCricketLive,
-    60 * 1000
-  );
+if (cricketRefreshTimer) clearInterval(cricketRefreshTimer);
+cricketRefreshTimer = setInterval(loadCricketLive, 60 * 1000);
+
 </script> </body>   
 </html> 
